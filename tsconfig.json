@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ES5",
+		"removeComments": false
+	},
+	"filesGlob": ["./src/**/*.ts", "./test/**/*.ts"]
+}
