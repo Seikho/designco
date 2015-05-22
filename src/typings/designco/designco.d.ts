@@ -1,6 +1,3 @@
-declare var async: any;
-declare var await: any;
-
 export module Designco {
 	export interface User {
 		username: string;

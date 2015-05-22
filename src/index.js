@@ -1,4 +1,7 @@
-var async = require("asyncawait").async;
-var await = require("asyncawait").await;
-global.async = async;
-global.await = await;
+var hapi = require("hapi");
+var server = new hapi.Server();
+server.connection({
+    port: 45199
+});
+server.start(function () {
+});
