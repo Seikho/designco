@@ -17,13 +17,15 @@
   },
   "homepage": "https://github.com/seikho/designco",
   "dependencies": {
-    "asyncawait": "^0.7.4",
     "bluebird": "^2.9.25",
     "bootstrap": "^3.3.4",
     "cajon": "^0.2.8",
+    "chai": "^2.3.0",
+    "chalk": "^1.0.0",
     "hapi": "^8.5.0",
     "knex": "^0.8.3",
     "knockout": "^3.3.0",
+    "mocha": "^2.2.5",
     "requirejs-text": "^2.0.12",
     "sqlite3": "^3.0.8"
   }
