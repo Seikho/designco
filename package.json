@@ -20,6 +20,7 @@
     "asyncawait": "^0.7.4",
     "bootstrap": "^3.3.4",
     "cajon": "^0.2.8",
+    "hapi": "^8.5.0",
     "knex": "^0.8.3",
     "knockout": "^3.3.0",
     "requirejs-text": "^2.0.12",

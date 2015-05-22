@@ -1,8 +1,20 @@
 {
-	"compilerOptions": {
-		"module": "commonjs",
-		"target": "ES5",
-		"removeComments": false
-	},
-	"filesGlob": ["./src/**/*.ts", "./test/**/*.ts"]
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES5",
+        "removeComments": false
+    },
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./test/**/*.ts"
+    ],
+    "files": [
+        "./src/index.ts",
+        "./src/types/userStatus.ts",
+        "./src/typings/designco/designco.d.ts",
+        "./src/typings/jquery/jquery.d.ts",
+        "./src/typings/knockout/knockout.d.ts",
+        "./src/typings/node/node.d.ts",
+        "./src/typings/tsd.d.ts"
+    ]
 }
