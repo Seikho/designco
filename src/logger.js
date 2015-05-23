@@ -1,16 +1,21 @@
 var chalk = require("chalk");
 function info(message) {
-    log(message, chalk.blue);
+    log("INFO", message, chalk.blue);
 }
+exports.info = info;
 function warn(message) {
-    log(message, chalk.yellow);
+    log("WARN", message, chalk.yellow);
 }
+exports.warn = warn;
 function error(message) {
-    log(message, chalk.red);
+    log("ERROR", message, chalk.red);
 }
+exports.error = error;
 function debug(message) {
-    log(message, chalk.gray);
+    log("DEBUG", message, chalk.gray);
 }
-function log(message, colour) {
-    console.log(colour(message));
+exports.debug = debug;
+function log(prefix, message, colour) {
+    var timestamp = new Date().toLocaleTimeString().slice(0, 8);
+    console.log("[%s] %s: %s", timestamp, colour(prefix), message);
 }
