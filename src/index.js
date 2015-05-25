@@ -9,6 +9,6 @@ server.connection({
     port: port
 });
 
-server.start(function () {
+server.start(() => {
     log.info("Starting server on port " + port);
 });
