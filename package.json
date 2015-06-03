@@ -29,14 +29,20 @@
     "knockout": "^3.3.0",
     "macchiato-eventbus": "0.0.1",
     "mocha": "^2.2.5",
+    "redis": "^0.12.1",
     "requirejs-text": "^2.0.12",
     "servicebus": "^1.0.15",
     "sqlite3": "^3.0.8"
   },
   "jspm": {
-    "directories": {},
-    "configFile": "src/config.js",
-    "dependencies": {},
+    "directories": {
+      "packages": "front/jspm_packages"
+    },
+    "configFile": "front/jspm_packages/config.js",
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.4.0",
+      "bootstrap": "github:twbs/bootstrap@^3.3.4"
+    },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",
       "babel-runtime": "npm:babel-runtime@^5.1.13",
