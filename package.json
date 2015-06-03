@@ -24,7 +24,7 @@
     "cajon": "^0.2.8",
     "chai": "^2.3.0",
     "chalk": "^1.0.0",
-    "hapi": "^8.5.0",
+    "hapi": "^8.6.0",
     "knex": "^0.8.3",
     "knockout": "^3.3.0",
     "macchiato-eventbus": "0.0.1",
@@ -36,12 +36,13 @@
   },
   "jspm": {
     "directories": {
-      "packages": "front/jspm_packages"
+      "packages": "jspm_packages"
     },
     "configFile": "front/jspm_packages/config.js",
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.4.0",
-      "bootstrap": "github:twbs/bootstrap@^3.3.4"
+      "bootstrap": "github:twbs/bootstrap@^3.3.4",
+      "css": "github:systemjs/plugin-css@^0.1.11"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",

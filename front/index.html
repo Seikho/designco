@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-</head>
-<body>
-
-</body>
+	<head>
+		<title>Designco: Shop</title>
+	</head>
+	<body>
+		<script src="jspm_packages/system.js"></script>
+		<script src="jspm_packages/config.js"></script>
+		<script>
+			// System.import("./app.js")
+			System.map["css"] = "jspm_packages/github/systemjs/plugin-css@0.1.11/css";
+			System.import('bootstrap/css/bootstrap.css!css'); // import css separately
+		</script>
+	</body>
 </html>
