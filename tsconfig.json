@@ -9,6 +9,7 @@
     ],
     "files": [
         "./src/events/client.ts",
+        "./src/events/events.ts",
         "./src/events/handler.ts",
         "./src/events/pub.ts",
         "./src/events/sub.ts",

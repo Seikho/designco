@@ -1,2 +1,5 @@
+var events = require("./events");
 var sub = global.subscribe;
-sub("user");
+sub(events.NewUser.toString(), function (user) {
+    global.log.info(user);
+});
