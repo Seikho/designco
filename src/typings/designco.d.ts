@@ -5,7 +5,7 @@
 declare module NodeJS {
 	export interface Global {
 		pub(channel: string, messages: string|string[]);
-		sub(channel: string, callback: (message: string) => void);
+		sub(channel: string, callback: (channel: string, message: string) => void);
 		log: Logger;
 		config: Config;
 	}

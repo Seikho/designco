@@ -17,6 +17,6 @@ export function debug(message) {
 }
 
 function log(prefix, message, colour) {
-    var timestamp = new Date().toLocaleTimeString().slice(0, 8);
+    var timestamp = new Date().toTimeString().slice(0,8);
     console.log("[%s] %s: %s", timestamp, colour(prefix), message);
 }

@@ -1,12 +1,25 @@
 import client = require("./client");
 export = subscribe;
 
-function subscribe(channels: string|string[], callback: (message: string) => void) {
+function subscribe(channels: string|string[], callback: (channel: string, message: string) => void) {
 	var redisClient = client();
 
-	if (channels instanceof Array)
-		channels.forEach(c => redisClient.subscribe(c, callback));
-	else redisClient.subscribe(channels, callback);
-	
+	redisClient.on("ready", () => {
+		if (channels instanceof Array)
+			channels.forEach(c => redisClient.subscribe(c));
+		else redisClient.subscribe(channels);
+	});
+
+	redisClient.on("subscribe", (channel, count) => {
+		global.log.debug("Client successfully subscribed to '" + channel + "' (" + count + ")");
+	});
+
+	redisClient.on("message", (channel, message) => {
+		callback(channel, message);
+	});
+
+	redisClient.on("error", err => {
+		global.log.error("[SUB] RedisClient error: " + err);
+	});
 }
 
