@@ -1,14 +1,21 @@
+import path = require("path");
 import hapi = require("hapi");
 import log = require("./logger");
 import pub = require("./events/pub");
 import sub = require("./events/sub");
+
+var basePath = path.resolve(__dirname);
+var liveDb = path.join(basePath, "designco.db");
+var baseDb = path.join(basePath, "designco-base.sqlite");
 
 global.sub = sub;
 global.pub = pub;
 global.log = log;
 global.config = {
     port: 45199,
-    redisHost: "192.168.59.103"
+    redisHost: "192.168.59.103",
+    liveDatabase: liveDb,
+    baseDatabase: baseDb
 }
 
 //TODO: Put port in config

@@ -22,6 +22,8 @@ interface Config {
 	port?: number;
 	redisPort?: number;
 	redisHost?: string;
+	baseDatabase: string;
+	liveDatabase: string;
 }
 
 declare module DesignCo {

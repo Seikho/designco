@@ -16,6 +16,7 @@
         "./src/index.ts",
         "./src/logger.ts",
         "./src/store/db.ts",
+        "./src/store/init.ts",
         "./src/typings/bluebird/bluebird.d.ts",
         "./src/typings/chalk/chalk.d.ts",
         "./src/typings/designco.d.ts",
