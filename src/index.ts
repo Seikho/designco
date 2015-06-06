@@ -8,7 +8,7 @@ global.publish = pub;
 global.log = log;
 global.config = {
     port: 45199,
-    kafkaUrl: "192.168.59.103:2181"
+    redisUrl: "192.168.59.103:6379"
 }
 
 //TODO: Put port in config

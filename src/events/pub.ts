@@ -13,6 +13,12 @@ producer.createTopics(['users', 'orders'], false, (err, data) => {
 	global.log.info("Successfully created topics: " + data);
 });
 
+function createTopics(payloads: kafka.ProduceRequest[]) {
+	payloads.forEach(payload => {
+		
+	});
+}
+
 function publish(payloads: kafka.ProduceRequest[]): Promise<{}> {
 	var promise = new Promise((resolve, reject) => {
 		producer.send(payloads, (error, data) => {

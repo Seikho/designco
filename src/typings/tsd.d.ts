@@ -4,4 +4,5 @@
 /// <reference path="chalk/chalk.d.ts" />
 /// <reference path="hapi/hapi.d.ts" />
 /// <reference path="knex/knex.d.ts" />
+/// <reference path="redis/redis.d.ts" />
 

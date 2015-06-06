@@ -9,6 +9,10 @@ producer.createTopics(['users', 'orders'], false, function (err, data) {
     }
     global.log.info("Successfully created topics: " + data);
 });
+function createTopics(payloads) {
+    payloads.forEach(function (payload) {
+    });
+}
 function publish(payloads) {
     var promise = new Promise(function (resolve, reject) {
         producer.send(payloads, function (error, data) {

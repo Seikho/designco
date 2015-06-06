@@ -26,5 +26,5 @@ interface ProduceRequest {
 
 interface Config {
 	port?: number;
-	kafkaUrl?: string;
+	redisUrl?: string;
 }
