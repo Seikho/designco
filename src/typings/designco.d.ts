@@ -23,3 +23,14 @@ interface Config {
 	redisPort?: number;
 	redisHost?: string;
 }
+
+declare module DesignCo {
+	export interface User {
+		id: number;
+		displayName: string;
+		username?: string;
+		email: string;
+		password: string;
+		enabled: number;
+	}
+}
