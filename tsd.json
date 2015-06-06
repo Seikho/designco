@@ -5,9 +5,6 @@
   "path": "src/typings",
   "bundle": "src/typings/tsd.d.ts",
   "installed": {
-    "knockout/knockout.d.ts": {
-      "commit": "b3834d886a95789e6ab56e8244775ec10c5293d0"
-    },
     "node/node.d.ts": {
       "commit": "b3834d886a95789e6ab56e8244775ec10c5293d0"
     },
@@ -18,6 +15,9 @@
       "commit": "8c7444882a2bc2ab87387f8f736a7d97e89b9c90"
     },
     "hapi/hapi.d.ts": {
+      "commit": "8c7444882a2bc2ab87387f8f736a7d97e89b9c90"
+    },
+    "bluebird/bluebird.d.ts": {
       "commit": "8c7444882a2bc2ab87387f8f736a7d97e89b9c90"
     }
   }
