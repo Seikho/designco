@@ -4,7 +4,7 @@ import log = require("")
 import Promise = require("bluebird");
 export = publish;
 
-var producer = new kafka.Producer(client);
+var producer = new kafka.Producer(client());
 producer.createTopics(['users', 'orders'], false, (err, data) => {
 	if (err) {
 		global.log.error("Failed to create topics: " + err);

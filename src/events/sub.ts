@@ -1,5 +1,9 @@
 import kafka = require("kafka-node");
 import client = require("./client");
+export = subscribe;
 
-var subscriber = kafka.Consumer;
+
+function subscribe(topics: string|string[], callback: (message: string) => void) {
+	var consumer = new kafka.Consumer(client(), topics, )
+}
 

@@ -1,5 +1,10 @@
 import kafka = require("kafka-node");
-export = client;
+export = newClient;
 
-var client = new kafka.Client("localhost:2181", "designco");
+function newClient() {
+	var client = new kafka.Client("localhost:2181", "designco");
+	return client;
+}
+
+
 
