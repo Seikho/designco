@@ -36,3 +36,4 @@ declare module DesignCo {
 		enabled: number;
 	}
 }
+
