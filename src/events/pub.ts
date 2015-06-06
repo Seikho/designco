@@ -8,8 +8,8 @@ function publish(channel: string, message: string) {
 
 	redisClient.on("connect", () => {
 		
-		redisClient.lpush([channel, message], (err, res) => {
-			if (err) throw "PublishException: Unable to LPUSH: " + err;
+		redisClient.rpush([channel, message], (err, res) => {
+			if (err) throw "PublishException: Unable to RPUSH: " + err;
 			else redisClient.publish(channel, message);
 		});
 	});
