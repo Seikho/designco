@@ -1,24 +1,12 @@
-import kafka = require("kafka-node");
 import client = require("./client");
 export = subscribe;
 
-function subscribe(topics: string|string[], callback: (message: string) => void) {
-	var payloads: kafka.Topic[] = [];
-	if (topics instanceof Array)
-		topics.forEach(t => payloads.push({ topic: t, offset: 0 }));
-	else payloads.push({ topic: <string>topics, offset: 0});
+function subscribe(channels: string|string[], callback: (message: string) => void) {
+	var redisClient = client();
 
-	var consumer = new kafka.Consumer(client(), payloads, {
-		groupId: "designco",
-		autoCommit: true,
-		autoCommitIntervalMs: 5000,
-		fetchMaxWaitMs: 100,
-		fetchMinBytes: 1,
-		fetchMaxBytes: 1024*10,
-		fromOffset: false,
-		encoding: 'utf8'
-	});
+	if (channels instanceof Array)
+		channels.forEach(c => redisClient.subscribe(c, callback));
+	else redisClient.subscribe(channels, callback);
 	
-	consumer.on("message", callback);
 }
 
