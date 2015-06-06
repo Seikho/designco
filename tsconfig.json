@@ -8,7 +8,10 @@
         "./src/**/*.ts"
     ],
     "files": [
-        "./src/eventHandler/index.ts",
+        "./src/events/client.ts",
+        "./src/events/handler.ts",
+        "./src/events/pub.ts",
+        "./src/events/sub.ts",
         "./src/index.ts",
         "./src/logger.ts",
         "./src/typings/chalk/chalk.d.ts",
