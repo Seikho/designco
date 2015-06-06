@@ -1,4 +1,4 @@
-import kafka = require("kafka-node");
+import redis = require("redis");
 import client = require("./client");
 import log = require("")
 import Promise = require("bluebird");
