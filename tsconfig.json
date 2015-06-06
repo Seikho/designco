@@ -5,13 +5,14 @@
         "sourceMap": false
     },
     "filesGlob": [
-        "./src/**/*.ts",
-        "./front/**/*.ts"
+        "./src/**/*.ts"
     ],
     "files": [
+        "./src/eventHandler/index.ts",
         "./src/index.ts",
         "./src/logger.ts",
         "./src/typings/chalk/chalk.d.ts",
+        "./src/typings/hapi/hapi.d.ts",
         "./src/typings/jquery/jquery.d.ts",
         "./src/typings/kafka-node/kafka-node.d.ts",
         "./src/typings/knockout/knockout.d.ts",
