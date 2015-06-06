@@ -1,0 +1,1 @@
+import db = require("../store/db");

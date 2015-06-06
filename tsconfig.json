@@ -24,6 +24,7 @@
         "./src/typings/knex/knex.d.ts",
         "./src/typings/node/node.d.ts",
         "./src/typings/redis/redis.d.ts",
-        "./src/typings/tsd.d.ts"
+        "./src/typings/tsd.d.ts",
+        "./src/users/newUser.ts"
     ]
 }
