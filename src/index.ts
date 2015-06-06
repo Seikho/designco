@@ -1,10 +1,11 @@
+import dbInit = require("./store/init");
 import path = require("path");
 import hapi = require("hapi");
 import log = require("./logger");
 import pub = require("./events/pub");
 import sub = require("./events/sub");
 
-var basePath = path.resolve(__dirname);
+var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
 var baseDb = path.join(basePath, "designco-base.sqlite");
 
@@ -17,6 +18,8 @@ global.config = {
     liveDatabase: liveDb,
     baseDatabase: baseDb
 }
+
+dbInit();
 
 //TODO: Put port in config
 var port = global.config.port || 45199;

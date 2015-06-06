@@ -5,3 +5,4 @@ jspm_packages/
 .git/
 *.log
 test.js
+*.db

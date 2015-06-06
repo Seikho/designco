@@ -1,9 +1,10 @@
+var dbInit = require("./store/init");
 var path = require("path");
 var hapi = require("hapi");
 var log = require("./logger");
 var pub = require("./events/pub");
 var sub = require("./events/sub");
-var basePath = path.resolve(__dirname);
+var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
 var baseDb = path.join(basePath, "designco-base.sqlite");
 global.sub = sub;
@@ -15,6 +16,7 @@ global.config = {
     liveDatabase: liveDb,
     baseDatabase: baseDb
 };
+dbInit();
 //TODO: Put port in config
 var port = global.config.port || 45199;
 var server = new hapi.Server();
