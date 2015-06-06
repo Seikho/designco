@@ -26,5 +26,6 @@ interface ProduceRequest {
 
 interface Config {
 	port?: number;
-	redisUrl?: string;
+	redisPort?: number;
+	redisHost?: string;
 }
