@@ -2,8 +2,8 @@ var hapi = require("hapi");
 var log = require("./logger");
 var pub = require("./events/pub");
 var sub = require("./events/sub");
-global.subscribe = sub;
-global.publish = pub;
+global.sub = sub;
+global.pub = pub;
 global.log = log;
 global.config = {
     port: 45199,

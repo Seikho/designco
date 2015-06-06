@@ -4,3 +4,4 @@ jspm_packages/
 .settings/
 .git/
 *.log
+test.js

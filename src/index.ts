@@ -3,8 +3,8 @@ import log = require("./logger");
 import pub = require("./events/pub");
 import sub = require("./events/sub");
 
-global.subscribe = sub;
-global.publish = pub;
+global.sub = sub;
+global.pub = pub;
 global.log = log;
 global.config = {
     port: 45199,

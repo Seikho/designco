@@ -4,8 +4,8 @@
 
 declare module NodeJS {
 	export interface Global {
-		publish(payloads: ProduceRequest[]): Promise<{}>;
-		subscribe(topic: string, callback: (message: string) => void);
+		pub(channel: string, messages: string|string[]);
+		sub(channel: string, callback: (message: string) => void);
 		log: Logger;
 		config: Config;
 	}
