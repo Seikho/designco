@@ -3,10 +3,10 @@ import client = require("./client");
 export = subscribe;
 
 function subscribe(topics: string|string[], callback: (message: string) => void) {
-	var payloads = [];
+	var payloads: kafka.Topic[] = [];
 	if (topics instanceof Array)
 		topics.forEach(t => payloads.push({ topic: t, offset: 0 }));
-	else payloads.push({ topic: topics, offset: 0});
+	else payloads.push({ topic: <string>topics, offset: 0});
 
 	var consumer = new kafka.Consumer(client(), payloads, {
 		groupId: "designco",

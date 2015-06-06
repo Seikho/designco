@@ -6,6 +6,3 @@ function newClient() {
 	var client = new kafka.Client(global.config.kafkaUrl || "localhost:2181", "designco");
 	return client;
 }
-
-
-
