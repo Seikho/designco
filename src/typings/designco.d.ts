@@ -6,6 +6,7 @@ declare module NodeJS {
 		publish(payloads: ProduceRequest[]): Promise<{}>;
 		subscribe(topic: string, callback: (message: string) => void);
 		log: Logger;
+		config: Config;
 	}
 }
 
@@ -21,4 +22,9 @@ interface ProduceRequest {
 	messages: any; // Array<string> | Array<KeyedMessage> | string | KeyedMessage
 	partition?: number;
 	attributes?: number;
+}
+
+interface Config {
+	port?: number;
+	kafkaUrl?: string;
 }

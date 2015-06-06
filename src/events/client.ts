@@ -2,7 +2,8 @@ import kafka = require("kafka-node");
 export = newClient;
 
 function newClient() {
-	var client = new kafka.Client("localhost:2181", "designco");
+	// TODO: Put kafka endpoint in config
+	var client = new kafka.Client(global.config.kafkaUrl || "localhost:2181", "designco");
 	return client;
 }
 

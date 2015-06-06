@@ -6,9 +6,13 @@ import sub = require("./events/sub");
 global.subscribe = sub;
 global.publish = pub;
 global.log = log;
+global.config = {
+    port: 45199,
+    kafkaUrl: "192.168.59.103:2181"
+}
 
 //TODO: Put port in config
-var port = 45199;
+var port = global.config.port || 45199;
 var server = new hapi.Server();
 
 server.connection({
@@ -16,5 +20,5 @@ server.connection({
 });
 
 server.start(() => {
-    log.info("Starting server on port " + port);
+    log.info("Starting server on port " + global.config.port);
 });
