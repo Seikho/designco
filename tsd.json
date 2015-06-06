@@ -11,9 +11,6 @@
     "node/node.d.ts": {
       "commit": "b3834d886a95789e6ab56e8244775ec10c5293d0"
     },
-    "jquery/jquery.d.ts": {
-      "commit": "b3834d886a95789e6ab56e8244775ec10c5293d0"
-    },
     "kafka-node/kafka-node.d.ts": {
       "commit": "8c7444882a2bc2ab87387f8f736a7d97e89b9c90"
     },
