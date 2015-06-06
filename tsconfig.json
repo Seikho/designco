@@ -19,7 +19,6 @@
         "./src/typings/chalk/chalk.d.ts",
         "./src/typings/designco.d.ts",
         "./src/typings/hapi/hapi.d.ts",
-        "./src/typings/kafka-node/kafka-node.d.ts",
         "./src/typings/knex/knex.d.ts",
         "./src/typings/node/node.d.ts",
         "./src/typings/redis/redis.d.ts",
