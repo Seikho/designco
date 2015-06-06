@@ -1,7 +1,7 @@
 var kafka = require("kafka-node");
 var client = require("./client");
 var Promise = require("bluebird");
-var producer = new kafka.Producer(client);
+var producer = new kafka.Producer(client());
 producer.createTopics(['users', 'orders'], false, function (err, data) {
     if (err) {
         global.log.error("Failed to create topics: " + err);
