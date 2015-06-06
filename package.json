@@ -4,7 +4,7 @@
   "description": "DesignCo",
   "main": "src/index.js",
   "scripts": {
-    "start": "node --harmony src/index.js",
+    "start": "node src/index.js",
     "test": "mocha",
     "build": ""
   },

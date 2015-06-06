@@ -7,4 +7,4 @@ RUN cd /designco \
 	
 # run web-server
 WORKDIR /designco
-CMD ["node","--harmony","src/index"]
+CMD ["node","src/index"]
