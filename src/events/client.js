@@ -1,7 +1,8 @@
-var kafka = require("kafka-node");
+var redis = require("redis");
 function newClient() {
-    // TODO: Put kafka endpoint in config
-    var client = new kafka.Client(global.config.kafkaUrl || "localhost:2181", "designco");
+    var redisPort = global.config.redisPort || 6379;
+    var redisHost = global.config.redisHost || "localhost";
+    var client = redis.createClient(redisPort, redisHost);
     return client;
 }
 module.exports = newClient;

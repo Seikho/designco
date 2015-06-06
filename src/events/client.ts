@@ -1,7 +1,7 @@
 import redis = require("redis");
 export = newClient;
 
-function newClient() {
+function newClient(): redis.RedisClient {
 	var redisPort = global.config.redisPort || 6379;
 	var redisHost = global.config.redisHost || "localhost";
 	

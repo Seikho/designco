@@ -1,28 +1,11 @@
-var kafka = require("kafka-node");
 var client = require("./client");
-var Promise = require("bluebird");
-var producer = new kafka.Producer(client());
-producer.createTopics(['users', 'orders'], false, function (err, data) {
-    if (err) {
-        global.log.error("Failed to create topics: " + err);
-        return;
+function publish(channel, messages) {
+    var redisClient = client();
+    if (messages instanceof String) {
+        redisClient.publish(channel, messages);
     }
-    global.log.info("Successfully created topics: " + data);
-});
-function createTopics(payloads) {
-    payloads.forEach(function (payload) {
-    });
-}
-function publish(payloads) {
-    var promise = new Promise(function (resolve, reject) {
-        producer.send(payloads, function (error, data) {
-            if (error) {
-                reject(error);
-                return;
-            }
-            resolve(Promise.resolve(data));
-        });
-    });
-    return promise;
+    else if (messages instanceof Array) {
+        messages.forEach(function (message) { return redisClient.publish(channel, message); });
+    }
 }
 module.exports = publish;

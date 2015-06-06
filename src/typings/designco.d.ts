@@ -1,5 +1,6 @@
 /// <reference path="node/node.d.ts" />
 /// <reference path="bluebird/bluebird.d.ts" />
+/// <reference path="redis/redis.d.ts" />
 
 declare module NodeJS {
 	export interface Global {
@@ -15,13 +16,6 @@ interface Logger {
 	warn(message: string): void;
 	error(message: string): void;
 	debug(message: string): void;
-}
-
-interface ProduceRequest {
-	topic: string;
-	messages: any; // Array<string> | Array<KeyedMessage> | string | KeyedMessage
-	partition?: number;
-	attributes?: number;
 }
 
 interface Config {
