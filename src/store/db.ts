@@ -1,8 +1,9 @@
-var knex = require("knex");
+import knex = require("knex");
+export = db;
+
 var db = knex({
     client: "sqlite3",
-    connection: {
+    connection:{
         filename: "./designco.db"
     }
 });
-module.exports = db;
