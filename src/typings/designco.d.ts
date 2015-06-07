@@ -35,5 +35,9 @@ declare module DesignCo {
 		password: string;
 		enabled: number;
 	}
-}
 
+	export interface EventMessage {
+		timestamp: number;
+		data: any;
+	}
+}
