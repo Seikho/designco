@@ -4,5 +4,7 @@ enum AppEvent {
 	UpdateUser = <any>"/user/update/*",
 	NewOrder = <any>"/order/new/*",
 	UpdateOrder = <any>"/order/update/*",
-	CancelOrder = <any>"/order/cancel/*"
+	CancelOrder = <any>"/order/cancel/*",
+	NewItem = <any>"/item/new/*",
+	UpdateItem = <any>"/item/update/*"
 }
