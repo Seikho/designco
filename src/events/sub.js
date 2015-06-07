@@ -3,9 +3,9 @@ function subscribe(channels, callback) {
     var redisClient = client();
     redisClient.on("ready", function () {
         if (channels instanceof Array)
-            channels.forEach(function (c) { return redisClient.subscribe(c); });
+            channels.forEach(function (c) { return redisClient.psubscribe(c); });
         else
-            redisClient.subscribe(channels);
+            redisClient.psubscribe(channels);
     });
     redisClient.on("subscribe", function (channel, count) {
         global.log.debug("Client successfully subscribed to '" + channel + "' (" + count + ")");

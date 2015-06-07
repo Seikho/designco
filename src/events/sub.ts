@@ -6,8 +6,8 @@ function subscribe(channels: string|string[], callback: (channel: string, messag
 
 	redisClient.on("ready", () => {
 		if (channels instanceof Array)
-			channels.forEach(c => redisClient.subscribe(c));
-		else redisClient.subscribe(channels);
+			channels.forEach(c => redisClient.psubscribe(c));
+		else redisClient.psubscribe(channels);
 	});
 
 	redisClient.on("subscribe", (channel, count) => {
