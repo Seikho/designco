@@ -14,8 +14,8 @@ function subscribe(channels: string|string[], callback: (channel: string, messag
 		global.log.debug("Client successfully subscribed to '" + channel + "' (" + count + ")");
 	});
 
-	redisClient.on("pmessage", (channel, message, swagger) => {
-		callback(channel, message, swagger);
+	redisClient.on("pmessage", (channel, message) => {
+		callback(channel, message);
 	});
 
 	redisClient.on("error", err => {
