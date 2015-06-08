@@ -10,6 +10,7 @@ var liveDb = path.join(basePath, "designco.db");
 var baseDb = path.join(basePath, "designco-base.sqlite");
 global.sub = sub;
 global.pub = pub;
+global.psub = psub;
 global.log = log;
 global.config = {
     port: 45199,
