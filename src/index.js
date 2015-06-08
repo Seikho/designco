@@ -32,7 +32,7 @@ psub("users.create.*", function (channel, pattern, message) {
     log.info("Message received: [" + channel + "] " + pattern + " -- " + message);
 });
 setTimeout(function () {
-    pub("users.create.carl", "winkler test 1 2 3");
+    pub("users.create.carl", JSON.stringify({ username: "cwinkler", email: "carl@winkler.id.au", company: "longshot " }));
     log.warn("Published message");
 }, 1000);
 log.warn("Completed synchronous functions");
