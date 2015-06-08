@@ -5,6 +5,7 @@
 declare module NodeJS {
 	export interface Global {
 		pub(channel: string, messages: string|string[]);
+		psub(channel: string, callback: (channel: string, pattern: string, message: string) => void);
 		sub(channel: string, callback: (channel: string, message: string) => void);
 		log: Logger;
 		config: Config;

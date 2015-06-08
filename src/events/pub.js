@@ -2,7 +2,7 @@ var client = require("./client");
 function publish(channel, message) {
     var redisClient = client();
     redisClient.on("connect", function () {
-        redisClient.rpush([channel, message], function (err, res) {
+        redisClient.rpush([channel, '"' + message + '"'], function (err, res) {
             if (err)
                 throw "PublishException: Unable to RPUSH: " + err;
             else

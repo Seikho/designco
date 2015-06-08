@@ -4,6 +4,7 @@ var hapi = require("hapi");
 var log = require("./logger");
 var pub = require("./events/pub");
 var sub = require("./events/sub");
+var psub = require("./events/patternSub");
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
 var baseDb = path.join(basePath, "designco-base.sqlite");
@@ -26,10 +27,11 @@ server.connection({
 server.start(function () {
     log.info("Starting server on port " + global.config.port);
 });
-sub("test channel", function (c, m) {
-    log.info("Message received: [" + c + "] " + m);
+psub("users.create.*", function (channel, pattern, message) {
+    log.info("Message received: [" + channel + "] " + pattern + " -- " + message);
 });
 setTimeout(function () {
-    pub("test channel", "a testing message");
+    pub("users.create.carl", "winkler test 1 2 3");
+    log.warn("Published message");
 }, 1000);
 log.warn("Completed synchronous functions");

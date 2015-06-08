@@ -4,6 +4,7 @@ import hapi = require("hapi");
 import log = require("./logger");
 import pub = require("./events/pub");
 import sub = require("./events/sub");
+import psub = require("./events/patternSub");
 
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
@@ -33,12 +34,13 @@ server.start(() => {
     log.info("Starting server on port " + global.config.port);
 });
 
-sub("test channel", (c, m) => {
-   log.info("Message received: [" + c + "] " + m);
+psub("users.create.*", (channel, pattern, message) => {
+   log.info("Message received: [" + channel + "] " + pattern + " -- " + message);
 });
 
 setTimeout(() => {
-    pub("test channel", "a testing message");
+    pub("users.create.carl", "winkler test 1 2 3");
+    log.warn("Published message");
 }, 1000);
 
 log.warn("Completed synchronous functions");

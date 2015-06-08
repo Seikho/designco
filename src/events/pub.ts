@@ -8,7 +8,7 @@ function publish(channel: string, message: string) {
 
 	redisClient.on("connect", () => {
 		
-		redisClient.rpush([channel, message], (err, res) => {
+		redisClient.rpush([channel, '"'+message+'"'], (err, res) => {
 			if (err) throw "PublishException: Unable to RPUSH: " + err;
 			else redisClient.publish(channel, message);
 		});
@@ -17,5 +17,4 @@ function publish(channel: string, message: string) {
 	redisClient.on("error", err => {
 		global.log.error("[PUB] RedisClient Error: " + err);
 	});
-
 }

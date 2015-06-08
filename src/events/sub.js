@@ -7,11 +7,11 @@ function subscribe(channels, callback) {
         else
             redisClient.psubscribe(channels);
     });
-    redisClient.on("subscribe", function (channel, count) {
+    redisClient.on("psubscribe", function (channel, count) {
         global.log.debug("Client successfully subscribed to '" + channel + "' (" + count + ")");
     });
-    redisClient.on("message", function (channel, message) {
-        callback(channel, message);
+    redisClient.on("pmessage", function (channel, message, swagger) {
+        callback(channel, message, swagger);
     });
     redisClient.on("error", function (err) {
         global.log.error("[SUB] RedisClient error: " + err);
