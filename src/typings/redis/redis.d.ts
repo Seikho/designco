@@ -290,8 +290,8 @@ declare module "redis" {
     lastsave(...args: any[]): void;
     type(args: any[], callback?: ResCallbackT<any>): void;
     type(...args: any[]): void;
-    multi(args: any[], callback?: ResCallbackT<any>): void;
-    multi(...args: any[]): void;
+    multi(args: any[], callback?: ResCallbackT<any>): RedisClient;
+    multi(...args: any[]): RedisClient;
     exec(args: any[], callback?: ResCallbackT<any>): void;
     exec(...args: any[]): void;
     discard(args: any[], callback?: ResCallbackT<any>): void;

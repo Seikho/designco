@@ -4,17 +4,35 @@ function publish(event) {
     redisClient.on("connect", function () {
         var channel = eventToChannel(event);
         var message = JSON.stringify(event.data);
-        var store = event.context + "/" + event.key;
-        redisClient.rpush([store, '"' + message + '"'], function (err, res) {
-            if (err)
-                throw "PublishException: Unable to RPUSH: " + err;
-            else
-                redisClient.publish(channel, message);
+        var store = eventToListName(event);
+        var storableEvent = eventToStorable(event);
+        var multi = redisClient.multi([
+            ["zadd", "events", Date.now(), JSON.stringify(storableEvent)],
+            ["publish", channel, message]
+        ]);
+        multi.exec(function (err, replies) {
+            if (err) {
+                global.log.error("Publish transaction failed: " + err);
+                return;
+            }
+            global.log.info("[" + channel + "] Transaction successful: " + JSON.stringify(replies));
         });
     });
     redisClient.on("error", function (err) {
         global.log.error("[PUB] RedisClient Error: " + err);
     });
+}
+function eventToStorable(event) {
+    return {
+        event: typeToString(event.event),
+        context: contextToString(event.context),
+        key: event.key,
+        data: event.data
+    };
+}
+function eventToListName(event) {
+    var eventContext = contextToString(event.context);
+    return eventContext + "/" + event.key;
 }
 function eventToChannel(event) {
     var eventContext = contextToString(event.context);
@@ -23,22 +41,22 @@ function eventToChannel(event) {
 }
 function typeToString(eventType) {
     switch (eventType) {
-        case DesignCo.EventType.Create:
+        case 0 /* Create */:
             return "create";
-        case DesignCo.EventType.Read:
+        case 1 /* Read */:
             return "read";
-        case DesignCo.EventType.Update:
+        case 2 /* Update */:
             return "update";
-        case DesignCo.EventType.Delete:
+        case 3 /* Delete */:
             return "delete";
-        case DesignCo.EventType.Notification:
+        case 4 /* Notification */:
             return "notification";
     }
     throw "InvalidTypeException: Invalid EventType provided";
 }
 function contextToString(eventContext) {
     switch (eventContext) {
-        case DesignCo.EventContext.User:
+        case 0 /* User */:
             return "users";
     }
     throw "InvalidContextException: Invalid EventContext provided";

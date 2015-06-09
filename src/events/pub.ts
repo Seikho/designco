@@ -9,17 +9,42 @@ function publish(event: DesignCo.AppEvent) {
 	redisClient.on("connect", () => {
 		var channel = eventToChannel(event);
 		var message = JSON.stringify(event.data);
-		var store = event.context + "/" + event.key;
+		var store = eventToListName(event);
+		var storableEvent = eventToStorable(event);
 
-		redisClient.rpush([store, '"' + message + '"'], (err, res) => {
-			if (err) throw "PublishException: Unable to RPUSH: " + err;
-			else redisClient.publish(channel, message);
+		var multi = redisClient.multi([
+			["zadd", "events", Date.now(), JSON.stringify(storableEvent)],
+			["publish", channel, message]
+		]);
+		
+		multi.exec((err, replies) => {
+			if (err) {
+				global.log.error("Publish transaction failed: " + err);
+				return;
+			}
+			global.log.info("[" + channel + "] Transaction successful: " + JSON.stringify(replies));
 		});
+
+
 	});
 
 	redisClient.on("error", err => {
 		global.log.error("[PUB] RedisClient Error: " + err);
 	});
+}
+
+function eventToStorable(event: DesignCo.AppEvent) {
+	return {
+		event: typeToString(event.event),
+		context: contextToString(event.context),
+		key: event.key,
+		data: event.data
+	}
+}
+
+function eventToListName(event: DesignCo.AppEvent) {
+	var eventContext = contextToString(event.context);
+	return eventContext + "/" + event.key;
 }
 
 function eventToChannel(event: DesignCo.AppEvent) {

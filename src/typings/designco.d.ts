@@ -44,7 +44,7 @@ declare module DesignCo {
 		key: string|number;
 	}
 
-	export enum EventType {
+	export const enum EventType {
 		Create,
 		Read,
 		Update,
@@ -52,7 +52,7 @@ declare module DesignCo {
 		Notification
 	}
 	
-	export enum EventContext {
+	export const enum EventContext {
 		User
 	}
 }

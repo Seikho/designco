@@ -35,25 +35,41 @@ server.start(() => {
     log.info("Starting server on port " + global.config.port);
 });
 
-psub("users.create.*", (channel, pattern, message) => {
+/**
+ * Test code
+ */
+import client = require("./events/client");
+var c1 = client();
+log.warn("Clearing Redis database...");
+c1.flushdb(console.log);
+log.warn("Cleared database");
+
+psub("users/create/*", (channel, pattern, message) => {
     log.info("Message received: [" + channel + "] " + pattern + " -- " + message);
 });
 
 setTimeout(() => {
-
     var event = {
         event: DesignCo.EventType.Create,
         context: DesignCo.EventContext.User,
         key: "c.winkler",
         data: {
             username: "c.winkler",
-            email: "carl@winkler.id.au",
+            email: "carl@longshot.io",
             enabled: 1,
             company: "longshot"
         }
     };
     pub(event);
-    log.warn("Published message");
 }, 1000);
+
+var redisClient = client();
+setTimeout(() => {
+    log.debug("Checking event store...");
+    
+    redisClient.lrange(["users/c.winkler", 0 , -1], console.log);
+    redisClient.keys("users*", console.log);
+    
+}, 2000);
 
 log.warn("Completed synchronous functions");
