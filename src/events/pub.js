@@ -1,8 +1,11 @@
 var client = require("./client");
-function publish(channel, message) {
+function publish(event) {
     var redisClient = client();
     redisClient.on("connect", function () {
-        redisClient.rpush([channel, '"' + message + '"'], function (err, res) {
+        var channel = event.context + "/" + event.event + "/" + event.key;
+        var message = JSON.stringify(event.data);
+        var store = event.context + "/" + event.key;
+        redisClient.rpush([store, '"' + message + '"'], function (err, res) {
             if (err)
                 throw "PublishException: Unable to RPUSH: " + err;
             else
