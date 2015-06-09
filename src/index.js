@@ -32,7 +32,18 @@ psub("users.create.*", function (channel, pattern, message) {
     log.info("Message received: [" + channel + "] " + pattern + " -- " + message);
 });
 setTimeout(function () {
-    pub("users.create.carl", JSON.stringify({ username: "cwinkler", email: "carl@winkler.id.au", company: "longshot " }));
+    var event = {
+        event: DesignCo.EventType.Create,
+        context: DesignCo.EventContext.User,
+        key: "c.winkler",
+        data: {
+            username: "c.winkler",
+            email: "carl@winkler.id.au",
+            enabled: 1,
+            company: "longshot"
+        }
+    };
+    pub(event);
     log.warn("Published message");
 }, 1000);
 log.warn("Completed synchronous functions");
