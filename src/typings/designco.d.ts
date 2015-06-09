@@ -29,18 +29,29 @@ interface Config {
 
 declare module DesignCo {
 	export interface User {
-		id: number;
 		displayName: string;
-		username?: string;
+		username: string;
 		email: string;
 		password: string;
 		enabled: number;
+		company?: string;
 	}
 
 	export interface AppEvent {
-		event: string;
-		context: string;
-		data: {};
+		event: EventType;
+		context: EventContext;
+		data: any;
 		key: string|number;
+	}
+
+	export enum EventType {
+		Create,
+		Read,
+		Update,
+		Delete
+	}
+	
+	export enum EventContext {
+		User
 	}
 }
