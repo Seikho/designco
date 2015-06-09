@@ -56,7 +56,6 @@ setTimeout(function () {
 var redisClient = client();
 setTimeout(function () {
     log.debug("Checking event store...");
-    redisClient.lrange(["users/c.winkler", 0, -1], console.log);
-    redisClient.keys("users*", console.log);
+    redisClient.zrange(["events", 0, -1], console.log);
 }, 2000);
 log.warn("Completed synchronous functions");
