@@ -48,7 +48,8 @@ declare module DesignCo {
 		Create,
 		Read,
 		Update,
-		Delete
+		Delete,
+		Notification
 	}
 	
 	export enum EventContext {
