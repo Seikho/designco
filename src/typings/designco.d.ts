@@ -37,8 +37,10 @@ declare module DesignCo {
 		enabled: number;
 	}
 
-	export interface EventMessage {
-		timestamp: number;
-		data: any;
+	export interface AppEvent {
+		event: string;
+		context: string;
+		data: {};
+		key: string|number;
 	}
 }
