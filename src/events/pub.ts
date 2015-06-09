@@ -7,7 +7,7 @@ function publish(event: DesignCo.AppEvent) {
 	var redisClient = client();
 
 	redisClient.on("connect", () => {
-		var channel = contextToString(event.context) + "/" + typeToString(event.event) + "/" + event.key;
+		var channel = eventToChannel(event);
 		var message = JSON.stringify(event.data);
 		var store = event.context + "/" + event.key;
 
@@ -20,6 +20,13 @@ function publish(event: DesignCo.AppEvent) {
 	redisClient.on("error", err => {
 		global.log.error("[PUB] RedisClient Error: " + err);
 	});
+}
+
+function eventToChannel(event: DesignCo.AppEvent) {
+	var eventContext = contextToString(event.context);
+	var eventType = typeToString(event.event);
+
+	return [eventContext, eventType, event.key].join("/");
 }
 
 function typeToString(eventType: DesignCo.EventType) {

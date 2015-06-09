@@ -2,7 +2,7 @@ var client = require("./client");
 function publish(event) {
     var redisClient = client();
     redisClient.on("connect", function () {
-        var channel = contextToString(event.context) + "/" + typeToString(event.event) + "/" + event.key;
+        var channel = eventToChannel(event);
         var message = JSON.stringify(event.data);
         var store = event.context + "/" + event.key;
         redisClient.rpush([store, '"' + message + '"'], function (err, res) {
@@ -15,6 +15,11 @@ function publish(event) {
     redisClient.on("error", function (err) {
         global.log.error("[PUB] RedisClient Error: " + err);
     });
+}
+function eventToChannel(event) {
+    var eventContext = contextToString(event.context);
+    var eventType = typeToString(event.event);
+    return [eventContext, eventType, event.key].join("/");
 }
 function typeToString(eventType) {
     switch (eventType) {
