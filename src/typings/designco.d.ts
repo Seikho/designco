@@ -53,6 +53,8 @@ declare module DesignCo {
 	}
 	
 	export const enum EventContext {
-		User
+		User,
+		Order,
+		Item
 	}
 }
