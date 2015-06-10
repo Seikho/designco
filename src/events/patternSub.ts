@@ -1,7 +1,7 @@
 import client = require("./client");
 export = patternSubscribe;
 
-function patternSubscribe(channels: string|string[], callback: (channel: string, patter: string, message: string) => void) {
+function patternSubscribe(channels: string|string[], callback: (channel: string, pattern: string, message: string) => void) {
 	var redisClient = client();
 
 	redisClient.on("ready", () => {
