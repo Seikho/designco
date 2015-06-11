@@ -1,17 +1,11 @@
 var dbInit = require("./store/init");
 var path = require("path");
 var hapi = require("hapi");
-var log = require("./logger");
-var pub = require("./events/pub");
-var sub = require("./events/sub");
-var psub = require("./events/patternSub");
+var log = require("designco-logger");
+var store = require("designco-store");
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
 var baseDb = path.join(basePath, "designco-base.sqlite");
-global.sub = sub;
-global.pub = pub;
-global.psub = psub;
-global.log = log;
 global.config = {
     port: 45199,
     redisHost: "192.168.59.103",
@@ -31,18 +25,17 @@ server.start(function () {
 /**
  * Test code
  */
-var client = require("./events/client");
-var c1 = client();
+var c1 = store.client();
 log.warn("Clearing Redis database...");
 c1.flushdb(console.log);
 log.warn("Cleared database");
-psub("users/create/*", function (channel, pattern, message) {
+store.psub("users/create/*", function (channel, pattern, message) {
     log.info("Message received: [" + channel + "] " + pattern + " -- " + message);
 });
 setTimeout(function () {
     var event = {
-        event: DesignCo.EventType.Create,
-        context: DesignCo.EventContext.User,
+        event: 0 /* Create */,
+        context: 0 /* User */,
         key: "c.winkler",
         data: {
             username: "c.winkler",
@@ -51,9 +44,9 @@ setTimeout(function () {
             company: "longshot.io"
         }
     };
-    pub(event);
+    store.pub(event);
 }, 1000);
-var redisClient = client();
+var redisClient = store.client();
 setTimeout(function () {
     log.debug("Checking event store...");
     redisClient.zrange(["events", 0, -1], console.log);

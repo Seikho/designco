@@ -14,6 +14,7 @@
         "./src/store/init.ts",
         "./src/typings/bluebird/bluebird.d.ts",
         "./src/typings/chalk/chalk.d.ts",
+        "./src/typings/designco/designco-config.d.ts",
         "./src/typings/designco/designco-logger.d.ts",
         "./src/typings/designco/designco-store.d.ts",
         "./src/typings/designco/designco.d.ts",
