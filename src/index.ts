@@ -3,22 +3,20 @@ import path = require("path");
 import hapi = require("hapi");
 import log = require("designco-logger");
 import store = require("designco-store");
+import cfg = require("designco-config");
 
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
 var baseDb = path.join(basePath, "designco-base.sqlite");
 
-global.config = {
-    port: 45199,
-    redisHost: "192.168.59.103",
-    liveDatabase: liveDb,
-    baseDatabase: baseDb
-}
+cfg.config("port", 45199);
+cfg.config("liveDatabase", "designco.db");
+cfg.config("baseDatabase", "designco-base.sqlite");
 
 dbInit();
 
 //TODO: Put port in config
-var port = global.config.port || 45199;
+var port = cfg.config("port") || 45199;
 var server = new hapi.Server();
 
 server.connection({
@@ -26,7 +24,7 @@ server.connection({
 });
 
 server.start(() => {
-    log.info("Starting server on port " + global.config.port);
+    log.info("Starting server on port " + cfg.config("port"));
 });
 
 /**
