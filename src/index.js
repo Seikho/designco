@@ -41,8 +41,8 @@ psub("users/create/*", function (channel, pattern, message) {
 });
 setTimeout(function () {
     var event = {
-        event: 0 /* Create */,
-        context: 0 /* User */,
+        event: DesignCo.EventType.Create,
+        context: DesignCo.EventContext.User,
         key: "c.winkler",
         data: {
             username: "c.winkler",
