@@ -1,5 +1,4 @@
 import client = require("./client");
-import log = require("")
 import Promise = require("bluebird");
 export = publish;
 

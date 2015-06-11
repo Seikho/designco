@@ -48,7 +48,7 @@ setTimeout(function () {
             username: "c.winkler",
             email: "carl@longshot.io",
             enabled: 1,
-            company: "longshot"
+            company: "longshot.io"
         }
     };
     pub(event);
