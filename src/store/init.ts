@@ -1,10 +1,11 @@
 import fs = require("fs");
 import log = require("designco-logger");
+import cfg = require("designco-config")
 export = init;
 
 function init() {
-    var liveDb = "designco.db";
-    var baseDb = "designco-base.sqlite";
+    var liveDb = cfg.config("liveDatabase");
+    var baseDb = cfg.config("baseDatabase");
     
     fs.readFile(liveDb, (err, data) => {
         if (err) {

@@ -1,9 +1,10 @@
 import knex = require("knex");
+import cfg = require("designco-config");
 export = db;
 
 var db = knex({
     client: "sqlite3",
     connection:{
-        filename: "designco.db"
+        filename: cfg.config("liveDatabase")
     }
 });
