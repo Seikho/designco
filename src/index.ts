@@ -9,6 +9,7 @@ var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
 var baseDb = path.join(basePath, "designco-base.sqlite");
 
+store.setHost("192.168.59.103", 6379);
 cfg.config("port", 45199);
 cfg.config("liveDatabase", "designco.db");
 cfg.config("baseDatabase", "designco-base.sqlite");

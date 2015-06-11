@@ -23,6 +23,7 @@
     "chai": "^2.3.0",
     "chalk": "^1.0.0",
     "designco-config": "designco-wa/config",
+    "designco-logger": "designco-wa/logger",
     "designco-store": "designco-wa/store",
     "hapi": "^8.6.0",
     "hiredis": "^0.4.0",
