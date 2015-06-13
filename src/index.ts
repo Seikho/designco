@@ -4,6 +4,8 @@ import hapi = require("hapi");
 import log = require("ls-logger");
 import store = require("ls-events");
 import cfg = require("ls-config");
+import io = require("socket.io");
+
 
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
@@ -32,8 +34,8 @@ server.connection({
     labels: "events"    
 });
 
-// Attach socket.io
-var io = require("socket.io")(server.select("events").listener);
+// Attach socket.io and store the server in config
+cfg.config("io", io(server.select("events").listener));
 
 server.start(() => {
     log.info("Starting server on port " + cfg.config("webPort"));
