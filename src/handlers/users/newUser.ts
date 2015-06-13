@@ -1,5 +1,5 @@
 import db = require("../../store/db");
-import store = require("designco-store");
+import store = require("ls-events");
 
 store.sub("users/create", createUser);
 

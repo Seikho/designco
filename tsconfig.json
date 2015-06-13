@@ -14,14 +14,15 @@
         "./src/store/init.ts",
         "./src/typings/bluebird/bluebird.d.ts",
         "./src/typings/chalk/chalk.d.ts",
-        "./src/typings/designco/designco-config.d.ts",
-        "./src/typings/designco/designco-logger.d.ts",
-        "./src/typings/designco/designco-store.d.ts",
         "./src/typings/designco/designco.d.ts",
         "./src/typings/hapi/hapi.d.ts",
         "./src/typings/knex/knex.d.ts",
+        "./src/typings/longshot/config.d.ts",
+        "./src/typings/longshot/events.d.ts",
+        "./src/typings/longshot/logger.d.ts",
         "./src/typings/node/node.d.ts",
         "./src/typings/redis/redis.d.ts",
+        "./src/typings/socket.io/socket.io.d.ts",
         "./src/typings/tsd.d.ts",
         "./src/users/newUser.ts"
     ]

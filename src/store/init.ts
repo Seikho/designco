@@ -1,6 +1,6 @@
 import fs = require("fs");
-import log = require("designco-logger");
-import cfg = require("designco-config")
+import log = require("ls-logger");
+import cfg = require("ls-config")
 export = init;
 
 function init() {

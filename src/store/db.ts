@@ -1,5 +1,5 @@
 import knex = require("knex");
-import cfg = require("designco-config");
+import cfg = require("ls-config");
 export = db;
 
 var db = knex({

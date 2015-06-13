@@ -1,6 +1,6 @@
 var fs = require("fs");
-var log = require("designco-logger");
-var cfg = require("designco-config");
+var log = require("ls-logger");
+var cfg = require("ls-config");
 function init() {
     var liveDb = cfg.config("liveDatabase");
     var baseDb = cfg.config("baseDatabase");

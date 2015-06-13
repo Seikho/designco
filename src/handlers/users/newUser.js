@@ -1,4 +1,4 @@
-var store = require("designco-store");
+var store = require("ls-events");
 store.sub("users/create", createUser);
 function createUser(message) {
     // var parsedMsg: DesignCo.EventMessage = JSON.parse(message);
