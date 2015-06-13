@@ -31,6 +31,3 @@ cfg.config("io", io(server.select("events").listener));
 server.start(function () {
     log.info("Starting server on port " + cfg.config("webPort"));
 });
-store.psub("users/create/*", function (channel, pattern, message) {
-    log.info("Message received: [" + channel + "] " + pattern + " -- " + message);
-});

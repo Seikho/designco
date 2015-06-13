@@ -40,7 +40,3 @@ cfg.config("io", io(server.select("events").listener));
 server.start(() => {
     log.info("Starting server on port " + cfg.config("webPort"));
 });
-
-store.psub("users/create/*", (channel, pattern, message) => {
-    log.info("Message received: [" + channel + "] " + pattern + " -- " + message);
-});
