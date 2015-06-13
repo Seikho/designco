@@ -21,33 +21,6 @@ server.connection({
 server.start(function () {
     log.info("Starting server on port " + cfg.config("port"));
 });
-/**
- * Test code
- */
-var c1 = store.client();
-log.warn("Clearing Redis database...");
-c1.flushdb(console.log);
-log.warn("Cleared database");
 store.psub("users/create/*", function (channel, pattern, message) {
     log.info("Message received: [" + channel + "] " + pattern + " -- " + message);
 });
-setTimeout(function () {
-    var event = {
-        event: 0 /* Create */,
-        context: 0 /* User */,
-        key: "c.winkler",
-        data: {
-            username: "c.winkler",
-            email: "carl@longshot.io",
-            enabled: 1,
-            company: "longshot.io"
-        }
-    };
-    store.pub(event);
-}, 1000);
-var redisClient = store.client();
-setTimeout(function () {
-    log.debug("Checking event store...");
-    redisClient.zrange(["events", 0, -1], console.log);
-}, 2000);
-log.warn("Completed synchronous functions");

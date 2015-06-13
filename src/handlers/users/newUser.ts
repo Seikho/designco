@@ -1,7 +1,7 @@
 import db = require("../../store/db");
-import events = require("../../events/events");
+import store = require("designco-store");
 
-global.sub(events.NewUser.toString(), createUser);
+store.sub("users/create", createUser);
 
 function createUser(message: string) {
 	// var parsedMsg: DesignCo.EventMessage = JSON.parse(message);

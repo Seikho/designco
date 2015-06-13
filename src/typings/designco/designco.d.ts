@@ -1,4 +1,5 @@
-declare module DesignCo {
+declare module App {
+	
 	export interface User {
 		displayName: string;
 		username: string;
@@ -6,5 +7,19 @@ declare module DesignCo {
 		password: string;
 		enabled: number;
 		company?: string;
+	}
+
+	export const enum Event {
+		Create,
+		Read,
+		Update,
+		Delete,
+		Notification
+	}
+
+	export const enum Type {
+		User,
+		Order,
+		Item
 	}
 }
