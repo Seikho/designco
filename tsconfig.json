@@ -8,7 +8,7 @@
         "./src/**/*.ts"
     ],
     "files": [
-        "./src/handlers/users/newUser.ts",
+        "./src/handlers/users/create.ts",
         "./src/index.ts",
         "./src/store/db.ts",
         "./src/store/init.ts",
