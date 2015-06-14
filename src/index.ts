@@ -43,20 +43,23 @@ server.start(() => {
 });
 
 // Pub/sub test code
+var testCode = () => {
+    store.client().flushdb([], (err, succ) => {
+        if (err) log.error("Failed to flush Redis database");
+        else log.info("Successfully flushed Redis database");
 
-store.client().flushdb([], (err, succ) => {
-    if (err) log.error("Failed to flush Redis database");
-    else log.info("Successfully flushed Redis database");
+        var testEvent: store.Event = {
+            event: "create",
+            context: "users",
+            key: "carl",
+            data: { username: "carl", password: "test" }
+        };
 
-    var testEvent: store.Event = {
-        event: "create",
-        context: "users",
-        key: "carl",
-        data: { username: "carl", password: "test" }
-    };
+        store.pub(testEvent);
+    });
+};
 
-    store.pub(testEvent);
+setTimeout(testCode, 1000);
 
-});
 
 

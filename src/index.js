@@ -33,16 +33,19 @@ server.start(function () {
     log.info("Starting server on port " + cfg.config("webPort"));
 });
 // Pub/sub test code
-store.client().flushdb([], function (err, succ) {
-    if (err)
-        log.error("Failed to flush Redis database");
-    else
-        log.info("Successfully flushed Redis database");
-    var testEvent = {
-        event: "create",
-        context: "users",
-        key: "carl",
-        data: { username: "carl", password: "test" }
-    };
-    store.pub(testEvent);
-});
+var testCode = function () {
+    store.client().flushdb([], function (err, succ) {
+        if (err)
+            log.error("Failed to flush Redis database");
+        else
+            log.info("Successfully flushed Redis database");
+        var testEvent = {
+            event: "create",
+            context: "users",
+            key: "carl",
+            data: { username: "carl", password: "test" }
+        };
+        store.pub(testEvent);
+    });
+};
+setTimeout(testCode, 1000);
