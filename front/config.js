@@ -21,6 +21,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "core-js": "npm:core-js@0.9.13",
     "css": "github:systemjs/plugin-css@0.1.11",
+    "socket.io-client": "github:Automattic/socket.io-client@1.3.5",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
