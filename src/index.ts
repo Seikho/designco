@@ -36,10 +36,15 @@ server.connection({
 });
 
 // Attach socket.io and store the server in config
-cfg.config("io", io(server.select("events").listener));
+var ioServer = io(server.select("events").listener);
+cfg.config("io", ioServer);
 
 server.start(() => {
     log.info("Starting server on port " + cfg.config("webPort"));
+});
+
+ioServer.on("connection", socket => {
+    socket.on("sub", msg => log.info("[LISTEN] " + msg));
 });
 
 // Pub/sub test code

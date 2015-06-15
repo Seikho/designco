@@ -28,9 +28,13 @@ server.connection({
     labels: "events"
 });
 // Attach socket.io and store the server in config
-cfg.config("io", io(server.select("events").listener));
+var ioServer = io(server.select("events").listener);
+cfg.config("io", ioServer);
 server.start(function () {
     log.info("Starting server on port " + cfg.config("webPort"));
+});
+ioServer.on("connection", function (socket) {
+    socket.on("sub", function (msg) { return log.info("[LISTEN] " + msg); });
 });
 // Pub/sub test code
 var testCode = function () {
