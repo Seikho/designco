@@ -44,7 +44,8 @@ server.start(() => {
 });
 
 ioServer.on("connection", socket => {
-    socket.on("sub", msg => log.info("[LISTEN] " + msg));
+    log.info("[CONNECTED] " + socket.id);
+    socket.on("subscribe", msg => log.info("[SOCKET:SUB] " + socket.id + ": " + msg));
 });
 
 // Pub/sub test code

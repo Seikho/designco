@@ -7,15 +7,18 @@
 	    <meta name="description" content="">
 	    <meta name="author" content="Carl Winkler">
 		<title>Designco: Shop</title>
+		<script src="jspm_packages/system.js"></script>
+		
 	</head>
 	<body>
-		<script src="jspm_packages/system.js"></script>
 		<script src="config.js"></script>
 		<script>
 			System.import('bootstrap/css/bootstrap.css!'); // import css separately
-			System.import('longshot-io/events-client').then(function(io) {
+			System.import('ls-events-client')
+			.then(function(io) {
+				console.log(io);
 				io
-					.setHost("localhost", 10000)
+					.setHost("localhost", 10001)
 					.start()
 					.sub("users", "create", null, userCreated);
 			});

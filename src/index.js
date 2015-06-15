@@ -34,7 +34,8 @@ server.start(function () {
     log.info("Starting server on port " + cfg.config("webPort"));
 });
 ioServer.on("connection", function (socket) {
-    socket.on("sub", function (msg) { return log.info("[LISTEN] " + msg); });
+    log.info("[CONNECTED] " + socket.id);
+    socket.on("subscribe", function (msg) { return log.info("[SOCKET:SUB] " + socket.id + ": " + msg); });
 });
 // Pub/sub test code
 var testCode = function () {

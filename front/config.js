@@ -21,7 +21,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.4",
     "core-js": "npm:core-js@0.9.13",
     "css": "github:systemjs/plugin-css@0.1.11",
-    "longshot-io/events-client": "github:longshot-io/events-client@master",
+    "ls-events-client": "npm:ls-events-client@0.1.7",
     "socket.io-client": "github:Automattic/socket.io-client@1.3.5",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -309,6 +309,18 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:ls-events-client@0.1.3": {
+      "socket.io-client": "npm:socket.io-client@1.3.5"
+    },
+    "npm:ls-events-client@0.1.5": {
+      "socket.io-client": "npm:socket.io-client@1.3.5"
+    },
+    "npm:ls-events-client@0.1.6": {
+      "socket.io-client": "npm:socket.io-client@1.3.5"
+    },
+    "npm:ls-events-client@0.1.7": {
+      "socket.io-client": "npm:socket.io-client@1.3.5"
     },
     "npm:miller-rabin@2.0.1": {
       "bn.js": "npm:bn.js@2.0.5",
