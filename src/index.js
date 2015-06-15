@@ -35,7 +35,14 @@ server.start(function () {
 });
 ioServer.on("connection", function (socket) {
     log.info("[CONNECTED] " + socket.id);
-    socket.on("subscribe", function (msg) { return log.info("[SOCKET:SUB] " + socket.id + ": " + msg); });
+    socket.on("subscribe", function (msg) {
+        log.info("[SOCKET:SUB] " + socket.id + ": " + msg);
+        var options = JSON.parse(msg);
+        // Subscribe the socket to the requested channel
+        store.psub(options.channel, function (ch, pt, msg) {
+            socket.emit(ch, msg);
+        });
+    });
 });
 // Pub/sub test code
 var testCode = function () {

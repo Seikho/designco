@@ -45,7 +45,17 @@ server.start(() => {
 
 ioServer.on("connection", socket => {
     log.info("[CONNECTED] " + socket.id);
-    socket.on("subscribe", msg => log.info("[SOCKET:SUB] " + socket.id + ": " + msg));
+    socket.on("subscribe", msg => {
+        log.info("[SOCKET:SUB] " + socket.id + ": " + msg);
+        
+        var options = JSON.parse(msg);
+        
+        // Subscribe the socket to the requested channel
+        store.psub(options.channel, (ch, pt, msg) => {
+            socket.emit(ch, msg);
+        });
+    });
+    
 });
 
 // Pub/sub test code
