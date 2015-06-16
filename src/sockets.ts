@@ -25,12 +25,10 @@ function socketHandler(socket) {
         
         // Subscribe the socket to the requested channel
         events.psub(options.channel, (ch, pt, msg) => socketMsgHandler(socket, ch, pt, msg));
-        log.debug("Created socket sub callback");
     });
 }
 
 function socketMsgHandler(socket, channel: string, pattern: string, message: string) {
-    log.debug("Fired socket sub callback");
     var output = {
         channel: channel,
         pattern: pattern,
