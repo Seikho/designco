@@ -8,7 +8,7 @@
 	    <meta name="author" content="Carl Winkler">
 		<title>Designco: Shop</title>
 		<script src="jspm_packages/system.js"></script>
-		
+
 	</head>
 	<body>
 		<script src="config.js"></script>
@@ -22,18 +22,19 @@
 					.start()
 					.sub("users", "create", null, userCreated);
 			});
-			
-			function userCreated(ch, msg) {
-				console.log("User Created: ", msg);
+
+			function userCreated(message) {
+				var data = JSON.parse(message);
+				console.log("User Created: ", data.message);
 			}
 		</script>
-		<link href="/css/main.css" rel="stylesheet">		
+		<link href="/css/main.css" rel="stylesheet">
 		<div class="site-wrapper">
 
 	      <div class="site-wrapper-inner">
-	
+
 	        <div class="cover-container">
-	
+
 	          <div class="masthead clearfix">
 	            <div class="inner">
 	              <h3 class="masthead-brand">Cover</h3>
@@ -46,7 +47,7 @@
 	              </nav>
 	            </div>
 	          </div>
-	
+
 	          <div class="inner cover">
 	            <h1 class="cover-heading">Cover your page.</h1>
 	            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
@@ -54,18 +55,18 @@
 	              <a href="#" class="btn btn-lg btn-default">Learn more</a>
 	            </p>
 	          </div>
-	
+
 	          <div class="mastfoot">
 	            <div class="inner">
 	              <p>Carl Winkler</p>
 	            </div>
 	          </div>
-	
+
 	        </div>
-	
+
 	      </div>
-	
+
 	    </div>
-		
+
 	</body>
 </html>

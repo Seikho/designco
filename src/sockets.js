@@ -17,9 +17,17 @@ function socketHandler(socket) {
         log.info("[SOCKET:SUB] " + socket.id + ": " + msg);
         var options = JSON.parse(msg);
         // Subscribe the socket to the requested channel
-        events.psub(options.channel, function (ch, pt, msg) {
-            socket.emit(ch, pt);
-        });
+        events.psub(options.channel, function (ch, pt, msg) { return socketMsgHandler(socket, ch, pt, msg); });
+        log.debug("Created socket sub callback");
     });
+}
+function socketMsgHandler(socket, channel, pattern, message) {
+    log.debug("Fired socket sub callback");
+    var output = {
+        channel: channel,
+        pattern: pattern,
+        message: message
+    };
+    socket.emit(channel, JSON.stringify(output));
 }
 module.exports = ioServer;
