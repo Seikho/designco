@@ -1,7 +1,6 @@
 import hapi = require("hapi");
 import cfg = require("ls-config");
 import log = require("ls-logger");
-
 export = server;
 
 var server = new hapi.Server();
@@ -12,6 +11,7 @@ server.connection({
     labels: "web"
 });
 
-server.start(() => {
+server.start(err => {
+    if (err) log.error("Error while starting web server: " + err);
     log.info("Server started on port " + cfg.config("webPort"));
 });

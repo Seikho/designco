@@ -10,15 +10,16 @@ server.connection({
 });
 // Socket.IO listener
 var ioServer = io(server.select("events").listener);
-ioServer.on("connection", function (socket) {
+ioServer.on("connection", socketHandler);
+function socketHandler(socket) {
     log.info("[CONNECTED] " + socket.id);
     socket.on("subscribe", function (msg) {
         log.info("[SOCKET:SUB] " + socket.id + ": " + msg);
         var options = JSON.parse(msg);
         // Subscribe the socket to the requested channel
         events.psub(options.channel, function (ch, pt, msg) {
-            socket.emit(ch, msg);
+            socket.emit(ch, pt);
         });
     });
-});
+}
 module.exports = ioServer;
