@@ -1,15 +1,16 @@
 import store = require("ls-events");
 store.setHost("192.168.59.103", 6379);
 
+import handlerLoader = require("./handlers/loader");
 import dbInit = require("./store/init");
 import path = require("path");
 import log = require("ls-logger");
 import cfg = require("ls-config");
 
+// Initialise the web and socket servers
 require("./server");
 require("./sockets");
 
-require("./handlers/users/create");
 
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
@@ -21,6 +22,7 @@ cfg.config("liveDatabase", "designco.db");
 cfg.config("baseDatabase", "designco-base.sqlite");
 
 dbInit();
+handlerLoader.init();
 
 // Pub/sub test code
 var testCode = () => {

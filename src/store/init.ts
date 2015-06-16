@@ -1,16 +1,54 @@
+import Promise = require("bluebird");
 import fs = require("fs");
 import log = require("ls-logger");
 import cfg = require("ls-config")
 export = init;
 
 function init() {
-    var liveDb = cfg.config("liveDatabase");
-    var baseDb = cfg.config("baseDatabase");
-    
-    fs.readFile(liveDb, (err, data) => {
-        if (err) {
-            fs.createReadStream(baseDb).pipe(fs.createWriteStream(liveDb));
-            log.info("Database not detected. Created.");
-        } else log.info("Database detected.");
+
+    var promiseArray = [
+        isFilePresent(liveDatabaseName()),
+        isFilePresent(baseDatabaseName())
+    ];
+
+    return Promise.all(promiseArray)
+        .then(createDatabase);
+}
+
+
+function createDatabase(exists: boolean[]) {
+    var liveExists = exists[0];
+    var baseExists = exists[1];
+
+    if (liveExists) return Promise.resolve(false);
+    if (!baseExists) throw "Unable to create live database: Base does not exist";
+
+    fs.createReadStream(baseDatabaseName())
+        .pipe(fs.createWriteStream(liveDatabaseName()));
+
+    return Promise.resolve(true);
+}
+
+function isFilePresent(filename: string) {
+    var promise = new Promise(rs => filePromise(rs, filename));
+    return promise;
+}
+
+function filePromise(resolve, filename) {
+    fs.readFile(filename, err => {
+        if (err) resolve(false);
+        else resolve(true);
     });
+}
+
+function liveDatabaseName() {
+    return cfg.config("liveDatabase");
+}
+
+function baseDatabaseName() {
+    return cfg.config("baseDatabase");
+}
+
+const enum Create {
+
 }
