@@ -27,6 +27,7 @@
         "./src/typings/socket.io/socket.io.d.ts",
         "./src/typings/tsd.d.ts",
         "./src/users/newUser.ts",
-        "./src/webapi/routes.ts"
+        "./src/webapi/routes.ts",
+        "./src/webapi/static.ts"
     ]
 }

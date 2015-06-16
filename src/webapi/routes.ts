@@ -1,4 +1,7 @@
 import server = require("../server");
+import staticRoute = require("./static");
+
+applyRoutes(staticRoute);
 
 function applyRoutes(routes: {}) {
 	for (var r in routes) {
@@ -6,3 +9,4 @@ function applyRoutes(routes: {}) {
 		server.route(r);
 	}
 }
+
