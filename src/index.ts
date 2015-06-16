@@ -6,6 +6,9 @@ import path = require("path");
 import log = require("ls-logger");
 import cfg = require("ls-config");
 
+require("./server");
+require("./sockets");
+
 require("./handlers/users/create");
 
 var basePath = path.resolve(__dirname, "..");
@@ -18,15 +21,6 @@ cfg.config("liveDatabase", "designco.db");
 cfg.config("baseDatabase", "designco-base.sqlite");
 
 dbInit();
-
-
-
-// Attach socket.io and store the server in config
-
-
-
-
-
 
 // Pub/sub test code
 var testCode = () => {

@@ -4,6 +4,8 @@ var dbInit = require("./store/init");
 var path = require("path");
 var log = require("ls-logger");
 var cfg = require("ls-config");
+require("./server");
+require("./sockets");
 require("./handlers/users/create");
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
@@ -13,7 +15,6 @@ cfg.config("eventsPort", 10001);
 cfg.config("liveDatabase", "designco.db");
 cfg.config("baseDatabase", "designco-base.sqlite");
 dbInit();
-// Attach socket.io and store the server in config
 // Pub/sub test code
 var testCode = function () {
     store.client().flushdb([], function (err, succ) {
