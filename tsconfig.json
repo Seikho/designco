@@ -10,6 +10,8 @@
     "files": [
         "./src/handlers/users/create.ts",
         "./src/index.ts",
+        "./src/server.ts",
+        "./src/sockets.ts",
         "./src/store/db.ts",
         "./src/store/init.ts",
         "./src/typings/bluebird/bluebird.d.ts",
@@ -24,6 +26,7 @@
         "./src/typings/redis/redis.d.ts",
         "./src/typings/socket.io/socket.io.d.ts",
         "./src/typings/tsd.d.ts",
-        "./src/users/newUser.ts"
+        "./src/users/newUser.ts",
+        "./src/webapi/routes.ts"
     ]
 }
