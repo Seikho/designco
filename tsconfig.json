@@ -30,6 +30,7 @@
         "./src/typings/tsd.d.ts",
         "./src/users/newUser.ts",
         "./src/webapi/loader.ts",
-        "./src/webapi/static.ts"
+        "./src/webapi/static.ts",
+        "./src/webapi/users/auth.ts"
     ]
 }
