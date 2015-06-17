@@ -7,7 +7,6 @@ function login(login: App.Login) {
 	getUser(login.username)
 		.then(user => loginHandler(user, login.password))
 		// then create session
-		
 }
 
 function getUser(username: string) {
