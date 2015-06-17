@@ -26,6 +26,14 @@ function stopServer(error) {
     console.error("Failed to create database: " + error);
 }
 // Pub/sub test code
+var testUser = {
+    username: "carl",
+    displayName: "Carl Winkler",
+    password: "password",
+    email: "carl@longshot.io",
+    enabled: 1,
+    company: "Longshot"
+};
 var testCode = function () {
     store.client().flushdb([], function (err, succ) {
         if (err)
@@ -36,9 +44,9 @@ var testCode = function () {
             event: "create",
             context: "users",
             key: "carl",
-            data: { username: "carl", password: "test" }
+            data: testUser
         };
         store.pub(testEvent);
     });
 };
-setTimeout(testCode, 10000);
+setTimeout(testCode, 5000);

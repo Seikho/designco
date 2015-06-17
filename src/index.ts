@@ -34,6 +34,16 @@ function stopServer(error: string) {
 }
 
 // Pub/sub test code
+
+var testUser: App.User = {
+    username: "carl",
+    displayName: "Carl Winkler",
+    password: "password",
+    email: "carl@longshot.io",
+    enabled: 1,
+    company: "Longshot"
+}
+
 var testCode = () => {
     store.client().flushdb([], (err, succ) => {
         if (err) log.error("Failed to flush Redis database");
@@ -43,14 +53,14 @@ var testCode = () => {
             event: "create",
             context: "users",
             key: "carl",
-            data: { username: "carl", password: "test" }
+            data: testUser
         };
 
         store.pub(testEvent);
     });
 };
 
-setTimeout(testCode, 10000);
+setTimeout(testCode, 5000);
 
 
 

@@ -6,9 +6,6 @@ store.psub("users/create/*", createUserHandler);
 function createUserHandler(channel, pattern, message) {
     var user = JSON.parse(message);
     log.info("[HANDLER] Create request '" + user.username + "'");
-    // If the user isn't valid, do not continue
-    if (!isValidUser(user))
-        return;
     getUserCreatedEvent(user).then(function (prevEvent) {
         var alreadyExists = prevEvent.length !== 0;
         if (alreadyExists)
@@ -28,18 +25,19 @@ function getUserCreatedEvent(user) {
  */
 function createUser(user) {
     insertUser(user)
-        .then(function (id) { return insertUserHandlder(id, user); });
+        .then(function (id) { return insertUserHandlder(id, user); })
+        .catch(function () { return insertFailedHandler(user); });
 }
 function insertUserHandlder(id, user) {
-    if (id > 0) {
-        log.info("[USER:CREATEFAIL] User already exists: " + user.username);
-        raiseCreatedEvent("userCreated", user);
-        return;
-    }
-    log.info("[USER:CREATE] User created: '" + user.username + "'");
+    log.info("[USER:CREATED] Created new user: " + user.username);
+    raiseCreatedEvent("userCreated", user);
+}
+function insertFailedHandler(user) {
+    log.warn("Failed to create user: User most likely already exists");
     raiseCreatedEvent("userCreateFail", user);
 }
 function raiseCreatedEvent(event, user) {
+    delete user.username;
     store.pub({
         event: event,
         context: "users",
