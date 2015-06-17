@@ -22,4 +22,9 @@ declare module App {
 		Order,
 		Item
 	}
+	
+	export interface Login {
+		username: string;
+		password: string;
+	}
 }
