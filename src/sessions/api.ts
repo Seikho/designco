@@ -2,16 +2,27 @@
 import Promise = require("bluebird");
 var md5 = require("js-md5");
 var jwt = require("jsonwebtoken");
-
 export = {
 	create: createToken,
 	verify: verifyToken
 }
 
+var creds = {
+	username: "1",
+	password: "2"
+};
+
+var saltedPw = getRandomSalt("2");
+
+createToken(creds)
+	.then(token => verifyToken(saltedPw, token))
+	.then(() => console.log("all ok"))
+	.catch(err => console.log("not ok! ", err));
+
 
 function createToken(loginRequest: App.Login) {
 	var salt = getRandomSalt(loginRequest.password);
-	var token = jwt.sign({ username: loginRequest.username }, loginRequest.password);
+	var token = jwt.sign({ username: loginRequest.username }, salt);
 	return Promise.resolve(token);
 }
 
