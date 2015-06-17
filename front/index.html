@@ -5,67 +5,23 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta name="description" content="">
-	    <meta name="author" content="Carl Winkler">
+	    <meta name="author" content="">
 		<title>Designco: Shop</title>
-
-
 	</head>
 	<body ng-app="app">
 
 		<script src="jspm_packages/system.js"></script>
 		<script src="config.js"></script>
 		<script>
-			System.import('bootstrap/css/bootstrap.css!'); // import css separately
+			System.import('./styles/main.css!');
+			// System.import('bootstrap/css/bootstrap.css!');
 			System.import('./components/app');
 		</script>
-		<link rel="stylesheet" href="/css/main.css">
 
 
-		<!-- <div> -->
-		<div ng-controller="AppController as app">
-			<div ng-viewport></div>
+		<div style="height: 100%;" ng-controller="AppController as app">
+			<div style="height: 100%;" ng-viewport></div>
 		</div>
-
-
-
-		<div class="site-wrapper">
-
-	      <div class="site-wrapper-inner">
-
-	        <div class="cover-container">
-
-	          <div class="masthead clearfix">
-	            <div class="inner">
-	              <h3 class="masthead-brand">Cover</h3>
-	              <nav>
-	                <ul class="nav masthead-nav">
-	                  <li class="active"><a href="#">Home</a></li>
-	                  <li><a href="#">Features</a></li>
-	                  <li><a href="#">Contact</a></li>
-	                </ul>
-	              </nav>
-	            </div>
-	          </div>
-
-	          <div class="inner cover">
-	            <h1 class="cover-heading">Cover your page.</h1>
-	            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-	            <p class="lead">
-	              <a href="#" class="btn btn-lg btn-default">Learn more</a>
-	            </p>
-	          </div>
-
-	          <div class="mastfoot">
-	            <div class="inner">
-	              <p>Carl Winkler</p>
-	            </div>
-	          </div>
-
-	        </div>
-
-	      </div>
-
-	    </div>
 
 	</body>
 </html>
