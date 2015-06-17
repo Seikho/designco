@@ -18,11 +18,9 @@ function socketHandler(socket) {
         var options = JSON.parse(msg);
         // Subscribe the socket to the requested channel
         events.psub(options.channel, function (ch, pt, msg) { return socketMsgHandler(socket, ch, pt, msg); });
-        log.debug("Created socket sub callback");
     });
 }
 function socketMsgHandler(socket, channel, pattern, message) {
-    log.debug("Fired socket sub callback");
     var output = {
         channel: channel,
         pattern: pattern,

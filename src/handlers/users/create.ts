@@ -12,7 +12,7 @@ function createUserHandler(channel: string, pattern: string, message: string) {
 	
 	// If the user isn't valid, do not continue
 	if (!isValidUser(user)) return;
-	 
+
 	getUserCreatedEvent(user).then((prevEvent: any[]) => {
 
 		var alreadyExists = prevEvent.length !== 0;
@@ -26,15 +26,31 @@ function getUserCreatedEvent(user: App.User) {
 	return store.fetch("users", "userCreated", user.username);
 }
 
+/**
+ * Create the entry in the database
+ * If that fails, the user most likely exists, but return a verbose error.
+ * 'Already existing' may occur due to race conditions
+ * On db insert success, create the event. Ensure event success.
+ */
 function createUser(user: App.User) { // Return a promise with the result
-	// Create the entry in the database
-	// If that fails, the user most likely exists, but return a verbose error.
-	// 'Already existing' may occur due to race conditions
-	// On db insert success, create the event. Ensure event success.
+	insertUser(user)
+		.then(id => insertUserHandlder(id, user));
+}
+
+function insertUserHandlder(id: number, user: App.User) {
+	if (id > 0) {
+		log.info("[USER:CREATEFAIL] User already exists: " + user.username);
+		raiseCreatedEvent("userCreated", user);
+		return;
+	}
 	
 	log.info("[USER:CREATE] User created: '" + user.username + "'");
-	store.pub({
-		event: "userCreated",
+	raiseCreatedEvent("userCreateFail", user);
+}
+
+function raiseCreatedEvent(event: string, user: App.User) {
+		store.pub({
+		event: event,
 		context: "users",
 		key: user.username,
 		data: user
@@ -46,7 +62,7 @@ function userAlreadyExists(user: App.User) {
 }
 
 function insertUser(user: App.User) {
-	db("users").insert(user);
+	return db("users").insert(user);
 }
 
 function isValidUser(user: App.User) {
@@ -58,10 +74,10 @@ function isValidUser(user: App.User) {
 		"enabled",
 		"company"
 	];
-	
+
 	var isAnyNull = requiredFields.some(field => {
 		return !!user["field"];
 	});
-	
+
 	return isAnyNull;
 }
