@@ -13,7 +13,7 @@
         "./src/handlers/users/handlers.ts",
         "./src/index.ts",
         "./src/server.ts",
-        "./src/sessions/create.ts",
+        "./src/sessions/api.ts",
         "./src/sockets.ts",
         "./src/store/db.ts",
         "./src/store/init.ts",
