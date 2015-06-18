@@ -21,7 +21,7 @@ function createDatabase(exists: boolean[]) {
     var baseExists = exists[1];
 
     if (liveExists) return Promise.resolve(false);
-    if (!baseExists) throw "Unable to create live database: Base does not exist";
+    if (!baseExists) return Promise.reject("Unable to create live database: Base does not exist");
 
     fs.createReadStream(baseDatabaseName())
         .pipe(fs.createWriteStream(liveDatabaseName()));
@@ -47,8 +47,4 @@ function liveDatabaseName() {
 
 function baseDatabaseName() {
     return cfg.config("baseDatabase");
-}
-
-const enum Create {
-
 }
