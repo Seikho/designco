@@ -48,7 +48,3 @@ function liveDatabaseName() {
 function baseDatabaseName() {
     return cfg.config("baseDatabase");
 }
-
-const enum Create {
-
-}
