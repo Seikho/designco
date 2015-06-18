@@ -5,7 +5,7 @@ var log = require("ls-logger");
 var cfg = require("ls-config");
 // Events API listener
 server.connection({
-    port: cfg.config("eventsPort"),
+    port: cfg.config("socketsPort"),
     labels: "events"
 });
 // Socket.IO listener
