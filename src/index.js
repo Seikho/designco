@@ -5,8 +5,6 @@ var dbInit = require("./store/init");
 var path = require("path");
 var log = require("ls-logger");
 // Initialise the web and socket servers
-console.log(cfg.config("eventsHost"));
-console.log(cfg.config("eventsPort"));
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
 var baseDb = path.join(basePath, "designco-base.sqlite");

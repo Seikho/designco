@@ -5,16 +5,13 @@ import cfg = require("ls-config")
 export = init;
 
 function init() {
-
-    var promiseArray = [
-        isFilePresent(liveDatabaseName()),
-        isFilePresent(baseDatabaseName())
-    ];
-
-    return Promise.all(promiseArray)
+    return Promise
+        .all([
+            isFilePresent(cfg.config("liveDatabase")),
+            isFilePresent(cfg.config("baseDatabase"))
+        ])
         .then(createDatabase);
 }
-
 
 function createDatabase(exists: boolean[]) {
     var liveExists = exists[0];
@@ -23,8 +20,8 @@ function createDatabase(exists: boolean[]) {
     if (liveExists) return Promise.resolve(false);
     if (!baseExists) return Promise.reject("Unable to create live database: Base does not exist");
 
-    fs.createReadStream(baseDatabaseName())
-        .pipe(fs.createWriteStream(liveDatabaseName()));
+    fs.createReadStream(cfg.config("baseDatabase"))
+        .pipe(fs.createWriteStream(cfg.config("liveDatabase")));
 
     return Promise.resolve(true);
 }
@@ -39,12 +36,4 @@ function filePromise(resolve, filename) {
         if (err) resolve(false);
         else resolve(true);
     });
-}
-
-function liveDatabaseName() {
-    return cfg.config("liveDatabase");
-}
-
-function baseDatabaseName() {
-    return cfg.config("baseDatabase");
 }
