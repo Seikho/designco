@@ -4,7 +4,7 @@
   "description": "DesignCo",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/index.js --events 192.168.59.103:6379",
     "test": "mocha",
     "build": ""
   },
@@ -27,9 +27,9 @@
     "js-md5": "^0.3.0",
     "jsonwebtoken": "^5.0.2",
     "knex": "^0.8.3",
-    "ls-config": "^0.1.1",
-    "ls-events": "^0.6.0",
-    "ls-logger": "^0.1.3",
+    "ls-config": "^0",
+    "ls-events": "^0",
+    "ls-logger": "^0",
     "mocha": "^2.2.5",
     "redis": "^0.12.1",
     "socket.io": "^1.3.5",
