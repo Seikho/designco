@@ -2,11 +2,11 @@ var Promise = require("bluebird");
 var fs = require("fs");
 var cfg = require("ls-config");
 function init() {
-    var promiseArray = [
-        isFilePresent(liveDatabaseName()),
-        isFilePresent(baseDatabaseName())
-    ];
-    return Promise.all(promiseArray)
+    return Promise
+        .all([
+        isFilePresent(cfg.config("liveDatabase")),
+        isFilePresent(cfg.config("baseDatabase"))
+    ])
         .then(createDatabase);
 }
 function createDatabase(exists) {
@@ -15,9 +15,9 @@ function createDatabase(exists) {
     if (liveExists)
         return Promise.resolve(false);
     if (!baseExists)
-        throw "Unable to create live database: Base does not exist";
-    fs.createReadStream(baseDatabaseName())
-        .pipe(fs.createWriteStream(liveDatabaseName()));
+        return Promise.reject("Unable to create live database: Base does not exist");
+    fs.createReadStream(cfg.config("baseDatabase"))
+        .pipe(fs.createWriteStream(cfg.config("liveDatabase")));
     return Promise.resolve(true);
 }
 function isFilePresent(filename) {
@@ -31,11 +31,5 @@ function filePromise(resolve, filename) {
         else
             resolve(true);
     });
-}
-function liveDatabaseName() {
-    return cfg.config("liveDatabase");
-}
-function baseDatabaseName() {
-    return cfg.config("baseDatabase");
 }
 module.exports = init;

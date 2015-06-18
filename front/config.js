@@ -26,7 +26,7 @@ System.config({
     "core-js": "npm:core-js@0.9.13",
     "css": "github:systemjs/plugin-css@0.1.12",
     "longshot-io/events-client": "github:longshot-io/events-client@master",
-    "ls-events-client": "npm:ls-events-client@0.1.7",
+    "ls-events-client": "npm:ls-events-client@0.1.8",
     "socket.io-client": "github:Automattic/socket.io-client@1.3.5",
     "github:angular/bower-angular-animate@1.4.1": {
       "angular": "github:angular/bower-angular@1.4.1"
@@ -372,6 +372,9 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:ls-events-client@0.1.7": {
+      "socket.io-client": "npm:socket.io-client@1.3.5"
+    },
+    "npm:ls-events-client@0.1.8": {
       "socket.io-client": "npm:socket.io-client@1.3.5"
     },
     "npm:miller-rabin@2.0.1": {

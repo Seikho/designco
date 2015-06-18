@@ -7,7 +7,7 @@ export = ioServer;
 
 // Events API listener
 server.connection({
-    port: cfg.config("eventsPort"),
+    port: cfg.config("socketsPort"),
     labels: "events"
 });
 
