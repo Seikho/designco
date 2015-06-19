@@ -1,6 +1,5 @@
 import cfg = require("ls-config");
 import store = require("ls-events");
-import handlerLoader = require("./handlers/loader");
 import dbInit = require("./store/init");
 import path = require("path");
 import log = require("ls-logger");
@@ -24,7 +23,6 @@ function startHandlers() {
     require("./server");
     require("./sockets");
     require("./webapi/loader")
-    handlerLoader.init();
 }
 
 function stopServer(error: string) {

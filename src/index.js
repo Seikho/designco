@@ -1,6 +1,5 @@
 var cfg = require("ls-config");
 var store = require("ls-events");
-var handlerLoader = require("./handlers/loader");
 var dbInit = require("./store/init");
 var path = require("path");
 var log = require("ls-logger");
@@ -19,7 +18,6 @@ function startHandlers() {
     require("./server");
     require("./sockets");
     require("./webapi/loader");
-    handlerLoader.init();
 }
 function stopServer(error) {
     console.error("Failed to create database: " + error);
