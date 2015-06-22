@@ -31,6 +31,10 @@ function stopServer(error: string) {
 
 // Pub/sub test code
 
+store.psub("users/*/*", (pattern, channel, msg) => {
+    log.info("[" + channel + "]: " + msg);
+});
+
 var testUser: App.User = {
     username: "carl",
     displayName: "Carl Winkler",

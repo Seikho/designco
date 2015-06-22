@@ -23,6 +23,9 @@ function stopServer(error) {
     console.error("Failed to create database: " + error);
 }
 // Pub/sub test code
+store.psub("users/*/*", function (pattern, channel, msg) {
+    log.info("[" + channel + "]: " + msg);
+});
 var testUser = {
     username: "carl",
     displayName: "Carl Winkler",
