@@ -31,34 +31,4 @@ function stopServer(error: string) {
     console.error("Failed to create database: " + error)
 }
 
-// Pub/sub test code
-
-store.psub("users/*/*", (pattern, channel, msg) => {
-    log.info("[" + channel + "]: " + msg);
-});
-
-var testUser: App.User = {
-    username: "carl",
-    displayName: "Carl Winkler",
-    password: "password",
-    email: "carl@longshot.io",
-    enabled: 1,
-    company: "Longshot"
-}
-
-var testCode = () => {
-    var testEvent: store.Event = {
-        event: "create",
-        context: "users",
-        key: "carl",
-        data: testUser
-    };
-
-    store.pub(testEvent)
-        .then(() => log.info("Published test message"));
-};
-
-setTimeout(testCode, 5000);
-
-
 

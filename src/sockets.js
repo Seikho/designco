@@ -24,7 +24,7 @@ function socketMsgHandler(socket, channel, pattern, message) {
     var output = {
         channel: channel,
         pattern: pattern,
-        message: message
+        message: JSON.stringify(message.data)
     };
     socket.emit(channel, JSON.stringify(output));
 }

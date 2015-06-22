@@ -6,9 +6,9 @@ declare module "ls-events" {
 
 	export function client(): redis.RedisClient;
 	export function pub(event: Event): Promise<{}>;
-	export function psub(channel: string, callback: (pattern: string, channel: string, message: EventData) => void): Promise<{}>;
-	export function sub(channel: string, callback: (channel: string, message: string) => void): Promise<{}>;
-	export function fetch(context?: string, event?: string, key?: string): Promise<any>;
+	export function psub(channel: string, callback: (pattern: string, channel: string, message: any) => void): Promise<{}>;
+	export function sub(channel: string, callback: (channel: string, message: any) => void): Promise<{}>;
+	export function fetch(context?: string, event?: string, key?: string): Promise<FetchResult[]>;
 	export function setHost(hostname: string, port?: number);
 
 	export interface Event {
@@ -18,7 +18,8 @@ declare module "ls-events" {
 		key: string|number;
 	}
 
-	export interface EventData {
+	export interface FetchResult {
+		channel: string;
 		published: number;
 		data: any;
 	}
