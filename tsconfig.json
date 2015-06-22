@@ -11,6 +11,7 @@
         "./src/api/loader.ts",
         "./src/api/static.ts",
         "./src/api/users/auth.ts",
+        "./src/api/users/findService.ts",
         "./src/index.ts",
         "./src/server.ts",
         "./src/sessions/api.ts",

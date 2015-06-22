@@ -3,6 +3,7 @@ var store = require("ls-events");
 var dbInit = require("./store/init");
 var path = require("path");
 var log = require("ls-logger");
+var findAuth = require("./api/users/findService");
 // Initialise the web and socket servers
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
@@ -17,7 +18,8 @@ dbInit()
 function startHandlers() {
     require("./server");
     require("./sockets");
-    require("./webapi/loader");
+    require("./api/loader");
+    findAuth();
 }
 function stopServer(error) {
     console.error("Failed to create database: " + error);
@@ -35,18 +37,13 @@ var testUser = {
     company: "Longshot"
 };
 var testCode = function () {
-    store.client().flushdb([], function (err, succ) {
-        if (err)
-            log.error("Failed to flush Redis database");
-        else
-            log.info("Successfully flushed Redis database");
-        var testEvent = {
-            event: "create",
-            context: "users",
-            key: "carl",
-            data: testUser
-        };
-        store.pub(testEvent);
-    });
+    var testEvent = {
+        event: "create",
+        context: "users",
+        key: "carl",
+        data: testUser
+    };
+    store.pub(testEvent)
+        .then(function () { return log.info("Published test message"); });
 };
 setTimeout(testCode, 5000);
