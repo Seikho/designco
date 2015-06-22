@@ -5,6 +5,12 @@ class StoreController {
         let self = this;
         self.sayHi = 'hi from StoreController!';
 
+        self.signs = [
+            { title: 'Manager\s special' }
+        ,   { title: 'fully sick' }
+        ,   { title: 'yeeeeeaaaaarrrrrgh' }
+        ];
+
         self.menuItems = [
             {
                 title: 'signs'
