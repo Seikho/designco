@@ -3,6 +3,7 @@ import store = require("ls-events");
 import dbInit = require("./store/init");
 import path = require("path");
 import log = require("ls-logger");
+import findAuth = require("./api/users/findService");
 
 // Initialise the web and socket servers
 
@@ -17,46 +18,17 @@ cfg.config("baseDatabase", "designco-base.sqlite");
 
 dbInit()
     .then(startHandlers)
-    .catch(stopServer);   
+    .catch(stopServer);
 
 function startHandlers() {
     require("./server");
     require("./sockets");
-    require("./webapi/loader")
+    require("./api/loader")
+    findAuth();
 }
 
 function stopServer(error: string) {
     console.error("Failed to create database: " + error)
 }
-
-// Pub/sub test code
-
-var testUser: App.User = {
-    username: "carl",
-    displayName: "Carl Winkler",
-    password: "password",
-    email: "carl@longshot.io",
-    enabled: 1,
-    company: "Longshot"
-}
-
-var testCode = () => {
-    store.client().flushdb([], (err, succ) => {
-        if (err) log.error("Failed to flush Redis database");
-        else log.info("Successfully flushed Redis database");
-
-        var testEvent: store.Event = {
-            event: "create",
-            context: "users",
-            key: "carl",
-            data: testUser
-        };
-
-        store.pub(testEvent);
-    });
-};
-
-setTimeout(testCode, 5000);
-
 
 

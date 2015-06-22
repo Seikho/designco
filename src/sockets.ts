@@ -28,11 +28,11 @@ function socketHandler(socket) {
     });
 }
 
-function socketMsgHandler(socket, channel: string, pattern: string, message: string) {
+function socketMsgHandler(socket, channel: string, pattern: string, message: any) {
     var output = {
         channel: channel,
         pattern: pattern,
-        message: message
+        message: JSON.stringify(message.data)
     }
     socket.emit(channel, JSON.stringify(output));
 }
