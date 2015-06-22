@@ -8,6 +8,9 @@
         "./src/**/*.ts"
     ],
     "files": [
+        "./src/api/loader.ts",
+        "./src/api/static.ts",
+        "./src/api/users/auth.ts",
         "./src/index.ts",
         "./src/server.ts",
         "./src/sessions/api.ts",
@@ -26,9 +29,6 @@
         "./src/typings/redis/redis.d.ts",
         "./src/typings/socket.io/socket.io.d.ts",
         "./src/typings/tsd.d.ts",
-        "./src/users/newUser.ts",
-        "./src/webapi/loader.ts",
-        "./src/webapi/static.ts",
-        "./src/webapi/users/auth.ts"
+        "./src/users/newUser.ts"
     ]
 }
