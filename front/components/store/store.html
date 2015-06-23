@@ -23,20 +23,31 @@
     <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
         <md-toolbar layout="row" class="md-whiteframe-z1">
-            <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
-                <md-icon md-svg-icon="menu" ></md-icon>
-            </md-button>
             <h1>Store</h1>
         </md-toolbar>
 
         <md-content flex id="content">
-            <h2>hi</h2>
-            <p>more stuff</p>
+            <div layout-padding layout="row">
+                <md-select ng-model="sign" placeholder="sign">
+                    <md-option ng-repeat="sign in store.signs">{{ sign.title }}</md-option>
+                </md-select>
 
-            <md-button class="contact" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
-                <md-tooltip>Contact jlasdfjkh</md-tooltip>
-                <md-icon md-svg-icon="share"></md-icon>
-            </md-button>
+                <md-checkbox ng-model="disableAddSign" aria-label="enable adding a new sign">
+                    <span>Add another sign</span>
+                </md-checkbox>
+
+                <div ng-show="disableAddSign">
+                    <br>
+                    <md-input-container>
+                        <label>Add a new sign</label>
+                        <input type="text" ng-model="addMeeee"/>
+                    </md-input-container>
+
+                    <md-button ng-click="store.signs.push({ title: addMeeee})">add sign</md-button>
+                </div>
+
+
+            </div>
         </md-content>
 
       </div>
