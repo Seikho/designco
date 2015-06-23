@@ -24,7 +24,9 @@ function startHandlers() {
     require("./server");
     require("./sockets");
     require("./api/loader")
-    findAuth();
+    findAuth()
+        .then(log.info)
+        .catch(log.error);
 }
 
 function stopServer(error: string) {
