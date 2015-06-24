@@ -27,27 +27,39 @@
         </md-toolbar>
 
         <md-content flex id="content">
-            <div layout-padding layout="row">
-                <md-select ng-model="sign" placeholder="sign">
-                    <md-option ng-repeat="sign in store.signs">{{ sign.title }}</md-option>
-                </md-select>
+            <div style="margin: 16px; max-width: 864px;">
+                <section layout-padding class="md-whiteframe-z1">
+                    <md-list>
+                        <md-subheader>Choose from {{ store.signs.length }} ready signs or make your own</md-subheader>
+                        <md-list-item ng-repeat="sign in store.signs">
+                            <p>{{ sign.title }}</p>
+                        </md-list-item>
+                    </md-list>
+                </section>
 
-                <md-checkbox ng-model="disableAddSign" aria-label="enable adding a new sign">
-                    <span>Add another sign</span>
-                </md-checkbox>
+                <section style="margin-top: 50px;" layout-padding class="md-whiteframe-z1">
+                    <div layout-padding layout="row">
+                        <md-select ng-model="sign" placeholder="sign">
+                            <md-option ng-repeat="sign in store.signs">{{ sign.title }}</md-option>
+                        </md-select>
 
-                <div ng-show="disableAddSign">
-                    <br>
-                    <md-input-container>
-                        <label>Add a new sign</label>
-                        <input type="text" ng-model="addMeeee"/>
-                    </md-input-container>
+                        <md-checkbox ng-model="disableAddSign" aria-label="enable adding a new sign">
+                            <span>Add another sign</span>
+                        </md-checkbox>
 
-                    <md-button ng-click="store.signs.push({ title: addMeeee})">add sign</md-button>
-                </div>
+                        <div ng-show="disableAddSign">
+                            <br>
+                            <md-input-container>
+                                <label>Add a new sign</label>
+                                <input type="text" ng-model="addMeeee"/>
+                            </md-input-container>
 
-
+                            <md-button ng-click="store.signs.push({ title: addMeeee})">add sign</md-button>
+                        </div>
+                    </div>
+                </section>
             </div>
+
         </md-content>
 
       </div>
