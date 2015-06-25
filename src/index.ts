@@ -24,6 +24,7 @@ function startHandlers() {
     require("./server");
     require("./sockets");
     require("./api/loader")
+    
     findAuth()
         .then(log.info)
         .catch(log.error);
