@@ -5,34 +5,39 @@ import ngMaterial from 'angular-material';
 // import ngAria from 'angular-aria';
 import * as StoreApp from './store/store';
 
+var appModules = [
+    "ngNewRouter",
+    "ngMaterial",
+    "app.store"
+];
+
 angular
-    .module('app', [
-        'ngNewRouter'
-    ,   'ngMaterial'
-    // ,   'ngAnimate'
-    // ,   'ngAria'
-    ,   'app.store'
-    ])
+    .module('app', appModules)
     .controller('AppController', AppController)
+    .config(themeHandler);
 
-    .config($mdThemingProvider => {
-        var designcoYellow = $mdThemingProvider
-            .extendPalette('yellow', {
-                '500': 'f9f213'
-            });
-        $mdThemingProvider.definePalette('designco', designcoYellow);
+function AppController(router) {
 
-        $mdThemingProvider.theme('default')
-            .primaryPalette('designco');
-    });
+}
 
-function AppController($router) {}
+function themeHandler(provider) {
+    var designCoHue = { "500": "f9f213" };
+    var designcoPalette = provider.extendPalette("yellow", designCoHue);
+    provider.definePalette("designco", designcoPalette);
+
+    provider
+        .theme("default")
+        .primaryPalette("designco");
+}
 
 AppController.$inject = [
     '$router'
 ];
 
-AppController.$routeConfig = [
-    { path: '/' , redirectTo: '/store' }
-,   { path: '/store' , component: 'store' }
-];
+AppController.$routeConfig = [{
+    path: '/',
+    redirectTo: '/store'
+}, {
+    path: '/store',
+    component: 'store'
+}];
