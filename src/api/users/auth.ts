@@ -2,9 +2,9 @@ import db = require("../../store/db");
 import Promise = require("bluebird");
 import request = require("request");
 import cfg = require("ls-config");
-export = login;
+export = authenticate;
 
-function login(login: App.Login): Promise<boolean> {
+function authenticate(login: App.Login): Promise<boolean> {
     if (!isValidRequest(login)) return Promise.resolve(false);
 
     var promise = new Promise<boolean>((resolve, reject) => {

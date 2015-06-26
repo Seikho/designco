@@ -1,7 +1,7 @@
 var Promise = require("bluebird");
 var request = require("request");
 var cfg = require("ls-config");
-function login(login) {
+function authenticate(login) {
     if (!isValidRequest(login))
         return Promise.resolve(false);
     var promise = new Promise(function (resolve, reject) {
@@ -23,4 +23,4 @@ function isValidRequest(login) {
     var isFieldsMissing = (login.username == null || login.password == null);
     return isFieldsMissing;
 }
-module.exports = login;
+module.exports = authenticate;

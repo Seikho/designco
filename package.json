@@ -20,6 +20,7 @@
   "homepage": "https://github.com/designco-wa/designco",
   "dependencies": {
     "bluebird": "^2.9.25",
+    "boom": "^2.8.0",
     "chai": "^2.3.0",
     "chalk": "^1.0.0",
     "hapi": "^8.6.0",

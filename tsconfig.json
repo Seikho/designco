@@ -20,6 +20,7 @@
         "./src/store/db.ts",
         "./src/store/init.ts",
         "./src/typings/bluebird/bluebird.d.ts",
+        "./src/typings/boom/boom.d.ts",
         "./src/typings/chalk/chalk.d.ts",
         "./src/typings/designco/designco.d.ts",
         "./src/typings/hapi/hapi.d.ts",
