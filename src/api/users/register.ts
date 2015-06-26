@@ -10,7 +10,7 @@ function register(register: App.Register): Promise<boolean> {
 
     var promise = new Promise<boolean>((resolve, reject) => {
         var handler = (error, response, body) => {
-			if (error) return reject("[AUTH-API] " + error);
+			if (error) return reject("[API] " + error);
 			resolve(body);
         };
 		var formData = {

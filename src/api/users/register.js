@@ -7,7 +7,7 @@ function register(register) {
     var promise = new Promise(function (resolve, reject) {
         var handler = function (error, response, body) {
             if (error)
-                return reject("[AUTH-API] " + error);
+                return reject("[API] " + error);
             resolve(body);
         };
         var formData = {
