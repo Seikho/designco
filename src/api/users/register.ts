@@ -5,7 +5,8 @@ import cfg = require("ls-config");
 export = register;
 
 function register(register: App.Register): Promise<boolean> {
-    if (!isValidRequest(register)) return Promise.reject("[AUTH] Must supply username, password and matching password");
+    if (!isValidRequest(register))
+        return Promise.reject("[AUTH] Missing required fields");
 
     var promise = new Promise<boolean>((resolve, reject) => {
         var handler = (error, response, body) => {
