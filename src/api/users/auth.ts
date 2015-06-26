@@ -2,6 +2,7 @@ import db = require("../../store/db");
 import Promise = require("bluebird");
 import request = require("request");
 import cfg = require("ls-config");
+export = login;
 
 function login(login: App.Login): Promise<boolean> {
     if (!isValidRequest(login)) return Promise.resolve(false);

@@ -23,3 +23,4 @@ function isValidRequest(login) {
     var isFieldsMissing = (login.username == null || login.password == null);
     return isFieldsMissing;
 }
+module.exports = login;
