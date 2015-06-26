@@ -5,29 +5,25 @@ import cfg = require("ls-config");
 export = authenticate;
 
 function authenticate(login: App.Login): Promise<boolean> {
-    if (!isValidRequest(login)) return Promise.resolve(false);
+    if (!isValidRequest(login)) return Promise.reject("[AUTH] Must supply username and password");
 
     var promise = new Promise<boolean>((resolve, reject) => {
         var handler = (error, response, body) => {
-			if (error) return reject(error);
+			if (error) return reject("[AUTH-API] " + error);
 			resolve(body);
         };
 
-		request.post(authHost(), login, handler);
+		request.post(authHost(), {form: login}, handler);
     });
 
 	return promise;
 }
 
-function requestHandler(error, response, body) {
-
-}
-
 function authHost() {
-    return "http://localhost:" + cfg.config("authPort") + "/authenticate";
+    return "http://localhost:" + cfg.config("authPort") + "/login";
 }
 
 function isValidRequest(login: App.Login) {
-    var isFieldsMissing = (login.username == null || login.password == null);
-    return isFieldsMissing;
+    var isValid = (!!login.username && !!login.password);
+    return isValid;
 }
