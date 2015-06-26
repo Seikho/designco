@@ -11,3 +11,5 @@ var authRoute = {
             .catch(error => reply(Boom.badRequest(error)));
     }
 }
+
+server.route(authRoute);

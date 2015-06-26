@@ -1,3 +1,4 @@
+var server = require("../../server");
 var auth = require("./auth");
 var Boom = require("boom");
 var authRoute = {
@@ -9,3 +10,4 @@ var authRoute = {
             .catch(function (error) { return reply(Boom.badRequest(error)); });
     }
 };
+server.route(authRoute);
