@@ -10,7 +10,10 @@ function authenticate(login) {
                 return reject("[AUTH-API] " + error);
             resolve(body);
         };
-        request.post(authHost(), { form: login }, handler);
+        var formData = {
+            form: login
+        };
+        request.post(authHost(), formData, handler);
     });
     return promise;
 }

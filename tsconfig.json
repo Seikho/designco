@@ -12,6 +12,7 @@
         "./src/api/static.ts",
         "./src/api/users/auth.ts",
         "./src/api/users/findService.ts",
+        "./src/api/users/register.ts",
         "./src/api/users/web.ts",
         "./src/index.ts",
         "./src/server.ts",

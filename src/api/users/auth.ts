@@ -12,8 +12,11 @@ function authenticate(login: App.Login): Promise<boolean> {
 			if (error) return reject("[AUTH-API] " + error);
 			resolve(body);
         };
+		var formData = {
+			form: login
+		};
 
-		request.post(authHost(), {form: login}, handler);
+		request.post(authHost(), formData, handler);
     });
 
 	return promise;

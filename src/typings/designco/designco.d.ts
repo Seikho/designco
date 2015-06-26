@@ -1,5 +1,5 @@
 declare module App {
-	
+
 	export interface User {
 		displayName: string;
 		username: string;
@@ -22,9 +22,13 @@ declare module App {
 		Order,
 		Item
 	}
-	
+
 	export interface Login {
 		username: string;
 		password: string;
+	}
+
+	export interface Register extends Login{
+		matchPassword: string;
 	}
 }
