@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "ES5",
+        "target": "es5",
         "module": "commonjs",
         "sourceMap": false
     },
@@ -12,6 +12,7 @@
         "./src/api/static.ts",
         "./src/api/users/auth.ts",
         "./src/api/users/findService.ts",
+        "./src/api/users/web.ts",
         "./src/index.ts",
         "./src/server.ts",
         "./src/sessions/api.ts",
@@ -28,6 +29,7 @@
         "./src/typings/longshot/logger.d.ts",
         "./src/typings/node/node.d.ts",
         "./src/typings/redis/redis.d.ts",
+        "./src/typings/request/request.d.ts",
         "./src/typings/socket.io/socket.io.d.ts",
         "./src/typings/tsd.d.ts",
         "./src/users/newUser.ts"
