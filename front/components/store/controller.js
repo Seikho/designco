@@ -14,17 +14,6 @@ class StoreController {
             { title: 'will blow your mind' }
         ];
 
-        this.menuItems = [
-            { title: 'signs' },
-            { title: 'banners' },
-            { title: 'vehicles' },
-            { title: 'print' },
-            { title: 'fabricated' },
-            { title: 'traditional' }
-        ];
-
-        this.activeMenuItem = this.menuItems[1];
-
         this.thing = {
             sayHi: 'thingHi'
         }

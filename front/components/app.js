@@ -1,12 +1,12 @@
 import angular from 'angular';
 import ngNewRouter from 'angular-new-router';
 import ngMaterial from 'angular-material';
-import * as StoreApp from './store/store';
 
 var appModules = [
     "ngNewRouter",
     "ngMaterial",
-    "app.store"
+    "app.store",
+    "app.nav"
 ];
 
 angular
