@@ -8,21 +8,38 @@
 	    <meta name="author" content="">
 		<title>Designco: Shop</title>
 	</head>
-	<body ng-app="app" ng-controller="AppController">
-	<div style="height: 100%;" class="container">
-		<div style="height: 100%;">
-			<div style="height: 100%;" layout="row">
-				<div ng-outlet="left"></div>
-				<div ng-outlet="right"></div>
-				<div ng-outlet="noexist"></div>
+	<body ng-app="app">
+
+		<div>
+			<ul>
+				<li>this will be the permanent sidenav</li>
+				<li>not sure how it plays with the 'sidenav' in store.html (it needs to be moved here)</li>
+				<li><a ui-sref="state1">state1</a></li>
+				<li><a ui-sref="state2">state2</a></li>
+				<li><a ui-sref="store">store</a></li>
+			</ul>
+		</div>
+
+		<div ui-view>
+
+
+
+		<!--
+		<div style="height: 100%;" class="container">
+			<div style="height: 100%;">
+				<div style="height: 100%;" layout="row">
+					<div ng-outlet="left"></div>
+					<div ng-outlet="right"></div>
+					<div ng-outlet="noexist"></div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<script src="jspm_packages/system.js"></script>
-	<script src="config.js"></script>
-	<script>
-		System.import('./styles/main.css!');
-		System.import('./components/app');
-	</script>	
+		-->
+		<script src="jspm_packages/system.js"></script>
+		<script src="config.js"></script>
+		<script>
+			System.import('./styles/main.css!');
+			System.import('./components/app');
+		</script>
 	</body>
 </html>

@@ -47,6 +47,7 @@
       "angular-aria": "github:angular/bower-angular-aria@^1.4.1",
       "angular-material": "github:angular/bower-material@^0.10.0",
       "angular-new-router": "npm:angular-new-router@^0.5.3",
+      "angular-ui-router": "github:angular-ui/ui-router@^0.2.15",
       "bootstrap": "github:twbs/bootstrap@^3.3.4",
       "css": "github:systemjs/plugin-css@^0.1.11",
       "longshot-io/events-client": "github:longshot-io/events-client@master",

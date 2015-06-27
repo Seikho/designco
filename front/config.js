@@ -20,6 +20,7 @@ System.config({
     "angular-aria": "github:angular/bower-angular-aria@1.4.1",
     "angular-material": "github:angular/bower-material@0.10.0",
     "angular-new-router": "npm:angular-new-router@0.5.3",
+    "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "babel": "npm:babel-core@5.4.7",
     "babel-runtime": "npm:babel-runtime@5.4.7",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
@@ -28,6 +29,9 @@ System.config({
     "longshot-io/events-client": "github:longshot-io/events-client@master",
     "ls-events-client": "npm:ls-events-client@0.1.8",
     "socket.io-client": "github:Automattic/socket.io-client@1.3.5",
+    "github:angular-ui/ui-router@0.2.15": {
+      "angular": "github:angular/bower-angular@1.4.1"
+    },
     "github:angular/bower-angular-animate@1.4.1": {
       "angular": "github:angular/bower-angular@1.4.1"
     },

@@ -1,37 +1,39 @@
 import angular from 'angular';
-import ngNewRouter from 'angular-new-router';
+import uiRouter from 'angular-ui-router';
+// import ngNewRouter from 'angular-new-router';
 import ngMaterial from 'angular-material';
 import * as Store from "./store/store";
 import * as Nav from "./nav/nav";
 
 var appModules = [
-    "ngNewRouter",
+    "ui.router",
+    // "ngNewRouter",
     "ngMaterial",
     "app.store",
     "app.nav"
 ];
 
 angular
-    .module("app", appModules)
-    .controller("AppController", ["$router", AppController])
+    .module('app', appModules)
+    .config(function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/state1');
+
+        $stateProvider
+            .state('state1', {
+                url: '/state1'
+            ,   templateUrl: '/front/components/state1.html'
+            })
+            .state('state2', {
+                url: '/state2'
+            ,   templateUrl: '/front/components/state2.html'
+            })
+            .state('store', {
+                url: '/store'
+            ,   templateUrl: '/front/components/store/store.html'
+            ,   controller: 'StoreController as store'
+            })
+    })
     .config($mdThemingProvider => themeHandler($mdThemingProvider));
-
-AppController.$routeConfig = [
-    {
-        path: "/",
-        redirectTo: "/store"
-    },
-    {
-        path: "/store",
-        components: {
-            left: "nav",
-            right: "store"
-        }
-    }
-];
-
-function AppController($router) {
-}
 
 function themeHandler(provider) {
     var designCoHue = {
@@ -44,3 +46,23 @@ function themeHandler(provider) {
         .theme("default")
         .primaryPalette("designco");
 }
+
+//
+// .controller("AppController", ["$router", AppController])
+//
+// AppController.$routeConfig = [
+//     {
+//         path: "/",
+//         redirectTo: "/store"
+//     },
+//     {
+//         path: "/store",
+//         components: {
+//             left: "nav",
+//             right: "store"
+//         }
+//     }
+// ];
+//
+// function AppController($router) {
+// }
