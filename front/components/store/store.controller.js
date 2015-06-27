@@ -6,30 +6,22 @@ class StoreController {
         self.sayHi = 'hi from StoreController!';
 
         self.signs = [
-            { title: 'Manager\s special' }
+            { title: 'Manager\'s special' }
         ,   { title: 'fully sick' }
         ,   { title: 'yeeeeeaaaaarrrrrgh' }
+        ,   { title: 'this day only' }
+        ,   { title: 'closing down sale' }
+        ,   { title: 'sunday special' }
+        ,   { title: 'will blow your mind' }
         ];
 
         self.menuItems = [
-            {
-                title: 'signs'
-            },
-            {
-                title: 'banners'
-            },
-            {
-                title: 'vehicles'
-            },
-            {
-                title: 'print'
-            },
-            {
-                title: 'fabricated'
-            },
-            {
-                title: 'traditional'
-            }
+            { title: 'signs' }
+        ,   { title: 'banners' }
+        ,   { title: 'vehicles' }
+        ,   { title: 'print' }
+        ,   { title: 'fabricated' }
+        ,   { title: 'traditional' }
         ];
 
         self.activeMenuItem = self.menuItems[1];
