@@ -8,20 +8,21 @@
 	    <meta name="author" content="">
 		<title>Designco: Shop</title>
 	</head>
-	<body ng-app="app">
-
-		<script src="jspm_packages/system.js"></script>
-		<script src="config.js"></script>
-		<script>
-			System.import('./styles/main.css!');
-			// System.import('bootstrap/css/bootstrap.css!');
-			System.import('./components/app');
-		</script>
-
-
-		<div style="height: 100%;" ng-controller="AppController as app">
-			<div style="height: 100%;" ng-viewport></div>
+	<body ng-app="app" ng-controller="AppController">
+	<div style="height: 100%;" class="container">
+		<div style="height: 100%;">
+			<div style="height: 100%;" layout="row">
+				<div ng-outlet="left"></div>
+				<div ng-outlet="right"></div>
+				<div ng-outlet="noexist"></div>
+			</div>
 		</div>
-
+	</div>
+	<script src="jspm_packages/system.js"></script>
+	<script src="config.js"></script>
+	<script>
+		System.import('./styles/main.css!');
+		System.import('./components/app');
+	</script>	
 	</body>
 </html>

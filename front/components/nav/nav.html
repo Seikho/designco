@@ -1,0 +1,16 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z3"
+    md-component-id="left"
+    md-is-locked-open="$mdMedia('gt-sm')">
+    <md-toolbar class="md-whiteframe-z2">
+        <h1>Designco</h1>
+    </md-toolbar>
+
+    <md-list>
+        <md-list-item ng-repeat="item in nav.menuItems">
+            <md-button>
+                {{ item.title }}
+            </md-button>
+        </md-list-item>
+    </md-list>
+
+</md-sidenav>

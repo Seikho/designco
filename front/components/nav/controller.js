@@ -1,4 +1,4 @@
-export default class NavController() {
+export class NavController {
 	constructor() {
         this.menuItems = [
             { title: 'signs' },

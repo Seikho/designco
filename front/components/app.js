@@ -1,6 +1,8 @@
 import angular from 'angular';
 import ngNewRouter from 'angular-new-router';
 import ngMaterial from 'angular-material';
+import * as Store from "./store/store";
+import * as Nav from "./nav/nav";
 
 var appModules = [
     "ngNewRouter",
@@ -10,18 +12,25 @@ var appModules = [
 ];
 
 angular
-    .module('app', appModules)
-    .controller('AppController', ['$router', AppController])
+    .module("app", appModules)
+    .controller("AppController", ["$router", AppController])
     .config($mdThemingProvider => themeHandler($mdThemingProvider));
 
+AppController.$routeConfig = [
+    {
+        path: "/",
+        redirectTo: "/store"
+    },
+    {
+        path: "/store",
+        components: {
+            left: "nav",
+            right: "store"
+        }
+    }
+];
+
 function AppController($router) {
-    $router.config([{
-        path: '/',
-        redirectTo: '/store'
-    }, {
-        path: '/store',
-        component: 'store'
-    }])
 }
 
 function themeHandler(provider) {
