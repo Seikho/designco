@@ -1,9 +1,7 @@
 import angular from 'angular';
 import ngNewRouter from 'angular-new-router';
 import ngMaterial from 'angular-material';
-// import ngAnimate from 'angular-animate';
-// import ngAria from 'angular-aria';
-import * as StoreApp from './store/store';
+import * as StoreApp from './store/component';
 
 var appModules = [
     "ngNewRouter",
