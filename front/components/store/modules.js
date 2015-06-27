@@ -1,6 +1,6 @@
 'use strict';
 
-import { StoreController } from './store.controller';
+import { StoreController } from './controller';
 
 let controller = StoreController;
 

@@ -1,6 +1,5 @@
-import * as StoreModule from './store.module';
+import * as StoreModule from './modules';
 
 angular
-    .module('app.store', [
-    ])
+    .module('app.store', [])
     .controller('StoreController', StoreModule.controller);
