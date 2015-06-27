@@ -1,7 +1,7 @@
 import angular from 'angular';
 import ngNewRouter from 'angular-new-router';
 import ngMaterial from 'angular-material';
-import * as StoreApp from './store/component';
+import * as StoreApp from './store/store';
 
 var appModules = [
     "ngNewRouter",
@@ -11,15 +11,23 @@ var appModules = [
 
 angular
     .module('app', appModules)
-    .controller('AppController', AppController)
-    .config(themeHandler);
+    .controller('AppController', ['$router', AppController])
+    .config($mdThemingProvider => themeHandler($mdThemingProvider));
 
-function AppController(router) {
-
+function AppController($router) {
+    $router.config([{
+        path: '/',
+        redirectTo: '/store'
+    }, {
+        path: '/store',
+        component: 'store'
+    }])
 }
 
 function themeHandler(provider) {
-    var designCoHue = { "500": "f9f213" };
+    var designCoHue = {
+        "500": "f9f213"
+    };
     var designcoPalette = provider.extendPalette("yellow", designCoHue);
     provider.definePalette("designco", designcoPalette);
 
@@ -27,15 +35,3 @@ function themeHandler(provider) {
         .theme("default")
         .primaryPalette("designco");
 }
-
-AppController.$inject = [
-    '$router'
-];
-
-AppController.$routeConfig = [{
-    path: '/',
-    redirectTo: '/store'
-}, {
-    path: '/store',
-    component: 'store'
-}];

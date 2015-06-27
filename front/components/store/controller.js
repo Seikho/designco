@@ -23,15 +23,11 @@ class StoreController {
             { title: 'traditional' }
         ];
 
-        this.activeMenuItem = self.menuItems[1];
+        this.activeMenuItem = this.menuItems[1];
 
         this.thing = {
             sayHi: 'thingHi'
         }
     };
-
-
-
 }
-
 export { StoreController }
