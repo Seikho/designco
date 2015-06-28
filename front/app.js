@@ -1,8 +1,8 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
-import * as Store from "./store/store";
-import * as Nav from "./nav/nav";
+import * as Store from "./components/store/store";
+import * as Nav from "./components/nav/nav";
 
 var appModules = [
     "ui.router",
@@ -12,22 +12,20 @@ var appModules = [
 ];
 
 angular
-    .module('app', appModules)
+    .module("app", appModules)
     .config(($stateProvider, $urlRouterProvider) => routeConfig($stateProvider, $urlRouterProvider))
     .config($mdThemingProvider => themeHandler($mdThemingProvider));
 
 function routeConfig(provider, router) {
-    router.otherwise('/nav');
+    router.otherwise("/");
+
     provider
-        .state("nav", {
-            url: "/nav",
-            templateUrl: "/components/nav/view.html",
-            controller: "NavController as nav"
-        })
-        .state('store', {
-            url: "/store",
-            templateUrl: "/components/store/view.html",
-            controller: "StoreController as store"
+        .state("designco", {
+            url: "/",
+            views: {
+                "nav": Nav.view,
+                "store": Store.view
+            }
         });
 }
 
