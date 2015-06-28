@@ -1,24 +1,22 @@
-<md-content flex layout-padding>
-    <md-toolbar layout="row" class="md-whiteframe-z1">
-        <h1>Store</h1>
-    </md-toolbar>
-    <div layout="column" layout-fell layout-align="top center">
-        <md-select ng-model="sign" placeholder="sign">
-            <md-option ng-repeat="sign in store.signs">{{ sign.title }}</md-option>
-        </md-select>
+<md-toolbar layout="row" class="md-whiteframe-z1">
+    <h3>Store</h3>
+</md-toolbar>
+<div layout="column" layout-fell layout-align="top center">
+    <md-select ng-model="sign" placeholder="sign">
+        <md-option ng-repeat="sign in store.signs">{{ sign.title }}</md-option>
+    </md-select>
 
-        <md-checkbox ng-model="disableAddSign" aria-label="enable adding a new sign">
-            <span>Add another sign</span>
-        </md-checkbox>
+    <md-checkbox ng-model="disableAddSign" aria-label="enable adding a new sign">
+        <span>Add another sign</span>
+    </md-checkbox>
 
-        <div ng-show="disableAddSign">
-            <br>
-            <md-input-container>
-                <label>Add a new sign</label>
-                <input type="text" ng-model="addMeeee"/>
-            </md-input-container>
+    <div ng-show="disableAddSign">
+        <br>
+        <md-input-container>
+            <label>Add a new sign</label>
+            <input type="text" ng-model="addMeeee"/>
+        </md-input-container>
 
-            <md-button ng-click="store.signs.push({ title: addMeeee})">add sign</md-button>
-        </div>
+        <md-button ng-click="store.signs.push({ title: addMeeee})">add sign</md-button>
     </div>
-</md-content>
+</div>

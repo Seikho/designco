@@ -1,15 +1,11 @@
-<md-sidenav class="md-sidenav-left"
-    md-component-id="left"
-    md-is-locked-open="$mdMedia('gt-sm')">
-    <md-toolbar>
-        <h1>Designco</h1>
-    </md-toolbar>
+<md-toolbar>
+    <h3>Designco</h3>
+</md-toolbar>
 
+<md-content flex role="navigation" class="md-default-theme">
     <md-list>
-        <md-list-item ng-repeat="item in nav.menuItems">
-            <md-button>
-                {{ item.title }}
-            </md-button>
+        <md-list-item ng-repeat="menuItem in nav.menuItems" ng-click="void(0)">
+                {{ menuItem.title }}
         </md-list-item>
     </md-list>
-</md-sidenav>
+</md-content>
