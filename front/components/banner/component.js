@@ -1,11 +1,12 @@
+import designco from "../../designco";
 import { BannerController } from "./controller";
 
-angular
-    .module('app.banner', [])
-    .controller('BannerController', [BannerController]);
+designco.controller('BannerController', [BannerController]);
 
-export var view = {
+var view = {
     url: "/banner",
     templateUrl: "/components/banner/view.html",
     controller: "BannerController as banner"
 };
+
+export { view as default }

@@ -1,4 +1,4 @@
-class ScreenController {
+export class ScreenController {
     constructor() {
 
         //TODO: Seed this from API
@@ -11,5 +11,3 @@ class ScreenController {
         ];
     }
 }
-
-export { ScreenController }

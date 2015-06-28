@@ -1,11 +1,12 @@
+import designco from "../../designco";
 import { NavController } from './controller';
 
-angular
-    .module('app.nav', [])
-    .controller('NavController', [NavController]);
+designco.controller('NavController', [NavController]);
 
-export var view = {
+var view = {
     url: "/nav",
     templateUrl: "/components/nav/view.html",
     controller: "NavController as nav"
 };
+
+export { view as default }

@@ -1,32 +1,24 @@
-import angular from "angular";
-import uiRouter from "angular-ui-router";
-import ngMaterial from "angular-material";
-import { CartService } from "./components/cart/service";
-import * as Screen from "./components/screen/component";
-import * as Nav from "./components/nav/component";
-import * as Banner from "./components/banner/component";
+import designco from "./designco";
+import CartService from "./components/cart/service";
+import screenView from "./components/screen/component";
+import navView from "./components/nav/component";
+import bannerView from "./components/banner/component";
 
-var appModules = [
+var dependencies = [
     "ui.router",
-    "ngMaterial",
-    "app.nav",
-    "app.screen",
-    "app.banner"
+    "ngMaterial"
 ];
 
-angular
-    .module("app", appModules)
+designco
     .config(($stateProvider, $urlRouterProvider) => routeConfig($stateProvider, $urlRouterProvider))
-    .config($mdThemingProvider => themeHandler($mdThemingProvider))
-    .factory("app.cartService", CartService);
-
+    .config($mdThemingProvider => themeHandler($mdThemingProvider));
 
 function routeConfig(provider, router) {
     router.otherwise("/screen");
 
     provider
-        .state("screen", Screen.view)
-        .state("banner", Banner.view);
+        .state("screen", screenView)
+        .state("banner", bannerView);
 }
 
 function themeHandler(provider) {

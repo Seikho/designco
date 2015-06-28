@@ -1,11 +1,12 @@
+import designco from "../../designco";
 import { ScreenController } from "./controller";
 
-angular
-    .module("app.screen", [])
-    .controller("ScreenController", ScreenController);
+designco.controller("ScreenController", [ScreenController]);
 
-export var view = {
+var view = {
     url: "/screen",
     templateUrl: "/components/screen/view.html",
     controller: "ScreenController as screen"
 };
+
+export { view as default }
