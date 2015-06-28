@@ -1,8 +1,8 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
-import * as Store from "./components/store/store";
-import * as Nav from "./components/nav/nav";
+import * as Store from "./components/store/component";
+import * as Nav from "./components/nav/component";
 
 var appModules = [
     "ui.router",
@@ -20,11 +20,7 @@ function routeConfig(provider, router) {
     router.otherwise("/store");
 
     provider
-        .state("store", {
-            url: "/store",
-            templateUrl: "/components/store/view.html",
-            controller: "StoreController as store"
-        });
+        .state("store", Store.view);
 }
 
 function themeHandler(provider) {
