@@ -1,6 +1,5 @@
 export class ScreenController {
-    constructor() {
-
+    constructor(cart) {
         //TODO: Seed this from API
         this.screens = [
             { id: 1, title: "Manager's special "},
