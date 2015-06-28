@@ -17,15 +17,13 @@ angular
     .config($mdThemingProvider => themeHandler($mdThemingProvider));
 
 function routeConfig(provider, router) {
-    router.otherwise("/");
+    router.otherwise("/store");
 
     provider
-        .state("designco", {
-            url: "/",
-            views: {
-                "nav": Nav.view,
-                "store": Store.view
-            }
+        .state("store", {
+            url: "/store",
+            templateUrl: "/components/store/view.html",
+            controller: "StoreController as store"
         });
 }
 

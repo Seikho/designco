@@ -21,14 +21,16 @@
 
 					<md-content flex role="navigation" class="md-default-theme">
 					    <md-list>
-					        <md-list-item ng-repeat="menuItem in nav.menuItems" ng-click="nav.changeView(menuItem)">
-					                {{ menuItem.title }}
-					        </md-list-item>
+					        <md-list-item ng-repeat="menuItem in nav.menuItems">
+					        	<md-button class="md-default-theme" style="width: 95%" ui-sref="{{menuItem.view}}">
+									{{menuItem.title}}
+								</md-button>
+							</md-list-item>
 					    </md-list>
 					</md-content>
 
 				</md-sidenav>
-				<md-content flex data-ui-view="nav.currentView.view">
+				<md-content flex ui-view>
 				</md-content>
 			</section>
 		</div>
