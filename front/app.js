@@ -5,13 +5,12 @@ import * as Screen from "./components/screen/component";
 import * as Nav from "./components/nav/component";
 import * as Banner from "./components/banner/component";
 
-import { CartService } from "./services/cart/service";
 var appModules = [
     "ui.router",
     "ngMaterial",
     "app.nav",
     "app.screen",
-    "app.banners"
+    "app.banner"
     "app.cartService"
 ];
 
