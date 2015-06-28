@@ -1,6 +1,6 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import ngMaterial from 'angular-material';
+import angular from "angular";
+import uiRouter from "angular-ui-router";
+import ngMaterial from "angular-material";
 import * as Store from "./store/store";
 import * as Nav from "./nav/nav";
 
@@ -13,25 +13,23 @@ var appModules = [
 
 angular
     .module('app', appModules)
-    .config(($stateProvider, $urlRouterProvider) =>
-        $urlRouterProvider.otherwise('/state1');
-
-        $stateProvider
-            .state('state1', {
-                url: '/state1',
-                templateUrl: '/front/components/state1.html'
-            })
-            .state('state2', {
-                url: '/state2',
-                templateUrl: '/front/components/state2.html'
-            })
-            .state('store', {
-                url: '/store'
-                templateUrl: '/front/components/store/store.html',
-                controller: 'StoreController as store'
-            })
-    })
+    .config(($stateProvider, $urlRouterProvider) => routeConfig($stateProvider, $urlRouterProvider))
     .config($mdThemingProvider => themeHandler($mdThemingProvider));
+
+function routeConfig(provider, router) {
+    router.otherwise('/nav');
+    provider
+        .state("nav", {
+            url: "/nav",
+            templateUrl: "/components/nav/view.html",
+            controller: "NavController as nav"
+        })
+        .state('store', {
+            url: "/store",
+            templateUrl: "/components/store/view.html",
+            controller: "StoreController as store"
+        });
+}
 
 function themeHandler(provider) {
     var designcoHue = {
