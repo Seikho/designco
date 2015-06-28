@@ -20,13 +20,25 @@ function routeConfig(provider, router) {
     router.otherwise("/");
 
     provider
-        .state("designco", {
-            url: "/",
-            views: {
-                "nav": Nav.view,
-                "store": Store.view
-            }
-        });
+        // add your imports back here...
+        .state('store', {
+            url: '/',
+            templateUrl: './components/store/view.html',
+            controller: 'StoreController as store'
+        })
+        .state('test', {
+            url: '/test',
+            templateUrl: './components/test/view.html'
+        })
+
+    // provider
+    //     .state("designco", {
+    //         url: "/",
+    //         views: {
+    //             "nav": Nav.view,
+    //             "store": Store.view
+    //         }
+    //     });
 }
 
 function themeHandler(provider) {

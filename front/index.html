@@ -8,28 +8,45 @@
 	    <meta name="author" content="">
 		<title>Designco: Shop</title>
 	</head>
-	<body ng-app="app" ng-controller="NavController as nav">
+	<body ng-app="app">
+	<!-- <body ng-app="app" ng-controller="NavController as nav"> -->
 		<div layout="column" layout-wrap>
-			<section layout="row" flex>
-				<md-sidenav class="md-sidenav-left"
+			<section flex layout="row">
+				<md-sidenav
+					class="md-sidenav-left"
 				    md-component-id="left"
 				    md-is-locked-open="$mdMedia('gt-sm')">
-
-					<md-toolbar>
-					    <h3>Designco: {{ nav.currentView.title }}</h3>
+					<md-toolbar class="md-tall">
+						<h1>Designco</h1>
 					</md-toolbar>
 
-					<md-content flex role="navigation" class="md-default-theme">
+					<md-content layout-padding class="md-default-theme">
 					    <md-list>
-					        <md-list-item ng-repeat="menuItem in nav.menuItems" ng-click="nav.changeView(menuItem)">
-					                {{ menuItem.title }}
+
+
+							<!-- bring back NavController if you REALLY want ng-repeat -->
+							<md-list-item>
+					                <a ui-sref="store">Store</a>
 					        </md-list-item>
+							<md-list-item>
+					                <a ui-sref="test">test</a>
+					        </md-list-item>
+
+					        <!-- <md-list-item ng-repeat="menuItem in nav.menuItems" ng-click="nav.changeView(menuItem)">
+					                {{ menuItem.title }}
+					        </md-list-item> -->
 					    </md-list>
 					</md-content>
-
 				</md-sidenav>
-				<md-content flex data-ui-view="nav.currentView.view">
+
+				<md-content flex>
+					 <div ui-view></div>
 				</md-content>
+
+
+
+				<!-- <md-content flex data-ui-view="nav.currentView.view">
+				</md-content> -->
 			</section>
 		</div>
 		<script src="jspm_packages/system.js"></script>

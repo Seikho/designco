@@ -1,7 +1,16 @@
 'use strict';
 
 class StoreController {
-    constructor() {
+    constructor($state) {
+
+        this.currentState = $state.$current.name;
+
+        this.manualRedirect = function() {
+            // normally used for behind-the-scenes redirecting
+            // ...NOT for normal navigating.
+            $state.go('test');
+        };
+
         this.sayHi = 'hi from StoreController!';
 
         this.signs = [
@@ -19,4 +28,7 @@ class StoreController {
         }
     };
 }
+
+StoreController.$inject = ['$state']
+
 export { StoreController }

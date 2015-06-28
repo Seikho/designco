@@ -1,7 +1,13 @@
-<md-toolbar layout="row">
+<md-toolbar class="md-tall" layout="row">
     <h3>Store</h3>
 </md-toolbar>
 <div layout="column" layout-fell layout-align="top center">
+
+    <section>
+        <p>current state: {{ store.currentState }}</p>
+        <md-button ng-click="store.manualRedirect()">to test</md-button>
+    </section>
+
     <md-select ng-model="sign" placeholder="sign">
         <md-option ng-repeat="sign in store.signs">{{ sign.title }}</md-option>
     </md-select>
