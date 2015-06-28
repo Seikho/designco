@@ -9,7 +9,7 @@
 		<title>Designco: Shop</title>
 	</head>
 	<body ng-app="app">
-	<!-- <body ng-app="app" ng-controller="NavController as nav"> -->
+	<body ng-app="app" ng-controller="NavController as nav">
 		<div layout="column" layout-wrap>
 			<section flex layout="row">
 				<md-sidenav
@@ -22,43 +22,12 @@
 
 					<md-content layout-padding class="md-default-theme">
 					    <md-list>
-<<<<<<< HEAD
 					        <md-list-item ng-repeat="menuItem in nav.menuItems">
 					        	<md-button class="md-default-theme" style="width: 95%" ui-sref="{{menuItem.view}}">
 									{{menuItem.title}}
 								</md-button>
 							</md-list-item>
-=======
-
-
-							<!-- bring back NavController if you REALLY want ng-repeat -->
-							<md-list-item>
-					                <a ui-sref="store">Store</a>
-					        </md-list-item>
-							<md-list-item>
-					                <a ui-sref="test">test</a>
-					        </md-list-item>
-
-					        <!-- <md-list-item ng-repeat="menuItem in nav.menuItems" ng-click="nav.changeView(menuItem)">
-					                {{ menuItem.title }}
-					        </md-list-item> -->
->>>>>>> c362853034ba84e34e665a09b66ffa8e9e824ee1
-					    </md-list>
-					</md-content>
-				</md-sidenav>
-<<<<<<< HEAD
-				<md-content flex ui-view>
-=======
-
-				<md-content flex>
-					 <div ui-view></div>
->>>>>>> c362853034ba84e34e665a09b66ffa8e9e824ee1
 				</md-content>
-
-
-
-				<!-- <md-content flex data-ui-view="nav.currentView.view">
-				</md-content> -->
 			</section>
 		</div>
 		<script src="jspm_packages/system.js"></script>
