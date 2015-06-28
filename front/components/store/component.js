@@ -1,8 +1,10 @@
-import * as StoreModule from './modules';
+import { StoreController } from './controller';
+
+console.log(StoreController);
 
 angular
     .module('app.store', [])
-    .controller('StoreController', [StoreModule.controller]);
+    .controller('StoreController', [StoreController]);
 
 export var view = {
     url: "/store",

@@ -3,12 +3,14 @@ import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import * as Store from "./components/store/component";
 import * as Nav from "./components/nav/component";
+import * as Banners from "./components/banners/component";
 
 var appModules = [
     "ui.router",
     "ngMaterial",
     "app.store",
-    "app.nav"
+    "app.nav",
+    "app.banners"
 ];
 
 angular
@@ -20,7 +22,8 @@ function routeConfig(provider, router) {
     router.otherwise("/store");
 
     provider
-        .state("store", Store.view);
+        .state("store", Store.view)
+        .state("banners", Banners.view);
 }
 
 function themeHandler(provider) {

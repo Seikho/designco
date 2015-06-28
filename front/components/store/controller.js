@@ -1,6 +1,6 @@
 'use strict';
 
-class StoreController {
+export class StoreController {
     constructor() {
         this.sayHi = 'hi from StoreController!';
 
@@ -19,4 +19,3 @@ class StoreController {
         }
     };
 }
-export { StoreController }

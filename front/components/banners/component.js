@@ -1,11 +1,11 @@
-import { Controller } from "./controller";
+import { BannersController } from "./controller";
 
 angular
     .module('app.banners', [])
-    .controller('BannerController', [Controller]);
+    .controller('BannersController', [BannersController]);
 
 export var view = {
-    url: "/nav",
+    url: "/banners",
     templateUrl: "/components/banners/view.html",
-    controller: "BannerController as banners"
+    controller: "BannersController as banners"
 };
