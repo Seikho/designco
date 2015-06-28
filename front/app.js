@@ -1,15 +1,16 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
-import * as Store from "./components/store/component";
+import * as Screen from "./components/screen/component";
 import * as Nav from "./components/nav/component";
 import * as Banners from "./components/banners/component";
+
 import { CartService } from "./services/cart/service";
 var appModules = [
     "ui.router",
     "ngMaterial",
-    "app.store",
     "app.nav",
+    "app.screen",
     "app.banners"
     "app.cartService"
 ];
@@ -21,10 +22,10 @@ angular
 
 
 function routeConfig(provider, router) {
-    router.otherwise("/store");
+    router.otherwise("/screen");
 
     provider
-        .state("store", Store.view)
+        .state("screen", Store.view)
         .state("banners", Banners.view);
 }
 
