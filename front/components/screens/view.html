@@ -1,0 +1,12 @@
+<md-toolbar layout="row">
+    <h3>Screens</h3>
+</md-toolbar>
+<div layout="column" layout-fell layout-align="top center">
+    <md-select ng-model="sign" placeholder="sign">
+        <md-option ng-repeat="screen in screen.screens">{{ screen.title }}</md-option>
+    </md-select>
+
+    <md-checkbox aria-label="enable adding a new sign">
+        <span>Add another sign</span>
+    </md-checkbox>
+</div>
