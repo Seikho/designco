@@ -9,13 +9,11 @@
 		<title>Designco: Shop</title>
 	</head>
 	<body ng-app="app">
-		<div style="height: 100%;" class="container">
-			<div style="height: 100%;">
-				<div style="height: 100%;" layout="row">
-					<div ui-view="nav"></div>
-					<div ui-view="store"></div>
-				</div>
-			</div>
+		<div layout="column" layout-wrap>
+			<section layout="row" flex>
+				<span ui-view="nav"></span>
+				<div ui-view="store" style="width: 100%"></div>
+			</section>
 		</div>
 		<script src="jspm_packages/system.js"></script>
 		<script src="config.js"></script>
