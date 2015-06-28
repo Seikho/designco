@@ -1,7 +1,7 @@
 import designco from "../../designco";
 import { ScreenController } from "./controller";
 
-designco.controller("ScreenController", [ScreenController]);
+designco.controller("ScreenController", ["cartService", ScreenController]);
 
 var view = {
     url: "/screen",

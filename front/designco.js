@@ -12,4 +12,16 @@ var module = angular
     .module("app", dependencies)
     .factory("cartService", CartService);
 
+function temp() {
+    var cartItems = [{
+        id: 1,
+        name: "Sample Item",
+        quantity: 5
+    }];
+
+    function getCartItems() {
+        return cartItems;
+    }
+}
+
 export { module as default }
