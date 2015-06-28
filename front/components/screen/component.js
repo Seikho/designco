@@ -5,7 +5,7 @@ angular
     .controller("ScreenController", ScreenController);
 
 export var view = {
-    url: "/screens",
-    templateUrl: "/components/screens/view.html",
+    url: "/screen",
+    templateUrl: "/components/screen/view.html",
     controller: "ScreenController as screen"
 };

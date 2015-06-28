@@ -1,6 +1,7 @@
 import angular from "angular";
 import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
+import { CartService } from "./components/cart/service";
 import * as Screen from "./components/screen/component";
 import * as Nav from "./components/nav/component";
 import * as Banner from "./components/banner/component";
@@ -11,20 +12,20 @@ var appModules = [
     "app.nav",
     "app.screen",
     "app.banner"
-    "app.cartService"
 ];
 
 angular
     .module("app", appModules)
     .config(($stateProvider, $urlRouterProvider) => routeConfig($stateProvider, $urlRouterProvider))
-    .config($mdThemingProvider => themeHandler($mdThemingProvider));
+    .config($mdThemingProvider => themeHandler($mdThemingProvider))
+    .factory("app.cartService", CartService);
 
 
 function routeConfig(provider, router) {
     router.otherwise("/screen");
 
     provider
-        .state("screen", Store.view)
+        .state("screen", Screen.view)
         .state("banner", Banner.view);
 }
 

@@ -3,11 +3,11 @@ export class NavController {
 		this.self = this;
 
         this.menuItems = [
-            { title: 'Store', view: "store" },
-            { title: 'Banners', view: "banners" },
-            { title: 'Vehicles', view: "vehicles" },
+            { title: "Screens", view: "screen" },
+            { title: 'Banners', view: "banner" },
+            { title: 'Vehicles', view: "vehicle" },
             { title: 'Print', view: "print" },
-            { title: 'Fabricated', view: "fabricated" },
+            { title: 'Fabricated', view: "fabricate" },
             { title: 'Traditional', view: "traditional" }
         ];
 
