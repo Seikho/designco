@@ -3,7 +3,7 @@ import uiRouter from "angular-ui-router";
 import ngMaterial from "angular-material";
 import * as Screen from "./components/screen/component";
 import * as Nav from "./components/nav/component";
-import * as Banners from "./components/banners/component";
+import * as Banner from "./components/banner/component";
 
 import { CartService } from "./services/cart/service";
 var appModules = [
@@ -26,7 +26,7 @@ function routeConfig(provider, router) {
 
     provider
         .state("screen", Store.view)
-        .state("banners", Banners.view);
+        .state("banner", Banner.view);
 }
 
 function themeHandler(provider) {
