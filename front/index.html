@@ -8,15 +8,27 @@
 	    <meta name="author" content="">
 		<title>Designco: Shop</title>
 	</head>
-	<body ng-app="app">
+	<body ng-app="app" ng-controller="NavController as nav">
 		<div layout="column" layout-wrap>
 			<section layout="row" flex>
 				<md-sidenav class="md-sidenav-left"
 				    md-component-id="left"
-				    md-is-locked-open="$mdMedia('gt-sm')"
-					ui-view="nav">
+				    md-is-locked-open="$mdMedia('gt-sm')">
+
+					<md-toolbar>
+					    <h3>Designco: {{ nav.currentView.title }}</h3>
+					</md-toolbar>
+
+					<md-content flex role="navigation" class="md-default-theme">
+					    <md-list>
+					        <md-list-item ng-repeat="menuItem in nav.menuItems" ng-click="nav.changeView(menuItem)">
+					                {{ menuItem.title }}
+					        </md-list-item>
+					    </md-list>
+					</md-content>
+
 				</md-sidenav>
-				<md-content flex ui-view="store">
+				<md-content flex data-ui-view="nav.currentView.view">
 				</md-content>
 			</section>
 		</div>
