@@ -34,10 +34,10 @@ function themeHandler(provider) {
             "hue-3": "900"
         })
         .accentPalette("yellow")
-        .dark();
+        //.dark();
 
 
     provider
-        .theme("designco")
-        .primaryPalette("designco");
+        .theme("content")
+        .primaryPalette("pink");
 }

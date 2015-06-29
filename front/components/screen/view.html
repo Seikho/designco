@@ -1,12 +1,17 @@
 <md-toolbar layout="row" class="md-hue-3 md-whiteframe-z2">
     <div class="md-title"><b>Screens</b></div>
 </md-toolbar>
-<div layout="column" layout-fell layout-align="top center">
-    <md-select ng-model="sign" placeholder="sign">
-        <md-option ng-repeat="screen in screen.screens">{{ screen.title }}</md-option>
-    </md-select>
+<div md-theme="content">
+    <section class="md-whiteframe-z2">
+        <div layout="column" layout-fell layout-align="top center">
+            <md-select ng-model="sign" placeholder="sign">
+                <md-option ng-repeat="screen in screen.screens">{{ screen.title }}</md-option>
+            </md-select>
 
-    <md-checkbox aria-label="enable adding a new sign">
-        <span>Add another sign</span>
-    </md-checkbox>
+            <md-checkbox class="md-hue-3" aria-label="enable adding a new sign">
+                <span>Add another sign</span>
+            </md-checkbox>
+        </div>
+    </section>
+
 </div>
