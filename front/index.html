@@ -9,7 +9,45 @@
 		<title>Designco: Shop</title>
 	</head>
 	<body ng-app="app" ng-controller="NavController as nav">
-		<div layout="column" layout-wrap layout-fill>
+
+			<section layout="row">
+				<md-toolbar layout="row" class="md-hue-3 md-whiteframe-z2">
+				    <div class="md-title"><b>Designco</b></div>
+				</md-toolbar>
+			</section>
+
+			<section layout="row" layout-wrap layout-fill>
+				<md-sidenav
+				 class="md-sidenav-left"
+				 md-component-id="left"
+				 md-is-locked-open="$mdMedia('gt-sm')">
+					<md-content flex role="navigation" class="md-hue-2">
+						<md-list>
+							<md-list-item ng-repeat="menuItem in nav.menuItems">
+								<md-button class="md-primary" style="width: 95%" href="/#/{{menuItem.view}}" ng-click="console.log('yolo')">
+									{{menuItem.title}}
+								</md-button>
+							</md-list-item>
+						</md-list>
+					</md-content>
+				</md-sidenav>
+				<md-content flex class="md-hue-1">
+					<div md-theme="content">
+					    <section class="md-whiteframe-z2">
+					        	<div ui-view>
+
+								</div>
+					    </section>
+					</div>
+
+				</md-content>
+			</section>
+
+
+
+			<!--
+
+
 			<section layout="row" flex class="md-dark">
 				<md-sidenav class="md-sidenav-left md-dark"
 				    md-component-id="left"
@@ -32,8 +70,7 @@
 				</md-sidenav>
 				<md-content flex ui-view class="md-hue-1">
 				</md-content>
-			</section>
-		</div>
+			</section> -->
 		<script src="jspm_packages/system.js"></script>
 		<script src="config.js"></script>
 		<script>
