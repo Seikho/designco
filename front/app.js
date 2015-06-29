@@ -30,5 +30,14 @@ function themeHandler(provider) {
 
     provider
         .theme("default")
+        .primaryPalette("grey", {
+            "hue-3": "900"
+        })
+        .accentPalette("yellow")
+        .dark();
+
+
+    provider
+        .theme("designco")
         .primaryPalette("designco");
 }
