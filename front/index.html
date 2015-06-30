@@ -2,80 +2,53 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta name="description" content="">
-	    <meta name="author" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
 		<title>Designco: Shop</title>
+		<style>
+		md-sidenav, md-sidenav.md-locked-open, md-sidenav.md-closed.md-locked-open-add-active {
+			 min-width: 256px !important;
+			 width: 50vw !important;
+			 max-width: 256px !important;
+		}
+		</style>
 	</head>
-	<body ng-app="app" ng-controller="NavController as nav">
-
-			<section layout="row">
-				<md-toolbar layout="row" class="md-hue-3 md-whiteframe-z2">
-				    <div class="md-title"><b>Designco</b></div>
-				</md-toolbar>
-			</section>
-
-			<section layout="row" layout-wrap layout-fill>
-				<md-sidenav
-				 class="md-sidenav-left"
-				 md-component-id="left"
-				 md-is-locked-open="$mdMedia('gt-sm')">
-					<md-content flex role="navigation" class="md-hue-2">
-						<md-list>
-							<md-list-item ng-repeat="menuItem in nav.menuItems">
-								<md-button class="md-primary" style="width: 95%" href="/#/{{menuItem.view}}" ng-click="console.log('yolo')">
-									{{menuItem.title}}
-								</md-button>
-							</md-list-item>
-						</md-list>
-					</md-content>
-				</md-sidenav>
-				<md-content flex class="md-hue-1">
-					<div md-theme="content">
-					    <section class="md-whiteframe-z2">
-					        	<div ui-view>
-
-								</div>
-					    </section>
-					</div>
-
+	<body ng-app="app" ng-controller="NavController as nav" layout-fill>
+		<div class="column">
+			<md-toolbar md-toolbar-shrink class="md-hue-3 md-whiteframe-z3">
+				<div class="md-toolbar-tools">
+					<h3>
+						<span>Designco</span>
+					</h3>
+				</div>
+			</md-toolbar>
+		</div>
+		<section layout="row" layout-fill>
+			<md-sidenav class="md-sidenav-left md-whiteframe-z3 md-hue-2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+				<md-content layout-padding class="designco-nav md-hue-2">
+					<md-list class="designco-nav">
+						<md-list-item ng-repeat="menuItem in nav.menuItems">
+							<md-button class="md-primary" href="/#/{{menuItem.view}}">{{menuItem.title}}</md-button>
+						</md-list-item>
+					</md-list>
 				</md-content>
-			</section>
-
-
-
-			<!--
-
-
-			<section layout="row" flex class="md-dark">
-				<md-sidenav class="md-sidenav-left md-dark"
-				    md-component-id="left"
-				    md-is-locked-open="$mdMedia('gt-sm')">
-
-					<md-toolbar class="md-primary md-hue-3 md-whiteframe-z2" layout-align="center center">
-					    <div class="md-title"><b>DesignCo</b></div>
-					</md-toolbar>
-
-					<md-content flex role="navigation" class="md-hue-2">
-					    <md-list>
-					        <md-list-item ng-repeat="menuItem in nav.menuItems">
-					        	<md-button class="md-primary" style="width: 95%" ui-sref="{{menuItem.view}}">
-									{{menuItem.title}}
-								</md-button>
-							</md-list-item>
-					    </md-list>
-					</md-content>
-
-				</md-sidenav>
-				<md-content flex ui-view class="md-hue-1">
-				</md-content>
-			</section> -->
+			</md-sidenav>
+			<md-content flex layout-padding class="md-hue-1" layout-fill>
+				<div layout="column" layout-fill layout-align="top center" md-theme="content">
+					<section class="md-whiteframe-z2">
+						<div ui-view></div>
+					</section>
+				</div>
+			</md-content>
+		</section>
 		<script src="jspm_packages/system.js"></script>
 		<script src="config.js"></script>
 		<script>
 			System.import('./styles/main.css!');
-			System.import('./app');
+				System.import('./app');
 		</script>
 	</body>
+
 </html>
