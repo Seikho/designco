@@ -8,11 +8,17 @@
 		<meta name="author" content="">
 		<title>Designco: Shop</title>
 		<style>
-		md-sidenav, md-sidenav.md-locked-open, md-sidenav.md-closed.md-locked-open-add-active {
-			 min-width: 256px !important;
-			 width: 50vw !important;
-			 max-width: 256px !important;
-		}
+			md-sidenav, md-sidenav.md-locked-open, md-sidenav.md-closed.md-locked-open-add-active {
+				 min-width: 256px !important;
+				 width: 50vw !important;
+				 max-width: 256px !important;
+				 padding: 0px;
+				 margin: 0px;
+			}
+			
+			.nav-button {
+				width: 95%;
+			}
 		</style>
 	</head>
 	<body ng-app="app" ng-controller="NavController as nav" layout-fill>
@@ -27,10 +33,12 @@
 		</div>
 		<section layout="row" layout-fill>
 			<md-sidenav class="md-sidenav-left md-whiteframe-z3 md-hue-2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-				<md-content layout-padding class="designco-nav md-hue-2">
-					<md-list class="designco-nav">
+				<md-content class="md-hue-2">
+					<md-list>
 						<md-list-item ng-repeat="menuItem in nav.menuItems">
-							<md-button class="md-primary" href="/#/{{menuItem.view}}">{{menuItem.title}}</md-button>
+							<md-button class="md-primary nav-button" href="/#/{{menuItem.view}}">
+								{{menuItem.title}}
+							</md-button>
 						</md-list-item>
 					</md-list>
 				</md-content>
@@ -47,7 +55,7 @@
 		<script src="config.js"></script>
 		<script>
 			System.import('./styles/main.css!');
-				System.import('./app');
+			System.import('./app');
 		</script>
 	</body>
 
