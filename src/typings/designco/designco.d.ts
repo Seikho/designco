@@ -31,4 +31,9 @@ declare module App {
 	export interface Register extends Login{
 		matchPassword: string;
 	}
+	
+	export interface Screen {
+		id: number;
+		description: string;
+	}
 }
