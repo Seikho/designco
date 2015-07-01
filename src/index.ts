@@ -20,18 +20,18 @@ dbInit()
     .then(startHandlers)
     .catch(stopServer);
 
+findAuth()
+    .then(log.info)
+    .catch(log.error);
+
 function startHandlers() {
     require("./server");
     require("./sockets");
     require("./api/loader")
-    
-    findAuth()
-        .then(log.info)
-        .catch(log.error);
 }
 
 function stopServer(error: string) {
-    console.error("Failed to create database: " + error)
+    console.error("Failed to create database: " + error);
 }
 
 
