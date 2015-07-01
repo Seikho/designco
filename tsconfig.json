@@ -9,6 +9,7 @@
     ],
     "files": [
         "./src/api/loader.ts",
+        "./src/api/screens/get.ts",
         "./src/api/static.ts",
         "./src/api/users/auth.ts",
         "./src/api/users/findService.ts",
