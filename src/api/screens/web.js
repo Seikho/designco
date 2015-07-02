@@ -1,13 +1,13 @@
-var read = require("./get");
 var create = require("./put");
-var Boom = require("boom");
+var read = require("./get");
+var update = require("./post");
 var getRoute = {
     path: "/screens",
     method: "GET",
     handler: function (request, reply) {
         read()
             .then(reply)
-            .catch(function (error) { return reply(Boom.expectationFailed(error)); });
+            .catch(reply);
     }
 };
 var putRoute = {
@@ -16,6 +16,15 @@ var putRoute = {
     handler: function (request, reply) {
         create(request.payload)
             .then(reply)
-            .catch(function (error) { return reply(Boom.badRequest(error)); });
+            .catch(reply);
+    }
+};
+var postRoute = {
+    path: "/screens",
+    method: "POST",
+    handler: function (request, reply) {
+        update(request.payload)
+            .then(reply)
+            .catch(reply);
     }
 };

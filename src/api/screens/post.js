@@ -1,8 +1,9 @@
 var Promise = require("bluebird");
 var db = require("../../store/db");
+var Boom = require("boom");
 function post(screen) {
     if (!isValidScreen(screen))
-        return Promise.reject("Invalid request. Required fields not supplied.");
+        return Promise.reject(Boom.badData("Invalid request. Required fields not supplied."));
     return db("screens")
         .update(screen)
         .where({ id: screen.id });

@@ -1,7 +1,7 @@
 import server = require("../../server");
-import read = require("./get");
 import create = require("./put");
-import Boom = require("boom");
+import read = require("./get");
+import update = require("./post");
 
 var getRoute = {
 	path: "/screens",
@@ -9,7 +9,7 @@ var getRoute = {
 	handler: (request, reply) => {
 		read()
 			.then(reply)
-			.catch(error => reply(Boom.expectationFailed(error)));
+			.catch(reply);
 	} 
 }
 
@@ -19,6 +19,16 @@ var putRoute = {
 	handler: (request, reply) => {
 		create(request.payload)
 			.then(reply)
-			.catch(error => reply(Boom.badRequest(error)));
+			.catch(reply);
+	}
+}
+
+var postRoute = {
+	path: "/screens",
+	method: "POST",
+	handler: (request, reply) => {
+		update(request.payload)
+			.then(reply)
+			.catch(reply);
 	}
 }
