@@ -5,9 +5,11 @@
         "sourceMap": false
     },
     "filesGlob": [
-        "./src/**/*.ts"
+        "./src/**/*.ts",
+        "./test/**/*.ts"
     ],
     "files": [
+        "./test/test.ts",
         "./src/api/loader.ts",
         "./src/api/screens/get.ts",
         "./src/api/screens/post.ts",
@@ -26,6 +28,7 @@
         "./src/store/init.ts",
         "./src/typings/bluebird/bluebird.d.ts",
         "./src/typings/boom/boom.d.ts",
+        "./src/typings/chai/chai.d.ts",
         "./src/typings/chalk/chalk.d.ts",
         "./src/typings/designco/designco.d.ts",
         "./src/typings/form-data/form-data.d.ts",
@@ -34,6 +37,7 @@
         "./src/typings/longshot/config.d.ts",
         "./src/typings/longshot/events.d.ts",
         "./src/typings/longshot/logger.d.ts",
+        "./src/typings/mocha/mocha.d.ts",
         "./src/typings/node/node.d.ts",
         "./src/typings/redis/redis.d.ts",
         "./src/typings/request/request.d.ts",
