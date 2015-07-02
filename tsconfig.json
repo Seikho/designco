@@ -10,6 +10,7 @@
     "files": [
         "./src/api/loader.ts",
         "./src/api/screens/get.ts",
+        "./src/api/screens/post.ts",
         "./src/api/screens/put.ts",
         "./src/api/screens/web.ts",
         "./src/api/static.ts",
