@@ -22,7 +22,6 @@
         "./src/api/users/web.ts",
         "./src/index.ts",
         "./src/server.ts",
-        "./src/sessions/api.ts",
         "./src/sockets.ts",
         "./src/store/db.ts",
         "./src/store/init.ts",
