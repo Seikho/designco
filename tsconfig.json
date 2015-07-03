@@ -41,7 +41,6 @@
         "./src/typings/redis/redis.d.ts",
         "./src/typings/request/request.d.ts",
         "./src/typings/socket.io/socket.io.d.ts",
-        "./src/typings/tsd.d.ts",
-        "./src/users/newUser.ts"
+        "./src/typings/tsd.d.ts"
     ]
 }
