@@ -16,5 +16,4 @@ var staticRoute = {
 	}
 }
 
-
 server.route(staticRoute);

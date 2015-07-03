@@ -15,7 +15,6 @@
         "./src/api/screens/post.ts",
         "./src/api/screens/put.ts",
         "./src/api/screens/web.ts",
-        "./src/api/static.ts",
         "./src/api/users/auth.ts",
         "./src/api/users/findService.ts",
         "./src/api/users/register.ts",
