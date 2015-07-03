@@ -1,6 +1,6 @@
 var Promise = require("bluebird");
 var request = require("request");
-var cfg = require("ls-config");
+var authHost = require("../authHost");
 function authenticate(login) {
     if (!isValidRequest(login))
         return Promise.reject("[AUTH] Must supply username and password");
@@ -16,9 +16,6 @@ function authenticate(login) {
         request.post(authHost(), formData, handler);
     });
     return promise;
-}
-function authHost() {
-    return "http://localhost:" + cfg.config("authPort") + "/login";
 }
 function isValidRequest(login) {
     var isValid = (!!login.username && !!login.password);

@@ -1,6 +1,6 @@
 var Promise = require("bluebird");
 var request = require("request");
-var cfg = require("ls-config");
+var authHost = require("../authHost");
 function register(register) {
     if (!isValidRequest(register))
         return Promise.reject("[AUTH] Missing required fields");
@@ -16,9 +16,6 @@ function register(register) {
         request.post(authHost(), formData, handler);
     });
     return promise;
-}
-function authHost() {
-    return "http://localhost:" + cfg.config("authPort") + "/register";
 }
 function isValidRequest(register) {
     var isValid = (!!register.username && !!register.password && !!register.matchPassword);

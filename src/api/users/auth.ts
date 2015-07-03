@@ -2,6 +2,7 @@ import db = require("../../store/db");
 import Promise = require("bluebird");
 import request = require("request");
 import cfg = require("ls-config");
+import authHost = require("../authHost");
 export = authenticate;
 
 function authenticate(login: App.Login): Promise<boolean> {
@@ -20,10 +21,6 @@ function authenticate(login: App.Login): Promise<boolean> {
     });
 
 	return promise;
-}
-
-function authHost() {
-    return "http://localhost:" + cfg.config("authPort") + "/login";
 }
 
 function isValidRequest(login: App.Login) {

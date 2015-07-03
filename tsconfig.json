@@ -10,6 +10,7 @@
     ],
     "files": [
         "./test/test.ts",
+        "./src/api/authHost.ts",
         "./src/api/loader.ts",
         "./src/api/screens/get.ts",
         "./src/api/screens/post.ts",
