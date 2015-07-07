@@ -26,6 +26,8 @@
         "./src/store/db.ts",
         "./src/store/init.ts",
         "./src/types/enums.ts",
+        "./src/typings/angular-material/angular-material.d.ts",
+        "./src/typings/angular-ui-router/angular-ui-router.d.ts",
         "./src/typings/angularjs/angular.d.ts",
         "./src/typings/bluebird/bluebird.d.ts",
         "./src/typings/boom/boom.d.ts",

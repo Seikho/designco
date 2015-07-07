@@ -32,3 +32,7 @@ var postRoute = {
 			.catch(reply);
 	}
 }
+
+server.route(getRoute);
+server.route(putRoute);
+server.route(postRoute);

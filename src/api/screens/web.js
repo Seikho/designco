@@ -1,3 +1,4 @@
+var server = require("../../server");
 var create = require("./put");
 var read = require("./get");
 var update = require("./post");
@@ -28,3 +29,6 @@ var postRoute = {
             .catch(reply);
     }
 };
+server.route(getRoute);
+server.route(putRoute);
+server.route(postRoute);
