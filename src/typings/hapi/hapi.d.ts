@@ -2106,7 +2106,7 @@ declare module "hapi" {
 		server.connection({ port: 8081, labels: ['b', 'c'] });
 		var a = server.select('a');     // 80, 8080
 		var ac = a.select('c');         // 8080*/
-		select(labels: string|string[]): void;
+		select(labels: string|string[]): Server;
 		/** server.start([callback])
 		Starts the server connections by listening for incoming requests on the configured port of each listener (unless the connection was configured with autoListen set to false), where:
 		callback - optional callback when server startup is completed or failed with the signature function(err) where:

@@ -1,58 +1,62 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		 <meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta name="description" content="">
-	    <meta name="author" content="Carl Winkler">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
 		<title>Designco: Shop</title>
+		<style>
+			md-sidenav, md-sidenav.md-locked-open, md-sidenav.md-closed.md-locked-open-add-active {
+				 min-width: 256px !important;
+				 width: 50vw !important;
+				 max-width: 256px !important;
+				 padding: 0px;
+				 margin: 0px;
+			}
+			
+			.nav-button {
+				width: 95%;
+			}
+		</style>
 	</head>
-	<body>
+	<body ng-app="app" ng-controller="NavController as nav" layout-fill>
+		<div class="column">
+			<md-toolbar md-toolbar-shrink class="md-hue-3 md-whiteframe-z3">
+				<div class="md-toolbar-tools">
+					<h3>
+						<span>Designco</span>
+					</h3>
+				</div>
+			</md-toolbar>
+		</div>
+		<section layout="row" layout-fill>
+			<md-sidenav class="md-sidenav-left md-whiteframe-z3 md-hue-2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+				<md-content class="md-hue-2">
+					<md-list>
+						<md-list-item ng-repeat="menuItem in nav.menuItems">
+							<md-button class="md-primary nav-button" href="/#/{{menuItem.view}}">
+								{{menuItem.title}}
+							</md-button>
+						</md-list-item>
+					</md-list>
+				</md-content>
+			</md-sidenav>
+			<md-content flex layout-padding class="md-hue-1" layout-fill>
+				<div layout="column" layout-fill layout-align="top center" md-theme="content">
+					<section class="md-whiteframe-z2">
+						<div ui-view></div>
+					</section>
+				</div>
+			</md-content>
+		</section>
 		<script src="jspm_packages/system.js"></script>
 		<script src="config.js"></script>
 		<script>
-			System.import('bootstrap/css/bootstrap.css!'); // import css separately
+			System.import('./styles/main.css!');
+			System.import('./app');
 		</script>
-		<link href="/css/main.css" rel="stylesheet">		
-		<div class="site-wrapper">
-
-	      <div class="site-wrapper-inner">
-	
-	        <div class="cover-container">
-	
-	          <div class="masthead clearfix">
-	            <div class="inner">
-	              <h3 class="masthead-brand">Cover</h3>
-	              <nav>
-	                <ul class="nav masthead-nav">
-	                  <li class="active"><a href="#">Home</a></li>
-	                  <li><a href="#">Features</a></li>
-	                  <li><a href="#">Contact</a></li>
-	                </ul>
-	              </nav>
-	            </div>
-	          </div>
-	
-	          <div class="inner cover">
-	            <h1 class="cover-heading">Cover your page.</h1>
-	            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-	            <p class="lead">
-	              <a href="#" class="btn btn-lg btn-default">Learn more</a>
-	            </p>
-	          </div>
-	
-	          <div class="mastfoot">
-	            <div class="inner">
-	              <p>Carl Winkler</p>
-	            </div>
-	          </div>
-	
-	        </div>
-	
-	      </div>
-	
-	    </div>
-		
 	</body>
+
 </html>

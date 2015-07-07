@@ -6,3 +6,5 @@ jspm_packages/
 *.log
 test.js
 *.db
+*.sublime-project
+*.sublime-workspace

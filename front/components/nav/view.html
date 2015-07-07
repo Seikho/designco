@@ -1,0 +1,11 @@
+<md-toolbar>
+    <h3>Designco: {{ nav.currentView.title }}</h3>
+</md-toolbar>
+
+<md-content flex role="navigation" class="md-default-theme">
+    <md-list>
+        <md-list-item ng-repeat="menuItem in nav.menuItems" ng-click="nav.changeView(menuItem)">
+                {{ menuItem.title }}
+        </md-list-item>
+    </md-list>
+</md-content>
