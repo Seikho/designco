@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha",
-    "build": ""
+    "build": "tsglob && tsc"
   },
   "repository": {
     "type": "git",
