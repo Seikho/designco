@@ -25,6 +25,7 @@
         "./src/sockets.ts",
         "./src/store/db.ts",
         "./src/store/init.ts",
+        "./src/types/enums.ts",
         "./src/typings/bluebird/bluebird.d.ts",
         "./src/typings/boom/boom.d.ts",
         "./src/typings/chai/chai.d.ts",
