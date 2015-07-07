@@ -17,7 +17,7 @@ var registerRoute = {
     method: "POST",
     path: "/register",
     handler: (request, reply) => {
-        auth(request.payload)
+        register(request.payload)
             .then(reply)
             .catch(error => reply(Boom.badRequest(error)));
     }
