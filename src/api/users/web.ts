@@ -24,3 +24,4 @@ var registerRoute = {
 }
 
 server.route(authRoute);
+server.route(registerRoute);
