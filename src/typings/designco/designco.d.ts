@@ -9,20 +9,6 @@ declare module App {
 		company?: string;
 	}
 
-	export const enum Event {
-		Create,
-		Read,
-		Update,
-		Delete,
-		Notification
-	}
-
-	export const enum Type {
-		User,
-		Order,
-		Item
-	}
-
 	export interface Login {
 		username: string;
 		password: string;
