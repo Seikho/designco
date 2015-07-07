@@ -21,5 +21,6 @@ declare module App {
 	export interface Screen {
 		id: number;
 		description: string;
+		isActive: number;
 	}
 }
