@@ -18,6 +18,7 @@
         "./src/api/loader.ts",
         "./src/api/orders/get.ts",
         "./src/api/orders/getWithItems.ts",
+        "./src/api/orders/web.ts",
         "./src/api/screens/get.ts",
         "./src/api/screens/post.ts",
         "./src/api/screens/put.ts",
