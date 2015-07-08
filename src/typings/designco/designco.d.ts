@@ -8,7 +8,27 @@ declare module App {
 		enabled: number;
 		company?: string;
 	}
-
+	
+	export interface Order {
+		id: number;
+		userId: number;
+		orderState: string;
+		createdDate: number; // Date.now() 
+	}
+	
+	export interface Item {
+		id: number;
+		itemType: string;
+		description: string;
+		itemState: string;
+	}
+	
+	export interface OrderItem {
+		id: number;
+		orderId: number;
+		itemId: number;
+	}
+	
 	export interface Login {
 		username: string;
 		password: string;
