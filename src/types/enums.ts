@@ -16,3 +16,7 @@ export enum ActiveState {
 	Inactive,
 	Active
 }
+
+export enum ItemType {
+	Screen
+}

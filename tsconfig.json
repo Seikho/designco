@@ -12,6 +12,7 @@
         "./test/test.ts",
         "./src/api/authHost.ts",
         "./src/api/items/get.ts",
+        "./src/api/items/put.ts",
         "./src/api/items/web.ts",
         "./src/api/loader.ts",
         "./src/api/orders/get.ts",

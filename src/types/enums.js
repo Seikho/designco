@@ -17,3 +17,7 @@ var Context = exports.Context;
     ActiveState[ActiveState["Active"] = 1] = "Active";
 })(exports.ActiveState || (exports.ActiveState = {}));
 var ActiveState = exports.ActiveState;
+(function (ItemType) {
+    ItemType[ItemType["Screen"] = 0] = "Screen";
+})(exports.ItemType || (exports.ItemType = {}));
+var ItemType = exports.ItemType;
