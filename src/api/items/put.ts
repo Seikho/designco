@@ -15,7 +15,7 @@ function put(item: App.Item): Promise<number> {
 
 function isValidItem(item: App.Item): boolean {
 	delete item.id;
-	item.itemState = ActiveState[ActiveState.Active];
+	item.itemState = ActiveState.Active;
 	
 	var isValidType = !!ItemType[item.itemType]
 	var isValidDesc = item.description.length > 5;

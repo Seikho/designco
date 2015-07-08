@@ -20,7 +20,7 @@ declare module App {
 		id: number;
 		itemType: string;
 		description: string;
-		itemState: string;
+		itemState: number;
 	}
 	
 	export interface OrderItem {

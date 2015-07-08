@@ -11,7 +11,7 @@ function put(item) {
 }
 function isValidItem(item) {
     delete item.id;
-    item.itemState = ActiveState[ActiveState.Active];
+    item.itemState = ActiveState.Active;
     var isValidType = !!ItemType[item.itemType];
     var isValidDesc = item.description.length > 5;
     return isValidType && isValidDesc;
