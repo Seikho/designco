@@ -6,8 +6,13 @@ export enum Event {
 	Notification
 }
 
-export enum Type {
+export enum Context {
 	User,
 	Order,
 	Item
+}
+
+export enum ActiveState {
+	Inactive,
+	Active
 }

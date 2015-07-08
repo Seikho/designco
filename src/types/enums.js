@@ -6,9 +6,14 @@
     Event[Event["Notification"] = 4] = "Notification";
 })(exports.Event || (exports.Event = {}));
 var Event = exports.Event;
-(function (Type) {
-    Type[Type["User"] = 0] = "User";
-    Type[Type["Order"] = 1] = "Order";
-    Type[Type["Item"] = 2] = "Item";
-})(exports.Type || (exports.Type = {}));
-var Type = exports.Type;
+(function (Context) {
+    Context[Context["User"] = 0] = "User";
+    Context[Context["Order"] = 1] = "Order";
+    Context[Context["Item"] = 2] = "Item";
+})(exports.Context || (exports.Context = {}));
+var Context = exports.Context;
+(function (ActiveState) {
+    ActiveState[ActiveState["Inactive"] = 0] = "Inactive";
+    ActiveState[ActiveState["Active"] = 1] = "Active";
+})(exports.ActiveState || (exports.ActiveState = {}));
+var ActiveState = exports.ActiveState;
