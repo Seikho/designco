@@ -13,7 +13,8 @@ declare module App {
 		id: number;
 		userId: number;
 		orderState: string;
-		createdDate: number; // Date.now() 
+		createdDate: number;
+		updatedDate: number; 
 	}
 	
 	export interface Item {
