@@ -1,8 +1,8 @@
 var db = require("../../store/db");
-function get(userId) {
+function get(criteria) {
     var request = db("orders").select();
-    if (userId)
-        request.where({ userId: userId });
+    if (criteria)
+        request.where(criteria);
     return request;
 }
 module.exports = get;
