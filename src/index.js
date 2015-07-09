@@ -25,3 +25,4 @@ function startHandlers() {
 function stopServer(error) {
     console.error("Failed to create database: " + error);
 }
+//# sourceMappingURL=index.js.map

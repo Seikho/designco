@@ -32,3 +32,4 @@ var postRoute = {
 server.route(getRoute);
 server.route(putRoute);
 server.route(postRoute);
+//# sourceMappingURL=web.js.map

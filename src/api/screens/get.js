@@ -15,3 +15,4 @@ function get(id) {
     });
 }
 module.exports = get;
+//# sourceMappingURL=get.js.map

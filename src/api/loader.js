@@ -17,3 +17,4 @@ var staticRoute = {
     }
 };
 server.route(staticRoute);
+//# sourceMappingURL=loader.js.map

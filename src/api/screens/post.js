@@ -14,3 +14,4 @@ function isValidScreen(screen) {
     return (hasId && hasDescrption);
 }
 module.exports = post;
+//# sourceMappingURL=post.js.map

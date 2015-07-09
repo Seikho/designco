@@ -13,3 +13,4 @@ function isValidScreen(screen) {
     return hasDescription;
 }
 module.exports = put;
+//# sourceMappingURL=put.js.map

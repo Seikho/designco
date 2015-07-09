@@ -22,3 +22,4 @@ var registerRoute = {
 };
 server.route(authRoute);
 server.route(registerRoute);
+//# sourceMappingURL=web.js.map

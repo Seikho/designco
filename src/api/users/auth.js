@@ -22,3 +22,4 @@ function isValidRequest(login) {
     return isValid;
 }
 module.exports = authenticate;
+//# sourceMappingURL=auth.js.map

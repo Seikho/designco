@@ -5,3 +5,4 @@ function get(orderId) {
         .where("orders.id", orderId);
 }
 module.exports = get;
+//# sourceMappingURL=getWithItems.js.map

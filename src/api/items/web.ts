@@ -1,9 +1,9 @@
 import server = require("../../server");
 import Boom = require("boom");
-import read = require("./get");
-import create = require("./put");
+import read = require("./read");
+import create = require("./create");
 
-var getAll = {
+var readAll = {
 	path: "/items",
 	method: "GET",
 	handler: (request, reply) => {
@@ -13,17 +13,27 @@ var getAll = {
 	}	
 }
 
-var getOne = {
+var readOne = {
 	path: "/items/{id}",
 	method: "GET",
 	handler: (request, reply) => {
-		read(request.params.id)
+		read({id: request.params.id})
 			.then(reply)
 			.catch(error => reply(Boom.expectationFailed(error)));
 	}
 }
 
-var put = {
+var readByType = {
+	path: "/items/{type}/type",
+	method: "GET",
+	handler: (request, reply) => {
+		read({ itemType: request.params.type })
+			.then(reply)
+			.catch(error => reply(Boom.expectationFailed(error)));
+	}
+}
+
+var createRoute = {
 	path: "/items",
 	method: "PUT",
 	handler: (request, reply) => {
@@ -33,6 +43,7 @@ var put = {
 	}
 }
 
-server.route(getAll);
-server.route(getOne);
-server.route(put);
+server.route(readAll);
+server.route(readOne);
+server.route(createRoute);
+server.route(readByType);

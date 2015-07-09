@@ -21,3 +21,4 @@ var ActiveState = exports.ActiveState;
     ItemType[ItemType["Screen"] = 0] = "Screen";
 })(exports.ItemType || (exports.ItemType = {}));
 var ItemType = exports.ItemType;
+//# sourceMappingURL=enums.js.map

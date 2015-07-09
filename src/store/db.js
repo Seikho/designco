@@ -7,3 +7,4 @@ var db = knex({
     }
 });
 module.exports = db;
+//# sourceMappingURL=db.js.map

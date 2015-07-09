@@ -1,8 +1,8 @@
 var server = require("../../server");
 var Boom = require("boom");
-var read = require("./get");
-var create = require("./put");
-var getAll = {
+var read = require("./read");
+var create = require("./create");
+var readAll = {
     path: "/items",
     method: "GET",
     handler: function (request, reply) {
@@ -11,16 +11,25 @@ var getAll = {
             .catch(function (error) { return reply(Boom.expectationFailed(error)); });
     }
 };
-var getOne = {
+var readOne = {
     path: "/items/{id}",
     method: "GET",
     handler: function (request, reply) {
-        read(request.params.id)
+        read({ id: request.params.id })
             .then(reply)
             .catch(function (error) { return reply(Boom.expectationFailed(error)); });
     }
 };
-var put = {
+var readByType = {
+    path: "/items/{type}/type",
+    method: "GET",
+    handler: function (request, reply) {
+        read({ itemType: request.params.type })
+            .then(reply)
+            .catch(function (error) { return reply(Boom.expectationFailed(error)); });
+    }
+};
+var createRoute = {
     path: "/items",
     method: "PUT",
     handler: function (request, reply) {
@@ -29,6 +38,8 @@ var put = {
             .catch(function (error) { return reply(Boom.expectationFailed(error)); });
     }
 };
-server.route(getAll);
-server.route(getOne);
-server.route(put);
+server.route(readAll);
+server.route(readOne);
+server.route(createRoute);
+server.route(readByType);
+//# sourceMappingURL=web.js.map

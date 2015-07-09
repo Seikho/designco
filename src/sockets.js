@@ -29,3 +29,4 @@ function socketMsgHandler(socket, channel, pattern, message) {
     socket.emit(channel, JSON.stringify(output));
 }
 module.exports = ioServer;
+//# sourceMappingURL=sockets.js.map

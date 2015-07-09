@@ -22,3 +22,4 @@ function isValidRequest(register) {
     return isValid;
 }
 module.exports = register;
+//# sourceMappingURL=register.js.map

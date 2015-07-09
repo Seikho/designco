@@ -13,3 +13,4 @@ server.start(function (err) {
     log.info("Server started on port " + cfg.config("webPort"));
 });
 module.exports = server;
+//# sourceMappingURL=server.js.map

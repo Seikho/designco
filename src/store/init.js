@@ -33,3 +33,4 @@ function filePromise(resolve, filename) {
     });
 }
 module.exports = init;
+//# sourceMappingURL=init.js.map

@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "sourceMap": false
+        "sourceMap": true
     },
     "filesGlob": [
         "./src/**/*.ts",
@@ -11,9 +11,10 @@
     "files": [
         "./test/test.ts",
         "./src/api/authHost.ts",
-        "./src/api/items/get.ts",
-        "./src/api/items/getType.ts",
-        "./src/api/items/put.ts",
+        "./src/api/items/create.ts",
+        "./src/api/items/read.ts",
+        "./src/api/items/readByType.ts",
+        "./src/api/items/update.ts",
         "./src/api/items/web.ts",
         "./src/api/loader.ts",
         "./src/api/orders/get.ts",
