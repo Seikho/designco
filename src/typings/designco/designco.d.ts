@@ -10,7 +10,7 @@ declare module App {
 	}
 	
 	export interface Order {
-		id: number;
+		id?: number;
 		userId: number;
 		orderState: string;
 		createdDate: number;
@@ -18,14 +18,14 @@ declare module App {
 	}
 	
 	export interface Item {
-		id: number;
+		id?: number;
 		itemType: string;
 		description: string;
 		itemState: number;
 	}
 	
 	export interface OrderItem {
-		id: number;
+		id?: number;
 		orderId: number;
 		itemId: number;
 	}
@@ -37,11 +37,5 @@ declare module App {
 
 	export interface Register extends Login{
 		matchPassword: string;
-	}
-	
-	export interface Screen {
-		id: number;
-		description: string;
-		isActive: number;
 	}
 }
