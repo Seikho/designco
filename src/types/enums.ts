@@ -23,7 +23,7 @@ export enum ItemType {
 
 export enum OrderState {
 	NotSubmitted,
-	Pending,
-	Processing,
+	Submitted,
+	Processed,
 	Completed
 }

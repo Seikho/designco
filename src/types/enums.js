@@ -23,8 +23,8 @@ var ActiveState = exports.ActiveState;
 var ItemType = exports.ItemType;
 (function (OrderState) {
     OrderState[OrderState["NotSubmitted"] = 0] = "NotSubmitted";
-    OrderState[OrderState["Pending"] = 1] = "Pending";
-    OrderState[OrderState["Processing"] = 2] = "Processing";
+    OrderState[OrderState["Submitted"] = 1] = "Submitted";
+    OrderState[OrderState["Processed"] = 2] = "Processed";
     OrderState[OrderState["Completed"] = 3] = "Completed";
 })(exports.OrderState || (exports.OrderState = {}));
 var OrderState = exports.OrderState;
