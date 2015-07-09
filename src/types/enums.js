@@ -21,4 +21,11 @@ var ActiveState = exports.ActiveState;
     ItemType[ItemType["Screen"] = 0] = "Screen";
 })(exports.ItemType || (exports.ItemType = {}));
 var ItemType = exports.ItemType;
+(function (OrderState) {
+    OrderState[OrderState["NotSubmitted"] = 0] = "NotSubmitted";
+    OrderState[OrderState["Pending"] = 1] = "Pending";
+    OrderState[OrderState["Processing"] = 2] = "Processing";
+    OrderState[OrderState["Completed"] = 3] = "Completed";
+})(exports.OrderState || (exports.OrderState = {}));
+var OrderState = exports.OrderState;
 //# sourceMappingURL=enums.js.map

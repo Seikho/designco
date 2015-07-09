@@ -20,3 +20,10 @@ export enum ActiveState {
 export enum ItemType {
 	Screen
 }
+
+export enum OrderState {
+	NotSubmitted,
+	Pending,
+	Processing,
+	Completed
+}
