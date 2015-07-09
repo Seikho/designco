@@ -1,5 +1,5 @@
-var read = require("./get");
-var readWithItems = require("./getWithItems");
+var read = require("./read");
+var readWithItems = require("./readWithItems");
 var server = require("../../server");
 var Boom = require("boom");
 var get = {

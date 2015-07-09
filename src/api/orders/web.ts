@@ -1,6 +1,6 @@
 import db = require("../../store/db");
-import read = require("./get");
-import readWithItems = require("./getWithItems");
+import read = require("./read");
+import readWithItems = require("./readWithItems");
 import server = require("../../server");
 import Boom = require("boom");
 

@@ -6,4 +6,4 @@ function get(userId) {
     return request;
 }
 module.exports = get;
-//# sourceMappingURL=get.js.map
+//# sourceMappingURL=read.js.map
