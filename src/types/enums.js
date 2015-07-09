@@ -26,6 +26,7 @@ var ItemType = exports.ItemType;
     OrderState[OrderState["Submitted"] = 1] = "Submitted";
     OrderState[OrderState["Processed"] = 2] = "Processed";
     OrderState[OrderState["Completed"] = 3] = "Completed";
+    OrderState[OrderState["Cancelled"] = 4] = "Cancelled";
 })(exports.OrderState || (exports.OrderState = {}));
 var OrderState = exports.OrderState;
 //# sourceMappingURL=enums.js.map

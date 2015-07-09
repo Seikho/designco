@@ -25,5 +25,6 @@ export enum OrderState {
 	NotSubmitted,
 	Submitted,
 	Processed,
-	Completed
+	Completed,
+	Cancelled
 }
