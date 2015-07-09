@@ -29,6 +29,10 @@ var getWithItems = {
             .catch(function (error) { return reply(Boom.expectationFailed(error)); });
     }
 };
+var createRoute = {
+    path: "/orders",
+    method: "PUT"
+};
 server.route(get);
 server.route(getUserOrders);
 server.route(getWithItems);

@@ -34,6 +34,11 @@ var getWithItems = {
 	}
 }
 
+var createRoute = {
+	path: "/orders",
+	method: "PUT"
+}
+
 server.route(get);
 server.route(getUserOrders);
 server.route(getWithItems);
