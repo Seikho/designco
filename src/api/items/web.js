@@ -2,20 +2,12 @@ var server = require("../../server");
 var Boom = require("boom");
 var read = require("./read");
 var create = require("./create");
-var readAll = {
-    path: "/items",
+var readRoute = {
+    path: "/items/{id?}",
     method: "GET",
     handler: function (request, reply) {
-        read()
-            .then(reply)
-            .catch(function (error) { return reply(Boom.expectationFailed(error)); });
-    }
-};
-var readOne = {
-    path: "/items/{id}",
-    method: "GET",
-    handler: function (request, reply) {
-        read({ id: request.params.id })
+        var id = request.params.id || null;
+        read(id)
             .then(reply)
             .catch(function (error) { return reply(Boom.expectationFailed(error)); });
     }
@@ -38,8 +30,7 @@ var createRoute = {
             .catch(function (error) { return reply(Boom.expectationFailed(error)); });
     }
 };
-server.route(readAll);
-server.route(readOne);
+server.route(readRoute);
 server.route(createRoute);
 server.route(readByType);
 //# sourceMappingURL=web.js.map
