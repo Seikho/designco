@@ -2,7 +2,7 @@ import server = require("../../server");
 import Boom = require("boom");
 import read = require("./read");
 import create = require("./create");
-import udpate = require("./update");
+import update = require("./update");
 
 
 var readRoute = {
@@ -36,6 +36,17 @@ var createRoute = {
 	}
 }
 
+var updateRoute = {
+	path: "/items",
+	method: "POST",
+	handler: (request, reply) => {
+		update(request.payload)
+			.then(reply)
+			.catch(error => reply(Boom.expectationFailed(error)));
+	}
+}
+
 server.route(readRoute);
 server.route(createRoute);
 server.route(readByType);
+server.route(updateRoute);
