@@ -1,13 +1,13 @@
 import server = require("../../server");
-import auth = require("./auth");
+import login = require("./login");
 import register = require("./register");
 import Boom = require("boom");
 
-var authRoute = {
+var loginRoute = {
     method: "POST",
     path: "/login",
     handler: (request, reply) => {
-        auth(request.payload)
+        login(request.payload)
             .then(reply)
             .catch(error => reply(Boom.badRequest(error)));
     }
@@ -23,5 +23,5 @@ var registerRoute = {
     }
 }
 
-server.route(authRoute);
+server.route(loginRoute);
 server.route(registerRoute);

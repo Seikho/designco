@@ -1,12 +1,12 @@
 var server = require("../../server");
-var auth = require("./auth");
+var login = require("./login");
 var register = require("./register");
 var Boom = require("boom");
-var authRoute = {
+var loginRoute = {
     method: "POST",
     path: "/login",
     handler: function (request, reply) {
-        auth(request.payload)
+        login(request.payload)
             .then(reply)
             .catch(function (error) { return reply(Boom.badRequest(error)); });
     }
@@ -20,6 +20,6 @@ var registerRoute = {
             .catch(function (error) { return reply(Boom.badRequest(error)); });
     }
 };
-server.route(authRoute);
+server.route(loginRoute);
 server.route(registerRoute);
 //# sourceMappingURL=web.js.map
