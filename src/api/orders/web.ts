@@ -7,11 +7,15 @@ import addItem = require("./addItem");
 import server = require("../../server");
 import Boom = require("boom");
 
+/**
+ * Will retrieve all orders or a single order with all items attached
+ */
 var get = {
-	path: "/orders",
+	path: "/orders/{orderId?}",
 	method: "GET",
 	handler: (request, reply) => {
-		read()
+		var id = request.params.orderId || null;
+		read(id)
 			.then(reply)
 			.catch(error => reply(Boom.expectationFailed(error)));
 	}
@@ -22,16 +26,6 @@ var getUserOrders = {
 	method: "GET",
 	handler: (request, reply) => {
 		read(request.params.userId)
-			.then(reply)
-			.catch(error => reply(Boom.expectationFailed(error)));
-	}
-}
-
-var getWithItems = {
-	path: "/orders/{orderId}",
-	method: "GET",
-	handler: (request, reply) => {
-		readWithItems(request.params.orderId)
 			.then(reply)
 			.catch(error => reply(Boom.expectationFailed(error)));
 	}
@@ -69,7 +63,6 @@ var removeItemRoute = {
 
 server.route(get);
 server.route(getUserOrders);
-server.route(getWithItems);
 server.route(createRoute);
 server.route(addItemRoute);
 server.route(removeItemRoute);
