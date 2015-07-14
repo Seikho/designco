@@ -33,7 +33,7 @@ function canCreateOrder(userId: number) {
 }
 
 function createOrder(order: App.Order) {
-				return db("orders")
+	return db("orders")
 		.insert(order)
 		.then(ids => {
 			order.id = ids[0];
