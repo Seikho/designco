@@ -6,7 +6,7 @@ function create(userId) {
         userId: userId,
         orderState: OrderState[OrderState.NotSubmitted],
         createdDate: Date.now(),
-        updatedDate: Date.now()
+        lastModified: Date.now()
     };
     return canCreateOrder(userId)
         .then(function () { return createOrder(newOrder); });
