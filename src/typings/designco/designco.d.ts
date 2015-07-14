@@ -14,7 +14,7 @@ declare module App {
 		userId: number;
 		orderState: string;
 		createdDate: number;
-		updatedDate: number; 
+		lastModified: number; 
 	}
 	
 	export interface Item {
