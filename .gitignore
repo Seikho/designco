@@ -1,7 +1,6 @@
 *.map
 node_modules/
 jspm_packages/
-.settings/
 .git/
 *.log
 test.js
