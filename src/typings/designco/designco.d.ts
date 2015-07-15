@@ -1,3 +1,5 @@
+declare var System: any;
+
 declare module App {
 
 	export interface User {
