@@ -7,7 +7,7 @@
 
 declare module "angular-ui-router" {
     import ui = angular.ui;
-    export = ui;
+    export { ui as default };
 }
 
 declare module angular.ui {

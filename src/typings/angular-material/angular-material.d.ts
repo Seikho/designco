@@ -7,7 +7,7 @@
 
 declare module "angular-material" {
     import material = angular.material;
-    export = material;
+    export { material as default };
 }
 
 declare module angular.material {
