@@ -1,5 +1,20 @@
 declare var System: any;
 
+declare module "angular-ui-router" {
+	var router: any;
+	export { router as default }
+}
+
+declare module "angular" {
+	var angular: any;
+	export { angular as default }
+}
+
+declare module "angular-material" {
+	var material: any;
+	export { material as default }
+}
+
 declare module App {
 
 	export interface User {
