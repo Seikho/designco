@@ -1,7 +1,6 @@
 var cfg = require("ls-config");
 var dbInit = require("./store/init");
 var path = require("path");
-var log = require("ls-logger");
 var findAuth = require("./api/users/findService");
 // Initialise the web and socket servers
 var basePath = path.resolve(__dirname, "..");
@@ -14,9 +13,7 @@ cfg.config("baseDatabase", "designco-base.sqlite");
 dbInit()
     .then(startHandlers)
     .catch(stopServer);
-findAuth()
-    .then(log.info)
-    .catch(log.error);
+findAuth();
 function startHandlers() {
     require("./server");
     require("./sockets");

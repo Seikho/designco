@@ -3,11 +3,14 @@ import log = require("ls-logger");
 import cfg = require("ls-config");
 export = find;
 
-store.psub("services/start/auth", eventHandler);
+store.psub("services/start/auth", eventHandler)
+	.catch(log.error);
 
 function find() {
 	return store.fetch("services", "start", "auth")
-		.then(setLatestPort);
+		.then(setLatestPort)
+		.then(log.info)
+		.catch(log.error);
 }
 
 function eventHandler(pattern, channel, message: any) {

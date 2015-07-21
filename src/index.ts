@@ -20,9 +20,7 @@ dbInit()
     .then(startHandlers)
     .catch(stopServer);
 
-findAuth()
-    .then(log.info)
-    .catch(log.error);
+findAuth();
 
 function startHandlers() {
     require("./server");

@@ -4,7 +4,7 @@
   "description": "DesignCo",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js --events 127.0.0.1:6379",
+    "start": "node src/index.js --events 127.0.1.1:6379",
     "test": "mocha",
     "build": "tsglob && tsc"
   },
