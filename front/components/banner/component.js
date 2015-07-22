@@ -1,4 +1,4 @@
-import designco from "../../designco";
+import designco from "../../app";
 import { BannerController } from "./controller";
 
 designco.controller('BannerController', [BannerController]);

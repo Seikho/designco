@@ -1,4 +1,4 @@
-import designco from "../../designco";
+import designco from "../../app";
 import { NavController } from './controller';
 
 designco.controller('NavController', [NavController]);

@@ -1,3 +1,9 @@
+<md-button ng-click="screen.getOrders()">getOrders</md-button>
+
+<pre>{{ screen.myList | json }}</pre>
+
+<pre>{{ screen.list2 | json }}</pre>
+
 <md-select ng-model="sign" placeholder="sign">
     <md-option ng-repeat="screen in screen.screens">{{ screen.title }}</md-option>
 </md-select>
