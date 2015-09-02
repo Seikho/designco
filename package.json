@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/designco-wa/designco",
   "dependencies": {
+    "angular": "^1.4.5",
+    "angular-animate": "^1.4.5",
+    "angular-aria": "^1.4.5",
+    "angular-material": "^0.10.1",
+    "angular-ui-router": "^0.2.15",
     "bluebird": "^2.9.25",
     "boom": "^2.8.0",
     "chai": "^2.3.0",
@@ -28,9 +33,9 @@
     "knex": "^0.8.3",
     "ls-config": "^0",
     "ls-events": "^0",
+    "ls-events-client": "^0.1.8",
     "ls-logger": "^0.x.x",
     "mocha": "^2.2.5",
-    "redis": "^0.12.1",
     "request": "^2.58.0",
     "socket.io": "^1.3.5",
     "sqlite3": "^3.0.8"
