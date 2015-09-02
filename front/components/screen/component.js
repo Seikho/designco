@@ -1,12 +1,10 @@
-import designco from "../../app";
-import { ScreenController } from "./controller";
-
-designco.controller("ScreenController", ["cartService", "$http", ScreenController]);
-
+var app_1 = require("../../app");
+var controller_1 = require("./controller");
+app_1.default.controller("ScreenController", ["cartService", "$http", controller_1.ScreenController]);
 var view = {
     url: "/screen",
     templateUrl: "/components/screen/view.html",
     controller: "ScreenController as screen"
 };
-
-export { view as default }
+exports.default = view;
+//# sourceMappingURL=component.js.map

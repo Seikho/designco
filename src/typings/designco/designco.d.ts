@@ -17,6 +17,11 @@ declare module "angular-material" {
 
 declare module App {
 
+	export class CartService {
+		go(): Promise<{ orders: any }>;
+		orders: Array<any>;
+	} 	
+
 	export interface User {
 		displayName: string;
 		username: string;

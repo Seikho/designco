@@ -1,3 +1,7 @@
-export class BannerController {
-    constructor() {}
-}
+var BannerController = (function () {
+    function BannerController() {
+    }
+    return BannerController;
+})();
+exports.BannerController = BannerController;
+//# sourceMappingURL=controller.js.map

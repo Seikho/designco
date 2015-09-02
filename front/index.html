@@ -7,6 +7,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<title>Designco Shop</title>
+		<link href="/styles/angular-material.min.css" rel="stylesheet">
 	</head>
 	<body ng-app="app" layout-fill ng-controller="NavController as nav" >
 		<md-toolbar style="z-index: 100;" class="md-whiteframe-z3 md-hue-3">
@@ -30,11 +31,7 @@
 				<div ui-view></div>
 			</div>
 		</md-content>
-		<script src="jspm_packages/system.js"></script>
-		<script src="config.js"></script>
-		<script>
-			System.import('./app.config');
-		</script>
+		<script src="index.js"></script>
 	</body>
 
 </html>

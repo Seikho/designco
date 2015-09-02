@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js --events 127.0.1.1:6379",
     "test": "mocha",
-    "build": "tsglob && tsc"
+    "build": "tsglob && tsc && browserify ./front/app.config.js -o ./front/index.js"
   },
   "repository": {
     "type": "git",
@@ -62,5 +62,10 @@
       "babel-runtime": "npm:babel-runtime@^5.1.13",
       "core-js": "npm:core-js@^0.9.4"
     }
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "ts-globber": "^0.4.3",
+    "typescript": "^1.5.3"
   }
 }
