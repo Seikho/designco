@@ -2,25 +2,13 @@ import db = require("../../store/db");
 import Promise = require("bluebird");
 import request = require("request");
 import cfg = require("ls-config");
-import authHost = require("../authHost");
+import authApi = require("ls-auth-api");
 export = authenticate;
 
-function authenticate(login: App.Login): Promise<boolean> {
+function authenticate(login: App.Login): Promise<string> {
     if (!isValidRequest(login)) return Promise.reject("[AUTH] Must supply username and password");
 
-    var promise = new Promise<boolean>((resolve, reject) => {
-        var handler = (error, response, body) => {
-			if (error) return reject("[AUTH-API] " + error);
-			resolve(body);
-        };
-		var formData = {
-			form: login
-		};
-
-		request.post(authHost(), formData, handler);
-    });
-
-	return promise;
+	return authApi.login(login.username, login.password);
 }
 
 function isValidRequest(login: App.Login) {

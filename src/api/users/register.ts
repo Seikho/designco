@@ -2,29 +2,21 @@ import db = require("../../store/db");
 import Promise = require("bluebird");
 import request = require("request");
 import cfg = require("ls-config");
-import authHost = require("../authHost");
+import authApi = require("ls-auth-api");
 export = register;
 
-function register(register: App.Register): Promise<boolean> {
+function register(register: App.Register): Promise<number> {
     if (!isValidRequest(register))
         return Promise.reject("[AUTH] Missing required fields");
-
-    var promise = new Promise<boolean>((resolve, reject) => {
-        var handler = (error, response, body) => {
-			if (error) return reject("[API] " + error);
-			resolve(body);
-        };
-		var formData = {
-			form: register
-		};
-
-		request.post(authHost(), formData, handler);
+        
+    var passwordsMatch = register.password === register.matchPassword;
+    if (!passwordsMatch) return Promise.reject("[AUTH] Passwords do not much");
+        
+    return authApi.register({
+        username: register.username,
+        password: register.password
     });
-
-	return promise;
 }
-
-
 
 function isValidRequest(register: App.Register) {
     var isValid = (!!register.username && !!register.password && !!register.matchPassword);
