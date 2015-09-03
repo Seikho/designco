@@ -29,7 +29,6 @@
         "src/api/users/web.ts",
         "src/index.ts",
         "src/server.ts",
-        "src/sockets.ts",
         "src/store/db.ts",
         "src/store/init.ts",
         "src/types/enums.ts",

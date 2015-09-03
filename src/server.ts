@@ -6,6 +6,7 @@ export = server;
 var server = new hapi.Server();
 
 // Web API listener
+
 server.connection({
     port: cfg.config("webPort"),
     labels: "web"
