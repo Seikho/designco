@@ -19,7 +19,7 @@ dbInit()
 
 function startHandlers() {
     require("./server");
-    require("./api/loader")
+    require("./api/loader");    
 }
 
 function stopServer(error: string) {
