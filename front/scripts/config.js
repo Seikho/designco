@@ -7,13 +7,16 @@ require.config({
         "bootstrap": {
             deps: ["jquery"],
         },
-        "c3": {
-            deps: ["d3"]
+        "crossroads": {
+            deps: ["signals"]
         }
     },
     map: {
         "css": "css",
         "text": "text"
-    }
+    },
+    deps: [
+        "crossroads"
+    ]
 });
 //# sourceMappingURL=config.js.map

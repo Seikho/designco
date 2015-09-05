@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<title>Designco Shop</title>
-		<link href="/styles/angular-material.min.css" rel="stylesheet">
-	</head>
-	<body ng-app="app" layout-fill ng-controller="NavController as nav" >
-		<md-toolbar style="z-index: 100;" class="md-whiteframe-z3 md-hue-3">
-			<div class="md-toolbar-tools">
-				<h3>Designco</h3>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Designco Shop</title>
+	<link href="/styles/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+			aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="javascript:void(0)">
+                        DesignCo
+                    </a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<p class="navbar-text lead" style="color: white">
+
+				> <span>---ACTIVE VIEW---</span>
+			</p>
+		</div>
+
+	</div>
+
+	<div class="container-fluid main">
+		<div class="row" style="margin-top: 70px">
+			<div class="col-sm-3 col-md-2 sidebar" style="padding-left: 0">
+
+				<!--<div class="btn-group-vertical" data-bind="foreach: availableModels" style="width: 100%">
+
+					<a data-bind="css: $parent.modelClass($data), click: function() { $parent.loadModel($data); }">
+						<span data-bind="text: name"></span>
+					</a>
+
+				</div>-->
 			</div>
-		</md-toolbar>
-		<md-content layout-fill layout="row">
-			<md-sidenav style="min-width: 190px; max-width: 190px;" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-				<md-content class="">
-					<md-list>
-						<md-list-item style="min-height: 0;" ng-repeat="menuItem in nav.menuItems">
-							<md-button style="padding: 0; margin: 0; border-radius: 0;" layout-fill href="/#/{{menuItem.view}}">
-								<span style="color: black;">{{ menuItem.title }}</span>
-							</md-button>
-						</md-list-item>
-					</md-list>
-				</md-content>
-			</md-sidenav>
-			<div layout-padding>
-				<div ui-view></div>
+			<div class="col-sm-9 col-md-10">
+				<div id="content-pane">
+					<br/>
+					<!--<div data-bind="component: activeModel().model">-->
+				</div>
 			</div>
-		</md-content>
-		<script src="index.js"></script>
-	</body>
+		</div>
+	</div>
+
+	<script src="scripts/libs/cajon.js" data-main="scripts/config.js"></script>
+</body>
 
 </html>
