@@ -1,6 +1,7 @@
 var ko = require("knockout");
 var NavViewModel = (function () {
     function NavViewModel() {
+        var _this = this;
         this.menuItems = ko.observableArray([
             { title: "Screens", route: "/screen" },
             { title: "Banners", route: "/banner" },
@@ -10,8 +11,18 @@ var NavViewModel = (function () {
             { title: "Traditional", route: "/traditional" }
         ]);
         this.currentView = ko.observable(this.menuItems()[0]);
+        this.loadRoute = function (route) {
+            _this.currentView(route);
+            history.pushState({}, "DesignCo Shop", route.route);
+        };
+        this.routeClass = function (route) {
+            var current = _this.currentView();
+            return current.route === route.route
+                ? "active"
+                : "";
+        };
     }
     return NavViewModel;
 })();
 module.exports = NavViewModel;
-//# sourceMappingURL=viewModel.js.map
+//# sourceMappingURL=nav.js.map
