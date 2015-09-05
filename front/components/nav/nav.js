@@ -30,8 +30,7 @@ var NavViewModel = (function () {
                 : "";
         };
         xroads.addRoute("/{route}", this.routeHandler);
-        xroads.addRoute("/#/{route}", this.routeHandler);
-        xroads.parse(window.location.hash);
+        xroads.parse(window.location.pathname);
     }
     return NavViewModel;
 })();

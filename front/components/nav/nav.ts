@@ -6,7 +6,7 @@ class NavViewModel {
     constructor() {
         xroads.addRoute("/{route}", this.routeHandler);
         
-        xroads.parse(window.location.hash);
+        xroads.parse(window.location.pathname);
     }
 
     menuItems = ko.observableArray<Route>([
