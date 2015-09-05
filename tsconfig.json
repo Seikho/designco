@@ -41,6 +41,7 @@
         "src/typings/hapi/hapi.d.ts",
         "src/typings/jquery/jquery.d.ts",
         "src/typings/knex/knex.d.ts",
+        "src/typings/knockout/knockout.d.ts",
         "src/typings/longshot/auth.d.ts",
         "src/typings/longshot/config.d.ts",
         "src/typings/longshot/logger.d.ts",

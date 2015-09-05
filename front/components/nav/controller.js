@@ -1,20 +1,17 @@
-var NavController = (function () {
-    function NavController() {
-        var _this = this;
-        this.menuItems = [
-            { title: "Screens", view: "screen" },
-            { title: "Banners", view: "banner" },
-            { title: "Vehicles", view: "vehicle" },
-            { title: "Print", view: "print" },
-            { title: "Fabricated", view: "fabricate" },
-            { title: "Traditional", view: "traditional" }
-        ];
-        this.currentView = this.menuItems[0];
-        this.changeView = function (newView) {
-            _this.currentView = newView;
-        };
+var ko = require("knockout");
+var NavViewModel = (function () {
+    function NavViewModel() {
+        this.menuItems = ko.observableArray([
+            { title: "Screens", route: "/screen" },
+            { title: "Banners", route: "/banner" },
+            { title: "Vehicles", route: "/vehicle" },
+            { title: "Print", route: "/print" },
+            { title: "Fabricated", route: "/fabricate" },
+            { title: "Traditional", route: "/traditional" }
+        ]);
+        this.currentView = ko.observable(this.menuItems()[0]);
     }
-    return NavController;
+    return NavViewModel;
 })();
-exports.NavController = NavController;
+exports.NavViewModel = NavViewModel;
 //# sourceMappingURL=controller.js.map

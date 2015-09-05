@@ -1,6 +1,6 @@
 var app_1 = require("../../app");
 var controller_1 = require('./controller');
-app_1.default.controller('NavController', [controller_1.NavController]);
+app_1.default.controller('NavController', [controller_1.NavViewModel]);
 var view = {
     url: "/nav",
     templateUrl: "/components/nav/view.html",

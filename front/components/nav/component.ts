@@ -1,7 +1,7 @@
 import designco from "../../app";
-import { NavController } from './controller';
+import { NavViewModel } from './controller';
 
-designco.controller('NavController', [NavController]);
+designco.controller('NavController', [NavViewModel]);
 
 var view = {
     url: "/nav",

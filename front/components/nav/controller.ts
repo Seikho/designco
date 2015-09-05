@@ -1,18 +1,21 @@
-export class NavController {
-        constructor() {}
-        
-        menuItems = [
-                { title: "Screens", view: "screen" },
-                { title: "Banners", view: "banner" },
-                { title: "Vehicles", view: "vehicle" },
-                { title: "Print", view: "print" },
-                { title: "Fabricated", view: "fabricate" },
-                { title: "Traditional", view: "traditional" }
-        ];
+import ko = require("knockout");
 
-        currentView = this.menuItems[0];
+export class NavViewModel {
+    constructor() { }
+    
+    menuItems = ko.observableArray<Route>([
+        { title: "Screens", route: "/screen" },
+        { title: "Banners", route: "/banner" },
+        { title: "Vehicles", route: "/vehicle" },
+        { title: "Print", route: "/print" },
+        { title: "Fabricated", route: "/fabricate" },
+        { title: "Traditional", route: "/traditional" }
+    ]);
 
-        changeView = newView => {
-                this.currentView = newView;
-        }
+    currentView = ko.observable(this.menuItems()[0]);
+}
+
+interface Route {
+    title: string;
+    route: string;
 }
