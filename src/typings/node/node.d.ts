@@ -33,6 +33,10 @@ declare var require: {
     cache: any;
     extensions: any;
     main: any;
+    
+     // RequireJS
+    config(opts: any): void;
+    (libs: string[], callback?: (...args) => void): void;
 };
 
 declare var module: {

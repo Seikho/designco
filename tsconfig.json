@@ -62,6 +62,7 @@
         "front/components/nav/component.ts",
         "front/components/nav/controller.ts",
         "front/components/screen/component.ts",
-        "front/components/screen/controller.ts"
+        "front/components/screen/controller.ts",
+        "front/scripts/config.ts"
     ]
 }
