@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha",
-    "build": "tsglob && tsc && browserify ./front/app.config.js -o ./front/index.js"
+    "build": "tsglob && tsc"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,6 @@
     "sqlite3": "^3.0.8"
   },
   "devDependencies": {
-    "browserify": "^11.0.1",
     "ts-globber": "^0.4.3",
     "typescript": "^1.5.3"
   }
