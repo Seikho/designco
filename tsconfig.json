@@ -39,6 +39,7 @@
         "src/typings/designco/designco.d.ts",
         "src/typings/form-data/form-data.d.ts",
         "src/typings/hapi/hapi.d.ts",
+        "src/typings/history/history.d.ts",
         "src/typings/jquery/jquery.d.ts",
         "src/typings/knex/knex.d.ts",
         "src/typings/knockout/knockout.d.ts",
@@ -56,10 +57,10 @@
         "front/components/banner/component.ts",
         "front/components/banner/controller.ts",
         "front/components/cart/service.ts",
-        "front/components/nav/component.ts",
-        "front/components/nav/controller.ts",
+        "front/components/nav/viewModel.ts",
         "front/components/screen/component.ts",
         "front/components/screen/controller.ts",
+        "front/scripts/app.ts",
         "front/scripts/config.ts"
     ]
 }

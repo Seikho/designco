@@ -13,5 +13,5 @@ var NavViewModel = (function () {
     }
     return NavViewModel;
 })();
-exports.NavViewModel = NavViewModel;
-//# sourceMappingURL=controller.js.map
+module.exports = NavViewModel;
+//# sourceMappingURL=viewModel.js.map

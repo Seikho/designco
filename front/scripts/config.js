@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: 'scripts/libs',
+    baseUrl: '/scripts/libs',
     shim: {
         "jquery": {
             exports: "jQuery"
@@ -16,7 +16,9 @@ require.config({
         "text": "text"
     },
     deps: [
-        "crossroads"
+        "crossroads",
+        "history"
     ]
 });
+require(["../app"]);
 //# sourceMappingURL=config.js.map

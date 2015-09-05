@@ -1,6 +1,7 @@
 import ko = require("knockout");
+export = NavViewModel;
 
-export class NavViewModel {
+class NavViewModel {
     constructor() { }
     
     menuItems = ko.observableArray<Route>([
