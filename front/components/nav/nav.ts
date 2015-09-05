@@ -4,7 +4,9 @@ export = NavViewModel;
 
 class NavViewModel {
     constructor() {
+        xroads.addRoute("/{route}", this.routeHandler);
         
+        xroads.parse(window.location.hash);
     }
 
     menuItems = ko.observableArray<Route>([
@@ -18,9 +20,21 @@ class NavViewModel {
 
     currentView = ko.observable(this.menuItems()[0]);
     loadRoute = (route: Route) => {
-        this.currentView(route);
-        history.pushState({}, "DesignCo Shop", route.route);
+        this.currentView(<Route>route);
+        history.pushState({}, "DesignCo Shop", (<Route>route).route);
+
     }
+
+    routeHandler = (section: string) => {
+        console.log("Request: " + section);
+        var routeItem = this.menuItems().filter(mi => mi.route.slice(1) === section)[0];
+        if (!routeItem) return;
+
+        this.loadRoute(routeItem);
+    }
+
+
+
     routeClass = (route: Route) => {
         var current = this.currentView();
 

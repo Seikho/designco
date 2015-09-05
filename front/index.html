@@ -8,12 +8,12 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Designco Shop</title>
-	<link href="/styles/bootstrap.css" rel="stylesheet">
+	<link href="styles/bootstrap.slate.css" rel="stylesheet">
 </head>
 
 <body>
 
-	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
 			aria-controls="navbar">
@@ -29,7 +29,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<p class="navbar-text lead" style="color: white">
 
-				> <span>---ACTIVE VIEW---</span>
+				> <span data-bind="text: currentView.title"></span>
 			</p>
 		</div>
 
@@ -38,11 +38,22 @@
 	<div class="container-fluid main">
 		<div class="row" style="margin-top: 70px">
 			<div class="col-sm-3 col-md-2 sidebar" style="padding-left: 0">
+                <div style="margin-left: 10px">
+                    <ul class="nav nav-pills nav-stacked" data-bind="foreach: menuItems">
+                        
+                        <li data-bind="css: $parent.routeClass($data)">
+                            <a data-bind="click: function() { $parent.loadRoute($data) }">
+                                <span data-bind="text: title"></span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
 
-				<!--<div class="btn-group-vertical" data-bind="foreach: availableModels" style="width: 100%">
+				<!--<div class="btn-group-vertical" data-bind="foreach: menuItems">
 
-					<a data-bind="css: $parent.modelClass($data), click: function() { $parent.loadModel($data); }">
-						<span data-bind="text: name"></span>
+					<a data-bind="css: $parent.routeClass($data), click: function() { $parent.loadRoute($data); }">
+						<span data-bind="text: title"></span>
 					</a>
 
 				</div>-->
@@ -50,7 +61,13 @@
 			<div class="col-sm-9 col-md-10">
 				<div id="content-pane">
 					<br/>
-					<!--<div data-bind="component: activeModel().model">-->
+                    <div>
+                        <h4>Content pane</h4>
+                    </div>
+					<!-- <div data-bind="component: activeModel().model">-->
+                        <h4 data-bind="text: currentView.title">
+                            
+                        </h4>
 				</div>
 			</div>
 		</div>

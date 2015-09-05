@@ -1,4 +1,5 @@
 var ko = require("knockout");
+var xroads = require("crossroads");
 var NavViewModel = (function () {
     function NavViewModel() {
         var _this = this;
@@ -15,12 +16,22 @@ var NavViewModel = (function () {
             _this.currentView(route);
             history.pushState({}, "DesignCo Shop", route.route);
         };
+        this.routeHandler = function (section) {
+            console.log("Request: " + section);
+            var routeItem = _this.menuItems().filter(function (mi) { return mi.route.slice(1) === section; })[0];
+            if (!routeItem)
+                return;
+            _this.loadRoute(routeItem);
+        };
         this.routeClass = function (route) {
             var current = _this.currentView();
             return current.route === route.route
                 ? "active"
                 : "";
         };
+        xroads.addRoute("/{route}", this.routeHandler);
+        xroads.addRoute("/#/{route}", this.routeHandler);
+        xroads.parse(window.location.hash);
     }
     return NavViewModel;
 })();
