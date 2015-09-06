@@ -5,7 +5,15 @@ exports.cartItems.subscribe(function (items) {
     store("designco-cart", items);
 });
 // Populate the cart on page load
-exports.cartItems(store("designco-cart") || []);
+var dummyItem = {
+    id: 1,
+    cartItemId: 1,
+    itemType: "Screen",
+    description: "Manager's Special",
+    itemState: 1,
+    quantity: 1
+};
+exports.cartItems(store("designco-cart") || [dummyItem]);
 function addItem(item, quantity) {
     quantity = quantity || 1;
     var matchingItems = exports.cartItems()
@@ -17,9 +25,21 @@ function addItem(item, quantity) {
     }
     var newCartItem = item;
     newCartItem.cartItemId = getNextId();
+    newCartItem.quantity = quantity;
     exports.cartItems.push(newCartItem);
 }
 exports.addItem = addItem;
+function removeItem(item) {
+    exports.cartItems.remove(function (cartItem) {
+        if (typeof item === "number") {
+            return item === cartItem.cartItemId;
+        }
+        else {
+            return cartItem.cartItemId === item.cartItemId;
+        }
+    });
+}
+exports.removeItem = removeItem;
 function getNextId() {
     var max = exports.cartItems()
         .reduce(function (prev, curr) { return curr.cartItemId > prev ? curr.cartItemId : prev; }, 0);

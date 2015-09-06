@@ -7,7 +7,17 @@ cartItems.subscribe(items => {
 });
 
 // Populate the cart on page load
-cartItems(store("designco-cart") || []);
+var dummyItem: App.CartItem = {
+    id: 1,
+    cartItemId: 1,
+    itemType: "Screen",
+    description: "Manager's Special",
+    itemState: 1,
+    quantity: 1
+}
+
+cartItems(store("designco-cart") || [dummyItem]);
+
 
 export function addItem(item: App.Item, quantity?: number): void {
     quantity = quantity || 1;
@@ -23,13 +33,24 @@ export function addItem(item: App.Item, quantity?: number): void {
 
     var newCartItem = <App.CartItem>item;
     newCartItem.cartItemId = getNextId();
-    
+    newCartItem.quantity = quantity;
+
     cartItems.push(newCartItem);
+}
+
+export function removeItem(item: App.CartItem|number) {
+    cartItems.remove(cartItem => {
+        if (typeof item === "number") {
+            return item === cartItem.cartItemId;
+        } else {
+            return cartItem.cartItemId === item.cartItemId;
+        }
+    })
 }
 
 function getNextId() {
     var max = cartItems()
         .reduce((prev, curr) => curr.cartItemId > prev ? curr.cartItemId : prev, 0)
-   
+
     return max + 1;
 }
