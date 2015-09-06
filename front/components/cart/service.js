@@ -1,4 +1,5 @@
 var store = require("ls-storage");
+var ko = require("knockout");
 exports.cartItems = ko.observableArray([]);
 // Update the cart object in persistent storage on change
 exports.cartItems.subscribe(function (items) {
