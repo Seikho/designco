@@ -1,6 +1,5 @@
 var server = require("../server");
 var path = require("path");
-var log = require("ls-logger");
 // Load user Web API
 require("./users/web");
 // Load items Web API
@@ -17,23 +16,28 @@ var staticRoute = {
         }
     }
 };
-var frontEndSections = [
-    "screen",
-    "banner",
-    "vehicle",
-    "print",
-    "fabricate",
-    "traditional"
-];
-frontEndSections.forEach(function (section) {
-    server.route({
-        method: "GET",
-        path: "/" + section,
-        handler: {
-            file: path.join(staticPath, "index.html")
-        }
-    });
+server.ext("onPreResponse", function (request, reply) {
+    if (request.response.output && request.response.output.statusCode === 404)
+        return reply.redirect("/");
+    return reply.continue();
 });
-log.info("Loaded front end route: " + JSON.stringify(frontEndSections));
+// var frontEndSections = [
+//     "screen",
+//     "banner",
+//     "vehicle",
+//     "print",
+//     "fabricate",
+//     "traditional"
+// ];
+// frontEndSections.forEach(section => {
+//    server.route({
+//        method: "GET",
+//        path: `/${section}`,
+//        handler: {
+//            file: path.join(staticPath, "index.html")
+//        }
+//    }) 
+// });
+// log.info("Loaded front end route: " + JSON.stringify(frontEndSections));
 server.route(staticRoute);
 //# sourceMappingURL=loader.js.map
