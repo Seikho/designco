@@ -1,5 +1,6 @@
 var ko = require("knockout");
 var xroads = require("crossroads");
+var cart = require("../cart/service");
 var NavViewModel = (function () {
     function NavViewModel() {
         var _this = this;
@@ -12,6 +13,7 @@ var NavViewModel = (function () {
             { title: "Traditional", route: "/traditional" }
         ]);
         this.currentView = ko.observable(this.menuItems()[0]);
+        this.cartItems = cart.cartItems;
         this.loadRoute = function (route) {
             _this.currentView(route);
             history.pushState({}, "DesignCo Shop", route.route);

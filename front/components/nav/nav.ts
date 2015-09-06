@@ -1,5 +1,6 @@
 import ko = require("knockout");
 import xroads = require("crossroads");
+import cart = require("../cart/service");
 export = NavViewModel;
 
 class NavViewModel {
@@ -19,6 +20,8 @@ class NavViewModel {
     ]);
 
     currentView = ko.observable(this.menuItems()[0]);
+    cartItems = cart.cartItems;
+    
     loadRoute = (route: Route) => {
         this.currentView(<Route>route);
         history.pushState({}, "DesignCo Shop", (<Route>route).route);
