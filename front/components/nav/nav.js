@@ -14,6 +14,7 @@ var NavViewModel = (function () {
         ]);
         this.currentView = ko.observable(this.menuItems()[0]);
         this.cartItems = cart.cartItems;
+        this.cartItemCount = ko.computed(function () { return _this.cartItems().length; });
         this.loadRoute = function (route) {
             _this.currentView(route);
             history.pushState({}, "DesignCo Shop", route.route);

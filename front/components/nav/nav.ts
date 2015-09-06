@@ -21,6 +21,7 @@ class NavViewModel {
 
     currentView = ko.observable(this.menuItems()[0]);
     cartItems = cart.cartItems;
+    cartItemCount = ko.computed(() => this.cartItems().length);
     
     loadRoute = (route: Route) => {
         this.currentView(<Route>route);
@@ -35,9 +36,7 @@ class NavViewModel {
 
         this.loadRoute(routeItem);
     }
-
-
-
+        
     routeClass = (route: Route) => {
         var current = this.currentView();
 
