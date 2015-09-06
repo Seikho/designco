@@ -1,18 +1,28 @@
-function CartService($http) {
-    var self = this;
-    self.orders = [];
-    self.go = function () {
-        return $http.get('/orders')
-            .then(function (o) { return self.orders = o.data; }, function () {
-            var args = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                args[_i - 0] = arguments[_i];
-            }
-            return console.log(args);
-        });
-    };
-    self.go();
-    return self;
+var store = require("ls-storage");
+exports.cartItems = ko.observableArray([]);
+// Update the cart object in persistent storage on change
+exports.cartItems.subscribe(function (items) {
+    store("designco-cart", items);
+});
+// Populate the cart on page load
+exports.cartItems(store("designco-cart") || []);
+function addItem(item, quantity) {
+    quantity = quantity || 1;
+    var matchingItems = exports.cartItems()
+        .filter(function (cartItem) { return cartItem.id === item.id; });
+    if (matchingItems.length > 0) {
+        var existing = matchingItems[0];
+        existing.quantity += quantity;
+        return;
+    }
+    var newCartItem = item;
+    newCartItem.cartItemId = getNextId();
+    exports.cartItems.push(newCartItem);
 }
-module.exports = CartService;
+exports.addItem = addItem;
+function getNextId() {
+    var max = exports.cartItems()
+        .reduce(function (prev, curr) { return curr.cartItemId > prev ? curr.cartItemId : prev; }, 0);
+    return max + 1;
+}
 //# sourceMappingURL=service.js.map
