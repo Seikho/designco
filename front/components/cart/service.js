@@ -3,6 +3,8 @@ var ko = require("knockout");
 exports.cartItems = ko.observableArray([]);
 // Update the cart object in persistent storage on change
 exports.cartItems.subscribe(function (items) {
+    //TODO: Consider storing cart in server-side persistent storage
+    //TODO: Consider storing a session/cart id in the browser for retrieving/sharing carts
     store("designco-cart", items);
 });
 // Populate the cart on page load

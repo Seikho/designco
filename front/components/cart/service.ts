@@ -5,6 +5,8 @@ export var cartItems = ko.observableArray<App.CartItem>([]);
 
 // Update the cart object in persistent storage on change
 cartItems.subscribe(items => {
+    //TODO: Consider storing cart in server-side persistent storage
+    //TODO: Consider storing a session/cart id in the browser for retrieving/sharing carts
     store("designco-cart", items);
 });
 
@@ -19,7 +21,6 @@ var dummyItem: App.CartItem = {
 }
 
 cartItems(store("designco-cart") || [dummyItem]);
-
 
 export function addItem(item: App.Item, quantity?: number): void {
     quantity = quantity || 1;
