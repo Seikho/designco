@@ -1,10 +1,5 @@
 declare module App {
 
-	export class CartService {
-		go(): Promise<{ orders: any }>;
-		orders: Array<any>;
-	} 	
-
 	export interface User {
 		displayName: string;
 		username: string;
@@ -40,7 +35,12 @@ declare module App {
 		password: string;
 	}
 
-	export interface Register extends Login{
+	export interface Register extends Login {
 		matchPassword: string;
 	}
+    
+    export interface CartItem extends Item {
+        cartItemId: number;
+        quantity: number;
+    }
 }
