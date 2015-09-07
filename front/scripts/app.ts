@@ -1,9 +1,8 @@
 import NavVM = require("../components/nav/nav");
 import ko = require("knockout");
-import modal = require("../components/modal/component");
+import modal = require("../components/modal/modal");
 import $ = require("jquery");
 
-ko.applyBindings(new NavVM());
 ko.components.register("modal", modal);
 
 ko.bindingHandlers["showModal"] = {
@@ -18,3 +17,5 @@ ko.bindingHandlers["showModal"] = {
         else $(element)["modal"]('hide');
     }
 };
+
+ko.applyBindings(new NavVM());

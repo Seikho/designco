@@ -1,8 +1,7 @@
 var NavVM = require("../components/nav/nav");
 var ko = require("knockout");
-var modal = require("../components/modal/component");
+var modal = require("../components/modal/modal");
 var $ = require("jquery");
-ko.applyBindings(new NavVM());
 ko.components.register("modal", modal);
 ko.bindingHandlers["showModal"] = {
     init: function () { },
@@ -16,4 +15,5 @@ ko.bindingHandlers["showModal"] = {
             $(element)["modal"]('hide');
     }
 };
+ko.applyBindings(new NavVM());
 //# sourceMappingURL=app.js.map

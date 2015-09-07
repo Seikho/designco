@@ -17,7 +17,8 @@ require.config({
     },
     deps: [
         "crossroads",
-        "history"
+        "history",
+        "bootstrap"
     ]
 });
 

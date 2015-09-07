@@ -22,6 +22,7 @@ class NavViewModel {
     currentView = ko.observable(this.menuItems()[0]);
     cartItems = cart.cartItems;
     cartItemCount = ko.computed(() => this.cartItems().length);
+    showCartModal = ko.observable(false);
     
     loadRoute = (route: Route) => {
         this.currentView(<Route>route);

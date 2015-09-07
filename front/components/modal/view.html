@@ -1,11 +1,9 @@
-<div class="modal fade" data-bind="css: size">
-  <div class="modal-dialog">
+<div class="modal fade" data-bind="showModal: show">
+  <div data-bind="css: size">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <!-- ko visible: displayTitle -->
-        <h4 class="modal-title" data-bind="text: title"></h4>
-        <!-- /ko -->
+        <h4 class="modal-title" data-bind="text: title, visible: displayTitle"></h4>
       </div>
       <!-- ko template: { nodes: $componentTemplateNodes } -->
       <!-- /ko -->
