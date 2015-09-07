@@ -68,6 +68,7 @@
                         <div class="panel-body">
                             <div>
                                 <h4>Content pane</h4>
+                                
                             </div>
                             <!-- <div data-bind="component: activeModel().model">-->
                         </div>
@@ -81,7 +82,9 @@
     
     <modal params="size: 'lg', title: 'Your Cart', show: showCartModal">
         <div class="modal-body">
-            The body
+            <!-- ko foreach: $parent.cartItems -->
+            <pre data-bind="text: JSON.stringify($data)"></pre>
+            <!-- /ko -->
         </div>
         <div class="modal-footer">
             <button class="btn btn-default" data-dismiss="modal">Close</button>
