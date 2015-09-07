@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha",
-    "build": "tsglob && tsc"
+    "build": "tsglob && tsc && lessc front/styles/slate/build.less front/styles/bootratrap.slate.css"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "sqlite3": "^3.0.8"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.5",
     "less": "^2.5.1",
     "ts-globber": "^0.4.3",
     "typescript": "^1.5.3"
