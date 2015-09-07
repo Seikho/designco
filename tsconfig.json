@@ -60,10 +60,10 @@
         "front/components/banner/component.ts",
         "front/components/banner/controller.ts",
         "front/components/cart/service.ts",
+        "front/components/item/itemList.ts",
+        "front/components/item/itemModel.ts",
         "front/components/modal/modal.ts",
         "front/components/nav/nav.ts",
-        "front/components/screen/component.ts",
-        "front/components/screen/controller.ts",
         "front/scripts/app.ts",
         "front/scripts/config.ts"
     ]
