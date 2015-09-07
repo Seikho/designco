@@ -55,7 +55,6 @@
         "src/typings/request/request.d.ts",
         "src/typings/socket.io/socket.io.d.ts",
         "src/typings/tsd.d.ts",
-        "front/app.config.ts",
         "front/app.ts",
         "front/components/banner/component.ts",
         "front/components/banner/controller.ts",
