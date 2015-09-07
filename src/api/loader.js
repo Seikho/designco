@@ -18,26 +18,8 @@ var staticRoute = {
 };
 server.ext("onPreResponse", function (request, reply) {
     if (request.response.output && request.response.output.statusCode === 404)
-        return reply.redirect("/");
+        return reply.file(path.join(staticPath, "index.html"));
     return reply.continue();
 });
-// var frontEndSections = [
-//     "screen",
-//     "banner",
-//     "vehicle",
-//     "print",
-//     "fabricate",
-//     "traditional"
-// ];
-// frontEndSections.forEach(section => {
-//    server.route({
-//        method: "GET",
-//        path: `/${section}`,
-//        handler: {
-//            file: path.join(staticPath, "index.html")
-//        }
-//    }) 
-// });
-// log.info("Loaded front end route: " + JSON.stringify(frontEndSections));
 server.route(staticRoute);
 //# sourceMappingURL=loader.js.map
