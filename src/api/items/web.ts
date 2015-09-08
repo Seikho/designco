@@ -17,7 +17,7 @@ var readRoute = {
 }
 
 var readByType = {
-	path: "/items/{type}/type",
+	path: "/items/{type}",
 	method: "GET",
 	handler: (request, reply) => {
 		read({ itemType: request.params.type })
