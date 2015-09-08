@@ -16,8 +16,8 @@ function createDatabase(exists) {
         return Promise.resolve(false);
     if (!baseExists)
         return Promise.reject("Unable to create live database: Base does not exist");
-    fs.createReadStream(cfg.config("designcoLive"))
-        .pipe(fs.createWriteStream(cfg.config("designcoBae")));
+    fs.createReadStream(cfg.config("designcoBase"))
+        .pipe(fs.createWriteStream(cfg.config("designcoLive")));
     return Promise.resolve(true);
 }
 function isFilePresent(filename) {
