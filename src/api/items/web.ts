@@ -4,18 +4,6 @@ import read = require("./read");
 import create = require("./create");
 import update = require("./update");
 
-
-var readRoute = {
-	path: "/items/{id?}",
-	method: "GET",
-	handler: (request, reply) => {
-		var id = request.params.id || null;		
-		read(id)
-			.then(reply)
-			.catch(error => reply(Boom.expectationFailed(error)));
-	}	
-}
-
 var readByType = {
 	path: "/items/{type}",
 	method: "GET",

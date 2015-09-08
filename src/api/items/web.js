@@ -3,16 +3,6 @@ var Boom = require("boom");
 var read = require("./read");
 var create = require("./create");
 var update = require("./update");
-var readRoute = {
-    path: "/items/{id?}",
-    method: "GET",
-    handler: function (request, reply) {
-        var id = request.params.id || null;
-        read(id)
-            .then(reply)
-            .catch(function (error) { return reply(Boom.expectationFailed(error)); });
-    }
-};
 var readByType = {
     path: "/items/{type}",
     method: "GET",
