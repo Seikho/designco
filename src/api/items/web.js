@@ -30,7 +30,6 @@ var updateRoute = {
             .catch(function (error) { return reply(Boom.expectationFailed(error)); });
     }
 };
-server.route(readRoute);
 server.route(createRoute);
 server.route(readByType);
 server.route(updateRoute);

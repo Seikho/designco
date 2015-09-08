@@ -34,7 +34,6 @@ var updateRoute = {
 	}
 }
 
-server.route(readRoute);
 server.route(createRoute);
 server.route(readByType);
 server.route(updateRoute);
