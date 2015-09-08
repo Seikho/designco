@@ -1,22 +1,22 @@
 import ko = require("knockout");
 import xroads = require("crossroads");
 import cart = require("../cart/service");
+import ItemVM = require("../item/itemList");
 export = NavViewModel;
 
 class NavViewModel {
     constructor() {
-        xroads.addRoute("/{route}", this.routeHandler);
-        
+        xroads.addRoute("/{route}", this.routeHandler);        
         xroads.parse(window.location.pathname);
     }
 
     menuItems = ko.observableArray<Route>([
-        { title: "Screens", route: "/screen" },
-        { title: "Banners", route: "/banner" },
-        { title: "Vehicles", route: "/vehicle" },
-        { title: "Print", route: "/print" },
-        { title: "Fabricated", route: "/fabricate" },
-        { title: "Traditional", route: "/traditional" }
+        { title: "Screens", route: "/screen", itemType: "Screen" },
+        { title: "Banners", route: "/banner", itemType: "Banner" },
+        { title: "Vehicles", route: "/vehicle", itemType: "Vehicle" },
+        { title: "Print", route: "/print", itemType: "Print" },
+        { title: "Fabricated", route: "/fabricate", itemType: "Fabricate" },
+        { title: "Traditional", route: "/traditional", itemType: "Traditional" }
     ]);
 
     currentView = ko.observable(this.menuItems()[0]);
@@ -24,10 +24,12 @@ class NavViewModel {
     cartItemCount = ko.computed(() => this.cartItems().length);
     showCartModal = ko.observable(false);
     
+    itemsList = new ItemVM();
+    
     loadRoute = (route: Route) => {
         this.currentView(<Route>route);
         history.pushState({}, "DesignCo Shop", (<Route>route).route);
-
+        this.itemsList.itemType(route.itemType);
     }
 
     routeHandler = (section: string) => {
@@ -50,4 +52,5 @@ class NavViewModel {
 interface Route {
     title: string;
     route: string;
+    itemType: string;
 }
