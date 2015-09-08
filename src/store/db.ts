@@ -4,7 +4,7 @@ export = db;
 
 var db = knex({
     client: "sqlite3",
-    connection:{
-        filename: cfg.config("liveDatabase")
+    connection: {
+        filename: cfg.config("designcoLive")
     }
 });

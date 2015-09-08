@@ -3,7 +3,7 @@ var cfg = require("ls-config");
 var db = knex({
     client: "sqlite3",
     connection: {
-        filename: cfg.config("liveDatabase")
+        filename: cfg.config("designcoLive")
     }
 });
 module.exports = db;

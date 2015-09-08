@@ -7,8 +7,8 @@ export = init;
 function init() {
     return Promise
         .all([
-            isFilePresent(cfg.config("liveDatabase")),
-            isFilePresent(cfg.config("baseDatabase"))
+            isFilePresent(cfg.config("designcoLive")),
+            isFilePresent(cfg.config("designcoBase"))
         ])
         .then(createDatabase);
 }
@@ -20,8 +20,8 @@ function createDatabase(exists: boolean[]) {
     if (liveExists) return Promise.resolve(false);
     if (!baseExists) return Promise.reject("Unable to create live database: Base does not exist");
 
-    fs.createReadStream(cfg.config("baseDatabase"))
-        .pipe(fs.createWriteStream(cfg.config("liveDatabase")));
+    fs.createReadStream(cfg.config("designcoLive"))
+        .pipe(fs.createWriteStream(cfg.config("designcoBae")));
 
     return Promise.resolve(true);
 }

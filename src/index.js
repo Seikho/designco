@@ -6,8 +6,8 @@ var log = require("ls-logger");
 var basePath = path.resolve(__dirname, "..");
 var liveDb = path.join(basePath, "designco.db");
 var baseDb = path.join(basePath, "designco-base.sqlite");
-cfg.config("liveDatabase", "designco.db");
-cfg.config("baseDatabase", "designco-base.sqlite");
+cfg.config("designcoLive", liveDb);
+cfg.config("designcoBase", baseDb);
 cfg.config("webPort", 10001);
 dbInit()
     .then(startHandlers)
