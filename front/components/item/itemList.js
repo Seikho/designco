@@ -22,9 +22,5 @@ var ItemList = (function () {
     }
     return ItemList;
 })();
-var component = {
-    template: view,
-    viewModel: ItemList
-};
-module.exports = component;
+module.exports = ItemList;
 //# sourceMappingURL=itemList.js.map

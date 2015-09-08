@@ -2,7 +2,7 @@ import ko = require("knockout");
 import ItemModel = require("./itemModel");
 import $ = require("jquery");
 var view = require("text!./items")
-export = component;
+export = ItemList;
 
 class ItemList {
     constructor() {
@@ -25,8 +25,3 @@ class ItemList {
         // TODO: POST request...
     }
 }
-
-var component = {
-    template: view,
-    viewModel: ItemList
-};
