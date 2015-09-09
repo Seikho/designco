@@ -6,8 +6,12 @@ export = NavViewModel;
 
 class NavViewModel {
     constructor() {
-        xroads.addRoute("/{route}", this.routeHandler);        
-        xroads.parse(window.location.pathname);
+        xroads.addRoute("/{route}", this.routeHandler);
+        
+        // Entry route: /screen
+        var currentPath = window.location.pathname;
+        if (!currentPath || currentPath.length <= 1) currentPath = "/screen";
+        xroads.parse(currentPath);
     }
 
     menuItems = ko.observableArray<Route>([

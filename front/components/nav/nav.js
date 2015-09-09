@@ -37,7 +37,11 @@ var NavViewModel = (function () {
                 : "";
         };
         xroads.addRoute("/{route}", this.routeHandler);
-        xroads.parse(window.location.pathname);
+        // Entry route: /screen
+        var currentPath = window.location.pathname;
+        if (!currentPath || currentPath.length <= 1)
+            currentPath = "/screen";
+        xroads.parse(currentPath);
     }
     return NavViewModel;
 })();
