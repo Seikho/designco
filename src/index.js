@@ -12,7 +12,8 @@ cfg.config("webPort", 10001);
 dbInit()
     .then(startHandlers)
     .catch(stopServer);
-function startHandlers() {
+function startHandlers(dbCreated) {
+    log.info("DesignCo database created: " + dbCreated);
     require("./server");
     require("./api/loader");
 }

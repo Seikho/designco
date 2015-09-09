@@ -17,7 +17,8 @@ dbInit()
     .then(startHandlers)
     .catch(stopServer);
 
-function startHandlers() {
+function startHandlers(dbCreated: boolean) {
+    log.info(`DesignCo database created: ${dbCreated}`);
     require("./server");
     require("./api/loader");    
 }
