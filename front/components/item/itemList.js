@@ -3,10 +3,12 @@ var ItemModel = require("./itemModel");
 var $ = require("jquery");
 var view = require("text!./items");
 var ItemList = (function () {
-    function ItemList() {
+    function ItemList(type) {
         var _this = this;
         this.items = ko.observableArray();
-        this.itemType = ko.observable("");
+        this.getModels = function (type) {
+            $.get("/items/" + type).then(_this.loadModels);
+        };
         this.loadModels = function (items) {
             var itemModels = items.map(function (item) { return new ItemModel(item); });
             _this.items(itemModels);
@@ -15,10 +17,9 @@ var ItemList = (function () {
             var models = _this.items().map(function (item) { return item.saveToModel(); });
             // TODO: POST request...
         };
-        this.itemType.subscribe(function (type) {
-            $.get("/items/" + type)
-                .then(_this.items);
-        });
+        if (!type)
+            return;
+        this.getModels(type);
     }
     return ItemList;
 })();

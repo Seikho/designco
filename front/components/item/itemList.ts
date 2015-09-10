@@ -5,16 +5,17 @@ var view = require("text!./items")
 export = ItemList;
 
 class ItemList {
-    constructor() {
-        this.itemType.subscribe(type => {
-            $.get(`/items/${type}`)
-                .then(this.items);
-        });
+    constructor(type?: string) {
+       this.getModels(type);
     }
 
     items = ko.observableArray<ItemModel>();
-    itemType = ko.observable("");
-
+    
+    getModels = (type?: string) => {
+        type = type || "";
+        $.get(`/items/${type}`).then(this.loadModels);
+    }
+    
     loadModels = (items: Array<App.Item>) => {
         var itemModels = items.map(item => new ItemModel(item));
         this.items(itemModels);
