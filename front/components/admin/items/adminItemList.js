@@ -15,4 +15,4 @@ var AdminItemList = (function (_super) {
     return AdminItemList;
 })(ItemList);
 module.exports = AdminItemList;
-//# sourceMappingURL=items.js.map
+//# sourceMappingURL=adminItemList.js.map

@@ -12,4 +12,4 @@ var AdminItemModel = (function (_super) {
     return AdminItemModel;
 })(ItemModel);
 module.exports = AdminItemModel;
-//# sourceMappingURL=item.js.map
+//# sourceMappingURL=adminItemModel.js.map
