@@ -43,4 +43,9 @@ declare module App {
         cartItemId: number;
         quantity: number;
     }
+    
+    interface ListOptions {
+        /** The absolute url to the GET route for the base model T */
+        url: string;
+    }
 }

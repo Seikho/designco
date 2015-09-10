@@ -7,6 +7,7 @@ var ItemList = (function () {
         var _this = this;
         this.items = ko.observableArray();
         this.getModels = function (type) {
+            type = type || "";
             $.get("/items/" + type).then(_this.loadModels);
         };
         this.loadModels = function (items) {
@@ -17,8 +18,6 @@ var ItemList = (function () {
             var models = _this.items().map(function (item) { return item.saveToModel(); });
             // TODO: POST request...
         };
-        if (!type)
-            return;
         this.getModels(type);
     }
     return ItemList;
