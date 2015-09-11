@@ -8,15 +8,12 @@ var ko = require("knockout");
 var view = require("text!./view.html");
 var ItemViewModel = (function (_super) {
     __extends(ItemViewModel, _super);
-    function ItemViewModel(item) {
+    function ItemViewModel() {
         _super.call(this);
         this.id = ko.observable(0);
         this.description = ko.observable("");
         this.itemType = ko.observable("");
         this.itemState = ko.observable(0);
-        if (!item)
-            return;
-        this.loadModel(item);
     }
     ItemViewModel.prototype.loadModel = function (item) {
         this.id(item.id);

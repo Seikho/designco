@@ -3,7 +3,7 @@ var ItemModel = require("./itemModel");
 var view = require("text!./items.html");
 var options = {
     url: "/items",
-    createModel: function (model) { return new ItemModel(model); }
+    createModel: function () { return new ItemModel(); }
 };
 var component = {
     template: view,

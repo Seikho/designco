@@ -6,7 +6,7 @@ export = component;
 
 var options: Lists.ListOptions = {
     url: "/items",
-    createModel: (model?: any) => new ItemModel(model)
+    createModel: () => new ItemModel()
 }
 
 var component = {

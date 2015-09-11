@@ -29,7 +29,7 @@ class NavViewModel {
     cartItemCount = ko.computed(() => this.cartItems().length);
     showCartModal = ko.observable(false);
     
-    itemsList = new ItemVM({url: "/items", createModel: (model?: any) => new ModelVM(model) });
+    itemsList = new ItemVM({url: "/items", createModel: () => new ModelVM() });
     
     loadRoute = (route: Route) => {
         this.currentView(<Route>route);

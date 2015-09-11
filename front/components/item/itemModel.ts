@@ -6,10 +6,8 @@ var view = require("text!./view.html");
 export = ItemViewModel;
 
 class ItemViewModel extends Lists.Model {
-    constructor(item?: App.Item) {
+    constructor() {
         super();
-        if (!item) return;
-        this.loadModel(item);
     }
 
     loadModel(item: App.Item) {
