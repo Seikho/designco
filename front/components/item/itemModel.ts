@@ -1,24 +1,25 @@
+import Lists = require("ls-ko-lists");
 import ko = require("knockout");
+import $ = require("jquery");
 var view = require("text!./view.html");
 
 export = ItemViewModel;
 
-
-
-class ItemViewModel {
+class ItemViewModel extends Lists.Model {
     constructor(item?: App.Item) {
+        super();
         if (!item) return;
-        this.loadFromModel(item);
+        this.loadModel(item);
     }
 
-    loadFromModel = (item: App.Item) => {
+    loadModel(item: App.Item) {
         this.id(item.id);
         this.description(item.description);
         this.itemType(item.itemType);
         this.itemState(item.itemState);
     }
     
-    saveToModel = (): App.Item => {
+    saveToModel(): App.Item {
         return {
             id: this.id(),
             description: this.description(),

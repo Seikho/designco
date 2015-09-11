@@ -1,12 +1,14 @@
+import Lists = require("ls-ko-lists");
 import ko = require("knockout");
 import ItemModel = require("./itemModel");
 import $ = require("jquery");
-var view = require("text!./items")
+var view = require("text!./items");
+
 export = ItemList;
 
-class ItemList {
-    constructor(type?: string) {
-       this.getModels(type);
+class ItemList extends Lists.List<ItemModel> {
+    constructor(options: Lists.ListOptions) {
+       super(options);
     }
 
     items = ko.observableArray<ItemModel>();
@@ -14,15 +16,5 @@ class ItemList {
     getModels = (type?: string) => {
         type = type || "";
         $.get(`/items/${type}`).then(this.loadModels);
-    }
-    
-    loadModels = (items: Array<App.Item>) => {
-        var itemModels = items.map(item => new ItemModel(item));
-        this.items(itemModels);
-    }
-
-    saveModels = () => {
-        var models = this.items().map(item => item.saveToModel());
-        // TODO: POST request...
     }
 }
