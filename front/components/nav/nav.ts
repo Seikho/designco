@@ -2,6 +2,7 @@ import ko = require("knockout");
 import xroads = require("crossroads");
 import cart = require("../cart/service");
 import ItemVM = require("../item/itemList");
+import ModelVM = require("../item/itemModel");
 export = NavViewModel;
 
 class NavViewModel {
@@ -28,12 +29,12 @@ class NavViewModel {
     cartItemCount = ko.computed(() => this.cartItems().length);
     showCartModal = ko.observable(false);
     
-    itemsList = new ItemVM();
+    itemsList = new ItemVM({url: "/items", createModel: (model?: any) => new ModelVM(model) });
     
     loadRoute = (route: Route) => {
         this.currentView(<Route>route);
         history.pushState({}, "DesignCo Shop", (<Route>route).route);
-        this.itemsList.itemType(route.itemType);
+        this.itemsList.getModels(route.itemType);
     }
 
     routeHandler = (section: string) => {

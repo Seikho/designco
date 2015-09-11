@@ -2,6 +2,7 @@ var ko = require("knockout");
 var xroads = require("crossroads");
 var cart = require("../cart/service");
 var ItemVM = require("../item/itemList");
+var ModelVM = require("../item/itemModel");
 var NavViewModel = (function () {
     function NavViewModel() {
         var _this = this;
@@ -17,11 +18,11 @@ var NavViewModel = (function () {
         this.cartItems = cart.cartItems;
         this.cartItemCount = ko.computed(function () { return _this.cartItems().length; });
         this.showCartModal = ko.observable(false);
-        this.itemsList = new ItemVM();
+        this.itemsList = new ItemVM({ url: "/items", createModel: function (model) { return new ModelVM(model); } });
         this.loadRoute = function (route) {
             _this.currentView(route);
             history.pushState({}, "DesignCo Shop", route.route);
-            _this.itemsList.itemType(route.itemType);
+            _this.itemsList.getModels(route.itemType);
         };
         this.routeHandler = function (section) {
             console.log("Request: " + section);
