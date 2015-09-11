@@ -70,7 +70,7 @@
                             <div>
                                 <!--Temporary-->
                                 <h4>Content pane</h4>
-                                <div data-bind="foreach: itemsList.items">
+                                <div data-bind="foreach: itemsList.models">
                                     <pre data-bind="text: JSON.stringify($data)"></pre>                                        
                                 </div>
                                 <!-- ko if: itemsList.items().length === 0 -->
