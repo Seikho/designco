@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha",
-    "build": "tsglob && tsc && lessc front/styles/slate/build.less front/styles/bootratrap.slate.css"
+    "build": "tsglob && tsc && lessc front/styles/slate/build.less front/styles/bootratrap.css"
   },
   "repository": {
     "type": "git",

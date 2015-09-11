@@ -2,10 +2,12 @@
 {
 	"version": "0.1.0",
 	"isShellCommand": true,
-	"command": "npm",
+	"command": "tsc",
 	"args": [
-		"run",
-		"build"
+		"&&",
+		"lessc",
+		"front/styles/slate/build.less",
+		"front/styles/bootstrap.css"
 	], 
 	"showOutput": "silent",			
 	"problemMatcher": "$tsc"
