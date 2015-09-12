@@ -1,8 +1,11 @@
 import ko = require("knockout");
 import $ = require("jquery");
-import ItemList = require("../../item/itemList");
+import Lists = require("ls-ko-lists");
+import AdminItem = require("./adminItemModel"); 
 export = AdminItemList;
 
-class AdminItemList {
-    
+class AdminItemList<AdminItem> extends Lists.List {
+    constructor() {
+        super();
+    }
 }
