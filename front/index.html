@@ -16,6 +16,19 @@
     <div class="navbar navbar-default navbar-fixed-top" style="border-top-width: 4px; border-top-color: yellow" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle navbar-toggle collapsed" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" data-bind="foreach: menuItems">
+                        <li href="#" data-bind="css: $parent.routeClass($data)">
+                            <a data-bind="click: function() { $parent.loadRoute($data) }">
+                                <span data-bind="text: title"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
                 aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -27,11 +40,12 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Shop</a></li>
+                    <li><a href="#">Shop</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+
                     <li>
                         <a href="#" data-bind="click: showCartModal">
                             <span class="glyphicon glyphicon-shopping-cart">
@@ -46,7 +60,7 @@
 
     <div class="container-fluid main">
         <div class="row" style="margin-top: 70px">
-            <div class="col-sm-3 col-md-2 sidebar" style="padding-left: 0">
+            <div class="col-sm-3 col-md-2 sidebar hidden-xs" style="padding-left: 0">
                 <div style="margin-left: 10px">
                     <ul class="nav nav-pills nav-stacked" data-bind="foreach: menuItems">
 
@@ -71,7 +85,7 @@
                                 <!--Temporary-->
                                 <h4>Content pane</h4>
                                 <div data-bind="foreach: itemsList.models">
-                                    <pre data-bind="text: JSON.stringify($data)"></pre>                                        
+                                    <pre data-bind="text: JSON.stringify($data)"></pre>
                                 </div>
                                 <!-- ko if: itemsList.items().length === 0 -->
                                 <pre>No items matching this category</pre>
@@ -86,7 +100,7 @@
             </div>
         </div>
     </div>
-    
+
     <modal params="size: 'lg', title: 'Your Cart', show: showCartModal">
         <div class="modal-body">
             <!-- ko foreach: $parent.cartItems -->
