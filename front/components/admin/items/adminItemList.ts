@@ -4,8 +4,8 @@ import Lists = require("ls-ko-lists");
 import AdminItem = require("./adminItemModel"); 
 export = AdminItemList;
 
-class AdminItemList<AdminItem> extends Lists.List {
-    constructor() {
-        super();
+class AdminItemList extends Lists.List<AdminItem> {
+    constructor(options: Lists.ListOptions) {
+        super(options);
     }
 }
