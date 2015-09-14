@@ -28,7 +28,7 @@
     "knex": "^0.8.3",
     "ls-auth-api": "^0.7.0",
     "ls-config": "*",
-    "ls-ko-lists": "^0.2.0",
+    "ls-ko-lists": "^0.2.3",
     "ls-logger": "^0.x.x",
     "mocha": "^2.2.5",
     "request": "^2.58.0",
