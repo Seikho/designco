@@ -12,7 +12,7 @@ class ItemList extends Lists.List<ItemModel> {
     }
 
     items = ko.observableArray<ItemModel>();
-    
+  
     getModels = (type?: string) => {
         type = type || "";
         $.get(`/items/${type}`).then(this.loadModels);

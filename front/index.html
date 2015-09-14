@@ -85,9 +85,9 @@
                                 <!--Temporary-->
                                 <h4>Content pane</h4>
                                 <div data-bind="foreach: itemsList.models">
-                                    <pre data-bind="text: JSON.stringify($data)"></pre>
+                                    <pre data-bind="text: JSON.stringify($data.saveToModel())"></pre>
                                 </div>
-                                <!-- ko if: itemsList.items().length === 0 -->
+                                <!-- ko if: itemsList.models().length === 0 -->
                                 <pre>No items matching this category</pre>
                                 <!-- /ko -->
                             </div>
