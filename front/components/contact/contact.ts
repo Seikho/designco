@@ -10,6 +10,11 @@ class ContactForm extends Lists.Model {
 	email = ko.observable("");
 	message = ko.observable("");
 	
+	isEmpty(fieldName: string) {
+		var value = this[fieldName]() || "";
+		return value.length === 0;
+	}
+	
 	saveToModel() {
 		var name = this.name();
 		var email = this.email();
@@ -21,6 +26,7 @@ class ContactForm extends Lists.Model {
 	}
 	
 	send() {
-		$.post("/contact")
+		$.post("/contact", this.saveToModel())
+		
 	}
 }
